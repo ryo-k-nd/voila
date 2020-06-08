@@ -24,7 +24,6 @@ const settings = {
 	centerMode: true,
 	centerPadding: '100px',
 	focusOnSelect: true,
-
 };
 const IndexPage = () => (
 	<Layout>
