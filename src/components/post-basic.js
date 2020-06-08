@@ -12,9 +12,12 @@ const PostBasic = ({ postData }) => (
       <p>{post.content.content}</p>
       <div className="post-basic-catbox">
         <span className="post-basic-catname">{post.category}</span>
-        <span className="post-basic-tagname">#パリの交通</span>
-        <span className="post-basic-tagname">#行きたい店</span>
-        <span className="post-basic-tagname">#abc</span>
+        <ul className="post-basic-tags">
+        {post.tags && post.tags.map(({ name, slug }) =>
+          <li>{name}: {slug}</li>
+          )
+        }
+        </ul>
       </div>
     </div>
   </div>
