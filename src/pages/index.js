@@ -33,7 +33,7 @@ const IndexPage = () => (
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
 		<div className="notification-common">
 			<div className="container">
-				<p>フランスにおけるコロナ最新情報</p>
+				<p>フランスにおけるコロナ最新情報.</p>
 			</div>
 		</div>
 		<div className="container t-align-c">
