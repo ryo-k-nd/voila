@@ -3,40 +3,44 @@ import PropTypes from "prop-types"
 import React from "react"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+	<header className="header-common">
+		<div className="container flex-row">
+			<div className="header-logo flex-row">
+				<h1><Link to="/">{siteTitle}</Link></h1>
+				<div>[ヴォワラ]</div>
+				<div>フランス暮らしを快適に</div>
+			</div>
+			<div className="header-navi flex-row">
+				<div className="header-navi-text flex-column-2">
+					旅する
+				</div>
+				<div className="header-navi-text flex-column-2">
+					暮らす
+				</div>
+				<div className="header-navi-text flex-column-2">
+					学ぶ
+				</div>
+				<div className="header-navi-text flex-column-2">
+					働く
+				</div>
+				<div className="header-navi-text flex-column-2">
+					遊ぶ
+				</div>
+			</div>
+			<div className="header-link flex-row">
+				<div>検索</div>
+				<Link className="header-newsletter">メルマガ登録</Link>
+			</div>
+		</div>
+	</header>
 )
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+	siteTitle: PropTypes.string,
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+	siteTitle: ``,
 }
 
 export default Header
