@@ -1,16 +1,19 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import Image from "../components/image";
 import SEO from "../components/seo";
 import Slider from "react-slick";
 //import Styles from "../components/style/index.module.scss"
+import PropTypes from 'prop-types';
 
 import Slide1 from '../images/top/slide1.jpg'
 import Slide2 from '../images/top/slide2.jpg'
 import Slide3 from '../images/top/slide3.jpg'
 import BannerSuper from '../images/top/bannerSuper.jpg'
 import BannerSquare from '../images/top/bannerSquare.gif'
+
+import PostBasic from "../components/post-basic";
 
 //import "./index.css";
 const settings = {
@@ -25,7 +28,11 @@ const settings = {
 	centerPadding: '100px',
 	focusOnSelect: true,
 };
-const IndexPage = () => (
+
+
+const IndexPage = ({ data }) => {
+	const blogPosts = data.allContentfulBlogArticle.edges;
+	return (
 	<Layout>
 		<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
 		<link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
@@ -102,50 +109,9 @@ const IndexPage = () => (
 		</div>
 		<div className="top-latest_article container flex-row">
 			<div className="main">
-				<h2>Les derniers articles 新しい記事</h2>
+				<h2>Les derniers articles 新しい記事!</h2>
 				<div className="post-basic">
-					<div className="post-basic-item">
-						<img src={Slide1} alt="Slide1" className="thumbnail" />
-						<div className="post-basic-textblock">
-							<p className="post-basic-postedat">2020/04/24</p>
-							<h3>復活祭向けチョコ、新型コロナ危機で売れ行き不調</h3>
-							<p>今年は復活祭が4月12日に訪れる。定番のたまご、うさぎ、めんどりの形をしたチョコレートが熟れる季節だが…</p>
-							<div className="post-basic-catbox">
-								<span className="post-basic-catname">Voyage</span>
-								<span className="post-basic-tagname">#パリの交通</span>
-								<span className="post-basic-tagname">#行きたい店</span>
-								<span className="post-basic-tagname">#買ってよかったもの</span>
-							</div>
-						</div>
-					</div>
-					<div className="post-basic-item">
-						<img src={Slide1} alt="Slide1" className="thumbnail" />
-						<div className="post-basic-textblock">
-							<p className="post-basic-postedat">2020/04/24</p>
-							<h3>復活祭向けチョコ、新型コロナ危機で売れ行き不調</h3>
-							<p>今年は復活祭が4月12日に訪れる。定番のたまご、うさぎ、めんどりの形をしたチョコレートが熟れる季節だが…</p>
-							<div className="post-basic-catbox">
-								<span className="post-basic-catname">Voyage</span>
-								<span className="post-basic-tagname">#パリの交通</span>
-								<span className="post-basic-tagname">#行きたい店</span>
-								<span className="post-basic-tagname">#買ってよかったもの</span>
-							</div>
-						</div>
-					</div>
-					<div className="post-basic-item">
-						<img src={Slide1} alt="Slide1" className="thumbnail" />
-						<div className="post-basic-textblock">
-							<p className="post-basic-postedat">2020/04/24</p>
-							<h3>復活祭向けチョコ、新型コロナ危機で売れ行き不調</h3>
-							<p>今年は復活祭が4月12日に訪れる。定番のたまご、うさぎ、めんどりの形をしたチョコレートが熟れる季節だが…</p>
-							<div className="post-basic-catbox">
-								<span className="post-basic-catname">Voyage</span>
-								<span className="post-basic-tagname">#パリの交通</span>
-								<span className="post-basic-tagname">#行きたい店</span>
-								<span className="post-basic-tagname">#買ってよかったもの</span>
-							</div>
-						</div>
-					</div>
+					<PostBasic postData={blogPosts} />
 				</div>
 				<div className="t-align-c">
 					<Link>新しい記事をもっと見る</Link>
@@ -255,15 +221,6 @@ const IndexPage = () => (
 				</div>
 			</div>
 		</div>
-		{/*
-		<div className="container">
-			<p>Welcome my awesome blog</p>
-			<div>
-					<Image />
-			</div>
-			<Link to="/posts/">View all posts</Link>
-		</div>
-		*/}
 
 		<div className="container t-align-c">
 			<img src={BannerSuper} alt="banner" />
@@ -272,6 +229,35 @@ const IndexPage = () => (
 			<p>最新のフランス情報満載のメルマガ</p>
 		</div>
 	</Layout>
-);
+	);
+};
 
 export default IndexPage;
+
+export const query = graphql`
+	query BlogArticleQueryTop {
+		allContentfulBlogArticle(filter: {node_locale: {eq: "ja-JP"}}) {
+			edges {
+				node {
+					id
+					title
+					slug
+					category
+					content {
+						content
+					}
+					thumbnail {
+						file {
+							url
+						}
+					}
+					tags {
+						name
+						slug
+					}
+					createdAt
+				}
+			}
+		}
+	}
+`;
