@@ -141,6 +141,7 @@ aside.sidebar{
 			margin-right: 20px;
 		}
 		.post-basic-textblock{
+			width: 100%;
 			p{
 				margin: 0;
 			}
@@ -153,9 +154,15 @@ aside.sidebar{
 			}
 			.post-basic-catname{
 				margin-right: 8px;
+				font-size: 0.9rem;
 			}
 			.post-basic-tags{
-
+				margin: 0;
+				li{
+					list-style: none;
+					display: inline-block;
+					margin: 4px;
+				}
 			}
 		}
 	}

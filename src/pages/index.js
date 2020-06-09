@@ -255,7 +255,7 @@ export const query = graphql`
 						name
 						slug
 					}
-					createdAt
+					createdAt(formatString: "YYYY/MM/DD")
 				}
 			}
 		}
