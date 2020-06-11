@@ -14,7 +14,7 @@ const PostBasic = ({ postData }) => (
         <ul className="post-basic-tags">
         <li className="post-basic-catname">{post.category}</li>
         {post.tags && post.tags.map(({ name, slug }) =>
-          <li><Link to={`/post/${slug}`}>#{name}</Link></li>
+          <li><Link to={`/tag/${slug}`}>#{name}</Link></li>
           )
         }
         </ul>

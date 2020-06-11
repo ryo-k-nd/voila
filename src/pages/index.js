@@ -8,8 +8,8 @@ import Slider from "react-slick";
 import PropTypes from 'prop-types';
 
 import Slide1 from '../images/top/slide1.jpg'
-import Slide2 from '../images/top/slide2.jpg'
-import Slide3 from '../images/top/slide3.jpg'
+//import Slide2 from '../images/top/slide2.jpg'
+//import Slide3 from '../images/top/slide3.jpg'
 import BannerSuper from '../images/top/bannerSuper.jpg'
 import BannerSquare from '../images/top/bannerSquare.gif'
 
@@ -245,7 +245,7 @@ export default IndexPage;
 
 export const query = graphql`
 	query BlogArticleQueryTop {
-		allContentfulBlogArticle: allContentfulBlogArticle(filter: {node_locale: {eq: "ja-JP"}}) {
+		allContentfulBlogArticle: allContentfulBlogArticle(sort: {fields: createdAt, order: DESC}, filter: {node_locale: {eq: "ja-JP"}}) {
 			edges {
 				node {
 					id
