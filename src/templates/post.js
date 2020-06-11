@@ -5,7 +5,7 @@ import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
 
 const BlogArticle = ({ data }) => {
-  const { title, content, thumbnail } = data.contentfulBlogArticle;
+  const { title, content, thumbnail, category, slug, createdAt, tags } = data.contentfulBlogArticle;
   return (
 <Layout>
   <SEO title={title} />
@@ -13,10 +13,19 @@ const BlogArticle = ({ data }) => {
     <div className="main">
       <div className="post">
         <h1>{title}</h1>
+        <p>カテゴリ: {category}</p>
         <img alt={title} src={thumbnail.file.url} />
         <p className="body-text">{content.content}</p>
-        <Link to="/posts">View more posts</Link>
-        <Link to="/">Back to Home</Link>
+        <div>
+          <p>Tags: </p>
+          <ul>
+          {tags && tags.map(({ name, slug }) =>
+            <li><Link to={`/tag/${slug}`}>#{name}</Link></li>
+            )
+          }
+          </ul>
+
+        </div>
       </div>
     </div>
     <Sidebar />
@@ -31,6 +40,7 @@ contentfulBlogArticle(slug: { eq: $slug }) {
   id
   title
   slug
+  category
   content {
     content
   }
@@ -39,6 +49,11 @@ contentfulBlogArticle(slug: { eq: $slug }) {
       url
     }
   }
+  tags {
+    name
+    slug
+  }
+  createdAt(formatString: "YYYY/MM/DD")
 }
   }
 `;
