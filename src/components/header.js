@@ -38,7 +38,7 @@ const Header = ({ siteTitle }) => (
 			</div>
 			<div className="header-link flex-row">
 				<div>検索</div>
-				<Link className="header-newsletter">メルマガ登録</Link>
+				<Link to="/newsletter" className="header-newsletter">メルマガ登録</Link>
 			</div>
 		</div>
 	</header>

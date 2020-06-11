@@ -123,7 +123,7 @@ const IndexPage = ({ data }) => {
 					<PostBasic postData={blogPosts} />
 				</div>
 				<div className="t-align-c">
-					<Link>新しい記事をもっと見る</Link>
+					<Link to="/posts">新しい記事をもっと見る</Link>
 				</div>
 			</div>
 			<aside className="sidebar">
@@ -139,7 +139,7 @@ const IndexPage = ({ data }) => {
 				{
 					topUpdates.map(({ node: post }) => (
 						post.popularTag && post.popularTag.map(({ name,slug }) =>
-							<Link to={slug} className="top-keywords-tagname"><span>{name}</span></Link>
+							<Link to={`/tag/${slug}`} className="top-keywords-tagname"><span>{name}</span></Link>
 							)
 					))
 				}
