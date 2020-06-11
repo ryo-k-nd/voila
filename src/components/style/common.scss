@@ -226,10 +226,17 @@ aside.sidebar{
 			//height: 424px;
 			overflow: hidden;
 			height: 500px;
+			position: relative;
 			img{
 				width: 100%;
 				//max-width: 782px;
 				object-fit: cover;
+			}
+			.slide-title{
+				position: absolute;
+				top: 20px;
+				color: #fff;
+				font-size: 2rem;
 			}
 		}
 	}

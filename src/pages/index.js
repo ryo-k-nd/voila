@@ -32,6 +32,8 @@ const settings = {
 
 const IndexPage = ({ data }) => {
 	const blogPosts = data.allContentfulBlogArticle.edges;
+	const blogPostsFavourite = data.allContentfulPageUpdate.edges;
+
 	return (
 	<Layout>
 		<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -42,11 +44,6 @@ const IndexPage = ({ data }) => {
 				<p>フランスにおけるコロナ最新情報</p>
 			</div>
 		</div>
-		<div className="fv">
-			<div className="container">
-				aaa
-			</div>
-		</div>
 		<div className="container t-align-c">
 			<img src={BannerSuper} alt="banner" />
 		</div>
@@ -55,9 +52,16 @@ const IndexPage = ({ data }) => {
 		</div>
 		<div className="slide container">
 			<Slider {...settings}>
-					<div className="slide-img"><img src={Slide1} alt="Slide1" /></div>
-					<div className="slide-img"><img src={Slide2} alt="Slide2" /></div>
-					<div className="slide-img"><img src={Slide3} alt="Slide3" /></div>
+					{
+						blogPostsFavourite.map(({ node: post }) => (
+							post.favouriteArticleTop && post.favouriteArticleTop.map(({ title,thumbnail }) =>
+								<div className="slide-img">
+									<img src={thumbnail.file.url} alt="Slide3" />
+									<p className="slide-title">{title}</p>
+								</div>
+								)
+						))
+					}
 			</Slider>
 		</div>
 		<div className="top-sub_category container flex-row">
@@ -241,7 +245,7 @@ export default IndexPage;
 
 export const query = graphql`
 	query BlogArticleQueryTop {
-		allContentfulBlogArticle(filter: {node_locale: {eq: "ja-JP"}}) {
+		allContentfulBlogArticle: allContentfulBlogArticle(filter: {node_locale: {eq: "ja-JP"}}) {
 			edges {
 				node {
 					id
@@ -261,6 +265,21 @@ export const query = graphql`
 						slug
 					}
 					createdAt(formatString: "YYYY/MM/DD")
+				}
+			}
+		}
+		allContentfulPageUpdate: allContentfulPageUpdate(filter: {node_locale: {eq: "ja-JP"}}) {
+			edges {
+				node {
+					favouriteArticleTop {
+						title
+						createdAt(formatString: "YYYY/MM/DD")
+						thumbnail {
+							file {
+								url
+							}
+						}
+					}
 				}
 			}
 		}
