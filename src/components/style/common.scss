@@ -59,6 +59,17 @@ body{
 //Header
 header{
 	&.header-common{
+		.managementConsole{
+			background: #222;
+			.container{
+				padding: 3px 0;
+			}
+			a{
+				color: #fff;
+				margin-right: 15px;
+				font-size: 0.8rem;
+			}
+		}
 		.header-logo{
 			margin: 0 auto 0 0;
 		}

@@ -42,6 +42,11 @@ const IndexPage = ({ data }) => {
 				<p>フランスにおけるコロナ最新情報</p>
 			</div>
 		</div>
+		<div className="fv">
+			<div className="container">
+				aaa
+			</div>
+		</div>
 		<div className="container t-align-c">
 			<img src={BannerSuper} alt="banner" />
 		</div>
