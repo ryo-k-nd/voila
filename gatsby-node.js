@@ -38,6 +38,29 @@ exports.createPages = ({ graphql, actions }) => {
 				});
 			});
 
+			//Main Categoryごとの記事一覧ページ
+			const mainCategoryTemplate = path.resolve("./src/templates/category.js");
+			const categories = [
+				{ name_en: 'Travel', slug: 'travel', name_fr: 'FR Travel'},
+				{ name_en: 'Life', slug: 'life', name_fr: 'FR Life'},
+				{ name_en: 'Study', slug: 'study', name_fr: 'FR Study'},
+				{ name_en: 'Work', slug: 'work', name_fr: 'FR Work'},
+				{ name_en: 'Play', slug: 'play', name_fr: 'FR Play'},
+			];
+			categories.forEach(categoryItem => {
+				createPage({
+					//path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+					path: `/${categoryItem.slug}/`,
+					component: mainCategoryTemplate,
+					context: {
+						slug: categoryItem.slug,
+						name_en: categoryItem.name_en,
+						name_fr: categoryItem.name_fr,
+					},
+				})
+			})
+
+			//Tagごとの記事一覧ページ
 			const tagTemplate = path.resolve("./src/templates/tag.js");
 			const tags = result.data.tags.distinct;
 			tags.forEach(tagSlug => {

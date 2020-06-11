@@ -21,19 +21,19 @@ const Header = ({ siteTitle }) => (
 			</div>
 			<div className="header-navi flex-row">
 				<div className="header-navi-text flex-column-2">
-					旅する
+					<Link to="/travel/">旅する</Link>
 				</div>
 				<div className="header-navi-text flex-column-2">
-					暮らす
+					<Link to="/life/">暮らす</Link>
 				</div>
 				<div className="header-navi-text flex-column-2">
-					学ぶ
+					<Link to="/study/">学ぶ</Link>
 				</div>
 				<div className="header-navi-text flex-column-2">
-					働く
+					<Link to="/work/">働く</Link>
 				</div>
 				<div className="header-navi-text flex-column-2">
-					遊ぶ
+					<Link to="/play/">遊ぶ</Link>
 				</div>
 			</div>
 			<div className="header-link flex-row">
