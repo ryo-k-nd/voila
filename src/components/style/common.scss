@@ -276,12 +276,14 @@ aside.sidebar{
 		-webkit-transform: translateX(-50%);
 		-ms-transform: translateX(-50%);
 	}
-	.top-keywords-tagname{
+	a.top-keywords-tagname{
 		margin: 10px;
 		padding: 5px;
 		border: solid 1px $c-basic;
 		word-break: keep-all;
 		display: inline-block;
+		text-decoration: none;
+		color: inherit;
 	}
 }
 .top-popular_article{

@@ -32,7 +32,7 @@ const settings = {
 
 const IndexPage = ({ data }) => {
 	const blogPosts = data.allContentfulBlogArticle.edges;
-	const blogPostsFavourite = data.allContentfulPageUpdate.edges;
+	const topUpdates = data.allContentfulPageUpdate.edges;
 
 	return (
 	<Layout>
@@ -53,7 +53,7 @@ const IndexPage = ({ data }) => {
 		<div className="slide container">
 			<Slider {...settings}>
 					{
-						blogPostsFavourite.map(({ node: post }) => (
+						topUpdates.map(({ node: post }) => (
 							post.favouriteArticleTop && post.favouriteArticleTop.map(({ title,thumbnail }) =>
 								<div className="slide-img">
 									<img src={thumbnail.file.url} alt="Slide3" />
@@ -136,16 +136,13 @@ const IndexPage = ({ data }) => {
 				<span>今話題のキーワード</span>
 			</div>
 			<div className="t-align-c">
-				<span className="top-keywords-tagname">行きたい店</span>
-				<span className="top-keywords-tagname">マルシェ</span>
-				<span className="top-keywords-tagname">買ってよかったもの</span>
-				<span className="top-keywords-tagname">トラブル解決</span>
-				<span className="top-keywords-tagname">朝ごはん</span>
-				<span className="top-keywords-tagname">マナー</span>
-				<span className="top-keywords-tagname">深夜営業</span>
-				<span className="top-keywords-tagname">暮らしの道具</span>
-				<span className="top-keywords-tagname">美術館</span>
-				<span className="top-keywords-tagname">ネイティブのフランス語</span>
+				{
+					topUpdates.map(({ node: post }) => (
+						post.popularTag && post.popularTag.map(({ name,slug }) =>
+							<Link to={slug} className="top-keywords-tagname"><span>{name}</span></Link>
+							)
+					))
+				}
 			</div>
 		</div>
 		<div className="top-popular_article t-align-c">
@@ -279,6 +276,10 @@ export const query = graphql`
 								url
 							}
 						}
+					}
+					popularTag {
+						name
+						slug
 					}
 				}
 			}
