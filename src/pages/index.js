@@ -307,7 +307,7 @@ export const query = graphql`
 						name
 						slug
 					}
-					createdAt(formatString: "YYYY/MM/DD")
+					createdAt(formatString: "YYYY-MM-DD")
 				}
 			}
 		}
@@ -316,7 +316,7 @@ export const query = graphql`
 				node {
 					favouriteArticleTop {
 						title
-						createdAt(formatString: "YYYY/MM/DD")
+						createdAt(formatString: "YYYY-MM-DD")
 						thumbnail {
 							file {
 								url
