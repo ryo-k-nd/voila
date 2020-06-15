@@ -11,6 +11,9 @@ exports.createPages = ({ graphql, actions }) => {
 						node {
 							id
 							slug
+							tags {
+								slug
+							}
 						}
 					}
 				}
@@ -28,12 +31,20 @@ exports.createPages = ({ graphql, actions }) => {
 			const blogArticleTemplate = path.resolve("./src/templates/post.js");
 			// Then for each result we create a page.
 			result.data.allContentfulBlogArticle.edges.forEach(edge => {
-				createPage({
+
+				const relatedTags = [];
+
+				edge.node.tags.forEach(tag => {
+					relatedTags.push(tag.slug);
+				})
+
+				createPage({//contextで送る値はgraphQLで変数として使用できる
 					path: `/post/${edge.node.slug}/`,
 					component: slash(blogArticleTemplate),
 					context: {
-					slug: edge.node.slug,
-						id: edge.node.id
+						slug: edge.node.slug,
+						id: edge.node.id,
+						tags: relatedTags
 					}
 				});
 			});
