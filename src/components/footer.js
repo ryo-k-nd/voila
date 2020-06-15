@@ -65,7 +65,7 @@ const Footer = ({ siteTitle }) => (
 					</ul>
 				</div>
 			</div>
-			<p>Copyright © 2020 Doitsu News Digest GmbH. All Rights Reserved. Do not duplicate or redistribute in any form.</p>
+			<div className="footer-common__copyright">Copyright © 2020 Doitsu News Digest GmbH. All Rights Reserved. Do not duplicate or redistribute in any form.</div>
 		</div>
 	</footer>
 )

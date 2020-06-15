@@ -35,206 +35,252 @@ const IndexPage = ({ data }) => {
 	const topUpdates = data.allContentfulPageUpdate.edges;
 
 	return (
-	<Layout>
-		<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-		<link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-		<div className="notification-common">
-			<div className="container">
-				<p>フランスにおけるコロナ最新情報</p>
+		<Layout>
+			<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+			<link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+			<div className="notification-common">
+				<div className="container">
+					<Link to="#">フランスにおけるコロナ最新情報</Link>
+				</div>
 			</div>
-		</div>
-		<div className="container t-align-c">
-			<img src={BannerSuper} alt="banner" />
-		</div>
-		<div className="container t-align-c">
-			<div>Weather report</div>
-		</div>
-		<div className="slide container">
-			<Slider {...settings}>
+			<div className="container t-align-c">
+				<img src={BannerSuper} alt="banner" />
+			</div>
+			<div class="top-weather container t-align-c">
+				<div class="top-weather__place">
+					<div class="top-wather__place-datatime">
+						FRANCE
+						<div class="place-time">04:19</div>
+						<div class="place-data">11 APR 2020</div>
+					</div>
+					<div class="top-wather__place-weather">
+						PARIS
+						<div class="weather-mark"><i class="fas fa-cloud-sun fa-2x"></i></div>
+						<div class="weather-temp">12ºC/5ºC</div>
+					</div>
+				</div>
+
+				<div class="top-weather__place">
+					<div class="top-wather__place-datatime">
+						JAPAN
+						<div class="place-time">14:19</div>
+						<div class="place-data">11 APR 2020</div>
+					</div>
+					<div class="top-wather__place-weather">
+						TOKYO
+						<div class="weather-mark"><i class="fas fa-sun fa-2x"></i></div>
+						<div class="weather-temp">12ºC/5ºC</div>
+					</div>
+				</div>
+
+				<div class="top-weather__money">
+					1€
+      <div class="top-weather__money-yen">¥105.04</div>
+					<div class="top-weather__data">2020-04-12 11:55 UTC</div>
+				</div>
+			</div>
+			<div className="slide">
+				<Slider {...settings}>
 					{
 						topUpdates.map(({ node: post }) => (
-							post.favouriteArticleTop && post.favouriteArticleTop.map(({ title,thumbnail }) =>
+							post.favouriteArticleTop && post.favouriteArticleTop.map(({ title, thumbnail }) =>
 								<div className="slide-img">
 									<img src={thumbnail.file.url} alt="Slide3" />
-									<p className="slide-title">{title}</p>
+									<p className="slide-title">
+										<span className="slide-title__title">{title}</span>
+										<span className="slide-title__data">2020/04/20</span>
+									</p>
 								</div>
-								)
+							)
 						))
 					}
-			</Slider>
-		</div>
-		<div className="top-sub_category container flex-row">
-			<div className="flex-column-2point4">
-				<p>Voyage</p>
-				<ul>
-					<li>旅の基本情報</li>
-					<li>渡仏の準備</li>
-					<li>空港から市内まで</li>
-					<li>パリと地方都市</li>
-					<li>便利マップ</li>
-				</ul>
+				</Slider>
 			</div>
-			<div className="flex-column-2point4">
-				<p>Vie</p>
-				<ul>
-					<li>暮らしの基本情報</li>
-					<li>住まい</li>
-					<li>お金</li>
-					<li>医療＆健康</li>
-					<li>交際＆子育て</li>
-				</ul>
+			<div className="top-sub_category container flex-row">
+				<div className="flex-column-2point4">
+					<p>Voyage</p>
+					<ul>
+						<li><Link to="#">旅の基本情報</Link></li>
+						<li><Link to="#">渡仏の準備</Link></li>
+						<li><Link to="#">空港から市内まで</Link></li>
+						<li><Link to="#">パリと地方都市</Link></li>
+						<li><Link to="#">便利マップ</Link></li>
+					</ul>
+				</div>
+				<div className="flex-column-2point4">
+					<p>Vie</p>
+					<ul>
+						<li><Link to="#">暮らしの基本情報</Link></li>
+						<li><Link to="#">住まい</Link></li>
+						<li><Link to="#">お金</Link></li>
+						<li><Link to="#">医療＆健康</Link></li>
+						<li><Link to="#">交際＆子育て</Link></li>
+					</ul>
+				</div>
+				<div className="flex-column-2point4">
+					<p>Études</p>
+					<ul>
+						<li><Link to="#">学びの基本情報</Link></li>
+						<li><Link to="#">語学留学</Link></li>
+						<li><Link to="#">専門学校＆ディプロマ</Link></li>
+						<li><Link to="#">大学・大学院</Link></li>
+						<li><Link to="#">趣味・生涯学習</Link></li>
+					</ul>
+				</div>
+				<div className="flex-column-2point4">
+					<p>Travail</p>
+					<ul>
+						<li><Link to="#">仕事の基本情報</Link></li>
+						<li><Link to="#">仕事を見つける</Link></li>
+						<li><Link to="#">職場と働き方</Link></li>
+						<li><Link to="#">ビジネスマナー</Link></li>
+						<li><Link to="#">仕事図鑑</Link></li>
+					</ul>
+				</div>
+				<div className="flex-column-2point4">
+					<p>Divertissement</p>
+					<ul>
+						<li><Link to="#">レストラン・カフェ</Link></li>
+						<li><Link to="#">アート・カルチャー</Link></li>
+						<li><Link to="#">ショッピング</Link></li>
+						<li><Link to="#">旅行</Link></li>
+						<li><Link to="#">お土産</Link></li>
+					</ul>
+				</div>
 			</div>
-			<div className="flex-column-2point4">
-				<p>Etudes</p>
-				<ul>
-					<li>学びの基本情報</li>
-					<li>語学留学</li>
-					<li>専門学校＆ディプロマ</li>
-					<li>大学・大学院</li>
-					<li>趣味・生涯学習</li>
-				</ul>
+			<div className="top-latest_article container flex-row">
+				<div className="main top-heading">
+					<h2>Les derniers articles<span>新しい記事!</span></h2>
+					<div className="post-basic">
+						<PostBasic postData={blogPosts} />
+					</div>
+					<Link to="/posts" className="show-more t-align-c">
+						新しい記事をもっと見る
+					</Link>
+				</div>
+				<aside className="sidebar">
+					<img src={BannerSquare} alt="BannerSquare" />
+				</aside>
 			</div>
-			<div className="flex-column-2point4">
-				<p>Travail</p>
-				<ul>
-					<li>仕事の基本情報</li>
-					<li>仕事を見つける</li>
-					<li>職場と働き方</li>
-					<li>ビジネスマナー</li>
-					<li>仕事図鑑</li>
-				</ul>
-			</div>
-			<div className="flex-column-2point4">
-				<p>Divertissement</p>
-				<ul>
-					<li>レストラン・カフェ</li>
-					<li>アート・カルチャー</li>
-					<li>ショッピング</li>
-					<li>旅行</li>
-					<li>お土産</li>
-				</ul>
-			</div>
-		</div>
-		<div className="top-latest_article container flex-row">
-			<div className="main">
-				<h2>Les derniers articles 新しい記事!</h2>
-				<div className="post-basic">
-					<PostBasic postData={blogPosts} />
+			<div className="top-keywords container t-align-c">
+				<div className="top-keywords-title top-heading">
+					<h2>Mots-clés</h2>
+					<span>今話題のキーワード</span>
 				</div>
 				<div className="t-align-c">
-					<Link to="/posts">新しい記事をもっと見る</Link>
-				</div>
-			</div>
-			<aside className="sidebar">
-				<img src={BannerSquare} alt="BannerSquare" />
-			</aside>
-		</div>
-		<div className="top-keywords container t-align-c">
-			<div className="top-keywords-title">
-				<h2>Mots-clés</h2>
-				<span>今話題のキーワード</span>
-			</div>
-			<div className="t-align-c">
-				{
-					topUpdates.map(({ node: post }) => (
-						post.popularTag && post.popularTag.map(({ name,slug }) =>
-							<Link to={`/tag/${slug}`} className="top-keywords-tagname"><span>{name}</span></Link>
+					{
+						topUpdates.map(({ node: post }) => (
+							post.popularTag && post.popularTag.map(({ name, slug }) =>
+								<Link to={`/tag/${slug}`} className="top-keywords-tagname"><span>{name}</span></Link>
 							)
-					))
-				}
-			</div>
-		</div>
-		<div className="top-popular_article t-align-c">
-			<div className="container">
-				<div className="top-popular_article-title">
-					<h2>Articles les plus lus</h2>
-					<span>人気の記事</span>
-				</div>
-				<div className="post-tile">
-					<div className="post-tile-item">
-						<div className="post-tile-inner">
-							<img src={Slide1} alt="Slide1" className="thumbnail" />
-							<h3>パリで徹底取材「フランスで働く」 現実はこういうこと</h3>
-							<div className="post-tile-catname">Voyage</div>
-							<div className="post-tile-tagbox">
-								<span className="post-tile-tagname">#パリの交通</span>
-								<span className="post-tile-tagname">#行きたい店</span>
-								<span className="post-tile-tagname">#買ってよかったもの</span>
-							</div>
-						</div>
-					</div>
-					<div className="post-tile-item">
-						<div className="post-tile-inner">
-							<img src={Slide1} alt="Slide1" className="thumbnail" />
-							<h3>パリで徹底取材「フランスで働く」 現実はこういうこと</h3>
-							<div className="post-tile-catname">Voyage</div>
-							<div className="post-tile-tagbox">
-								<span className="post-tile-tagname">#パリの交通</span>
-								<span className="post-tile-tagname">#行きたい店</span>
-								<span className="post-tile-tagname">#買ってよかったもの</span>
-							</div>
-						</div>
-					</div>
-					<div className="post-tile-item">
-						<div className="post-tile-inner">
-							<img src={Slide1} alt="Slide1" className="thumbnail" />
-							<h3>パリで徹底取材「フランスで働く」 現実はこういうこと</h3>
-							<div className="post-tile-catname">Voyage</div>
-							<div className="post-tile-tagbox">
-								<span className="post-tile-tagname">#パリの交通</span>
-								<span className="post-tile-tagname">#行きたい店</span>
-								<span className="post-tile-tagname">#買ってよかったもの</span>
-							</div>
-						</div>
-					</div>
-					<div className="post-tile-item">
-						<div className="post-tile-inner">
-							<img src={Slide1} alt="Slide1" className="thumbnail" />
-							<h3>パリで徹底取材「フランスで働く」 現実はこういうこと</h3>
-							<div className="post-tile-catname">Voyage</div>
-							<div className="post-tile-tagbox">
-								<span className="post-tile-tagname">#パリの交通</span>
-								<span className="post-tile-tagname">#行きたい店</span>
-								<span className="post-tile-tagname">#買ってよかったもの</span>
-							</div>
-						</div>
-					</div>
-					<div className="post-tile-item">
-						<div className="post-tile-inner">
-							<img src={Slide1} alt="Slide1" className="thumbnail" />
-							<h3>パリで徹底取材「フランスで働く」 現実はこういうこと</h3>
-							<div className="post-tile-catname">Voyage</div>
-							<div className="post-tile-tagbox">
-								<span className="post-tile-tagname">#パリの交通</span>
-								<span className="post-tile-tagname">#行きたい店</span>
-								<span className="post-tile-tagname">#買ってよかったもの</span>
-							</div>
-						</div>
-					</div>
-					<div className="post-tile-item">
-						<div className="post-tile-inner">
-							<img src={Slide1} alt="Slide1" className="thumbnail" />
-							<h3>パリで徹底取材「フランスで働く」 現実はこういうこと</h3>
-							<div className="post-tile-catname">Voyage</div>
-							<div className="post-tile-tagbox">
-								<span className="post-tile-tagname">#パリの交通</span>
-								<span className="post-tile-tagname">#行きたい店</span>
-								<span className="post-tile-tagname">#買ってよかったもの</span>
-							</div>
-						</div>
-					</div>
+						))
+					}
 				</div>
 			</div>
-		</div>
+			<div className="top-popular_article t-align-c">
+				<div className="container">
+					<div className="top-popular_article-title top-heading">
+						<h2>Articles les plus lus</h2>
+						<span>人気の記事</span>
+					</div>
+					<div className="post-tile">
+						<div className="post-tile-item">
+							<div className="post-tile-inner">
+								<img src={Slide1} alt="Slide1" className="thumbnail" />
+								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
+								<div className="post-tile-catname">Voyage</div>
+								<div className="post-tile-tagbox tags">
+									<Link tp="#" className="post-tile-tagname">#パリの交通</Link>
+									<Link tp="#" className="post-tile-tagname">#行きたい店</Link>
+									<Link tp="#" className="post-tile-tagname">#買ってよかったもの</Link>
+								</div>
+							</div>
+						</div>
+						<div className="post-tile-item">
+							<div className="post-tile-inner">
+								<img src={Slide1} alt="Slide1" className="thumbnail" />
+								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
+								<div className="post-tile-catname">Voyage</div>
+								<div className="post-tile-tagbox tags">
+									<Link tp="#" className="post-tile-tagname">#パリの交通</Link>
+									<Link tp="#" className="post-tile-tagname">#行きたい店</Link>
+									<Link tp="#" className="post-tile-tagname">#買ってよかったもの</Link>
+								</div>
+							</div>
+						</div>
+						<div className="post-tile-item">
+							<div className="post-tile-inner">
+								<img src={Slide1} alt="Slide1" className="thumbnail" />
+								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
+								<div className="post-tile-catname">Voyage</div>
+								<div className="post-tile-tagbox tags">
+									<Link tp="#" className="post-tile-tagname">#パリの交通</Link>
+									<Link tp="#" className="post-tile-tagname">#行きたい店</Link>
+									<Link tp="#" className="post-tile-tagname">#買ってよかったもの</Link>
+								</div>
+							</div>
+						</div>
+						<div className="post-tile-item">
+							<div className="post-tile-inner">
+								<img src={Slide1} alt="Slide1" className="thumbnail" />
+								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
+								<div className="post-tile-catname">Voyage</div>
+								<div className="post-tile-tagbox tags">
+									<Link tp="#" className="post-tile-tagname">#パリの交通</Link>
+									<Link tp="#" className="post-tile-tagname">#行きたい店</Link>
+									<Link tp="#" className="post-tile-tagname">#買ってよかったもの</Link>
+								</div>
+							</div>
+						</div>
+						<div className="post-tile-item">
+							<div className="post-tile-inner">
+								<img src={Slide1} alt="Slide1" className="thumbnail" />
+								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
+								<div className="post-tile-catname">Voyage</div>
+								<div className="post-tile-tagbox tags">
+									<Link tp="#" className="post-tile-tagname">#パリの交通</Link>
+									<Link tp="#" className="post-tile-tagname">#行きたい店</Link>
+									<Link tp="#" className="post-tile-tagname">#買ってよかったもの</Link>
+								</div>
+							</div>
+						</div>
+						<div className="post-tile-item">
+							<div className="post-tile-inner">
+								<img src={Slide1} alt="Slide1" className="thumbnail" />
+								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
+								<div className="post-tile-catname">Voyage</div>
+								<div className="post-tile-tagbox tags">
+									<Link tp="#" className="post-tile-tagname">#パリの交通</Link>
+									<Link tp="#" className="post-tile-tagname">#行きたい店</Link>
+									<Link tp="#" className="post-tile-tagname">#買ってよかったもの</Link>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="top-popular_article--more t-align-c">
+				<Link to="#" className="show-more">
+					おすすめの記事をもっと見る
+				</Link>
 
-		<div className="container t-align-c">
-			<img src={BannerSuper} alt="banner" />
-		</div>
-		<div className="container t-align-c">
-			<p>最新のフランス情報満載のメルマガ</p>
-		</div>
-	</Layout>
+			</div>
+			<div className="container t-align-c">
+				<img src={BannerSuper} alt="banner" />
+			</div>
+			<div className="top-newsletter container">
+				<Link to="">
+					<div className="flex-row">
+						<i className="fas fa-envelope fa-2x fa-newsletter"></i>
+						<div className="top-newsletter__text flex-row">
+							<div className="top-newsletter__text-title">最新のフランス情報満載のメルマガ</div>
+							<div className="top-newsletter__text-text">フランス・パリの現地から最新情報、便利なイベント情報、コラムなどを配信します。お気軽にご登録ください。</div>
+						</div>
+					</div>
+				</Link>
+			</div>
+		</Layout>
 	);
 };
 

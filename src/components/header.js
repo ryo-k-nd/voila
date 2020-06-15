@@ -15,33 +15,50 @@ const Header = ({ siteTitle }) => (
 		</div>
 		<div className="container flex-row">
 			<div className="header-logo flex-row">
-				<h1><Link to="/">{siteTitle}</Link></h1>
+				<Link to="/"><span className="header-logo__img">{siteTitle}</span></Link>
 				<div>[ヴォワラ]</div>
 				<div>フランス暮らしを快適に</div>
 			</div>
 			<div className="header-navi flex-row">
-				<div className="header-navi-text flex-column-2">
-					<Link to="/travel/">旅する</Link>
+				<div className="header-navi-text">
+					<Link to="/travel/">
+						<span className="header-navi-text__ja">旅する</span>
+						<span className="header-navi-text__fr">Voyage</span>
+					</Link>
 				</div>
-				<div className="header-navi-text flex-column-2">
-					<Link to="/life/">暮らす</Link>
+				<div className="header-navi-text">
+					<Link to="/life/">
+						<span className="header-navi-text__ja">暮らす</span>
+						<span className="header-navi-text__fr">Vie</span>
+					</Link>
 				</div>
-				<div className="header-navi-text flex-column-2">
-					<Link to="/study/">学ぶ</Link>
+				<div className="header-navi-text">
+					<Link to="/study/">
+						<span className="header-navi-text__ja">学ぶ</span>
+						<span className="header-navi-text__fr">Études</span>
+					</Link>
 				</div>
-				<div className="header-navi-text flex-column-2">
-					<Link to="/work/">働く</Link>
+				<div className="header-navi-text">
+					<Link to="/work/">
+						<span className="header-navi-text__ja">働く</span>
+						<span className="header-navi-text__fr">Travail</span>
+					</Link>
 				</div>
-				<div className="header-navi-text flex-column-2">
-					<Link to="/play/">遊ぶ</Link>
+				<div className="header-navi-text">
+					<Link to="/play/">
+						<span className="header-navi-text__ja">遊ぶ</span>
+						<span className="header-navi-text__fr">Divertissement</span>
+					</Link>
 				</div>
 			</div>
 			<div className="header-link flex-row">
-				<div>検索</div>
-				<Link to="/newsletter" className="header-newsletter">メルマガ登録</Link>
+				<div className="header-link__search">
+					<i class="fas fa-search"></i>
+				</div>
+				<Link to="/newsletter" className="header-link__newsletter"><i class="fas fa-envelope"></i>メルマガ登録</Link>
 			</div>
 		</div>
-	</header>
+	</header >
 )
 
 Header.propTypes = {
