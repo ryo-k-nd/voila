@@ -7,6 +7,13 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+        head: true
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -30,6 +37,21 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    //{
+    //  resolve: `gatsby-source-google-analytics-reporting-api`,
+    //  options: {
+    //    // 「サービス アカウント」のメールアドレス
+    //    email: process.env.CLIENT_EMAIL,
+    //    // 「サービス アカウント」生成時にダウンロードできる json データに含まれる
+    //    // `private_key` から生成される公開鍵を秘密鍵にがっちゃんこしてまとめ、扱いやすいよう base64 で
+    //    // あらかじめエンコードしたものを環境変数として渡して、ビルド時にデコードする。
+    //    key: Buffer.from(process.env.PRIVATE_KEY, 'base64').toString(),
+    //    // Google Analytics のページから取得
+    //    viewId: `xxxxxxxxx`,
+    //    // 使い始めの日を指定
+    //    startDate: `2020-02-17`,
+    //  },
+    //},
     {
       resolve: `gatsby-source-contentful`,
       options: {

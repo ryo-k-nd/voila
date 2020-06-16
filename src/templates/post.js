@@ -7,7 +7,7 @@ import Sidebar from "../components/sidebar"
 import PostBasic from "../components/post-basic";
 
 const BlogArticle = ({ data, pageContext }) => {
-	const { title, content, thumbnail, category, slug, createdAt, tags } = data.contentfulBlogArticle;
+	const { title, content, thumbnail, category, createdAt, tags } = data.contentfulBlogArticle;
 	const relatedArticle = data.relatedArticle.edges;
 
 	return (
@@ -18,6 +18,7 @@ const BlogArticle = ({ data, pageContext }) => {
 			<div className="post">
 				<h1>{title}</h1>
 				<p>カテゴリ: {category}</p>
+				<p>投稿日: {createdAt}</p>
 				<img alt={title} src={thumbnail.file.url} />
 				<p className="body-text">{content.content}</p>
 				<div>

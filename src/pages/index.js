@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
-import Image from "../components/image";
+//import Image from "../components/image";
 import SEO from "../components/seo";
 import Slider from "react-slick";
 //import Styles from "../components/style/index.module.scss"
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 import Slide1 from '../images/top/slide1.jpg'
 //import Slide2 from '../images/top/slide2.jpg'
@@ -37,47 +37,42 @@ const IndexPage = ({ data }) => {
 	return (
 		<Layout>
 			<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-			<link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
 			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-			<div className="notification-common">
-				<div className="container">
-					<Link to="#">フランスにおけるコロナ最新情報</Link>
-				</div>
-			</div>
 			<div className="container t-align-c">
 				<img src={BannerSuper} alt="banner" />
 			</div>
-			<div class="top-weather container t-align-c">
-				<div class="top-weather__place">
-					<div class="top-wather__place-datatime">
+			<div className="top-weather container t-align-c">
+				<div className="top-weather__place">
+					<div className="top-wather__place-datatime">
 						FRANCE
-						<div class="place-time">04:19</div>
-						<div class="place-data">11 APR 2020</div>
+						<div className="place-time">04:19</div>
+						<div className="place-data">11 APR 2020</div>
 					</div>
-					<div class="top-wather__place-weather">
+					<div className="top-wather__place-weather">
 						PARIS
-						<div class="weather-mark"><i class="fas fa-cloud-sun fa-2x"></i></div>
-						<div class="weather-temp">12ºC/5ºC</div>
+						<div className="weather-mark"><i className="fas fa-cloud-sun fa-2x"></i></div>
+						<div className="weather-temp">12ºC/5ºC</div>
 					</div>
 				</div>
 
-				<div class="top-weather__place">
-					<div class="top-wather__place-datatime">
+				<div className="top-weather__place">
+					<div className="top-wather__place-datatime">
 						JAPAN
-						<div class="place-time">14:19</div>
-						<div class="place-data">11 APR 2020</div>
+						<div className="place-time">14:19</div>
+						<div className="place-data">11 APR 2020</div>
 					</div>
-					<div class="top-wather__place-weather">
+					<div className="top-wather__place-weather">
 						TOKYO
-						<div class="weather-mark"><i class="fas fa-sun fa-2x"></i></div>
-						<div class="weather-temp">12ºC/5ºC</div>
+						<div className="weather-mark"><i className="fas fa-sun fa-2x"></i></div>
+						<div className="weather-temp">12ºC/5ºC</div>
 					</div>
 				</div>
 
-				<div class="top-weather__money">
+				<div className="top-weather__money">
 					1€
-      <div class="top-weather__money-yen">¥105.04</div>
-					<div class="top-weather__data">2020-04-12 11:55 UTC</div>
+      <div className="top-weather__money-yen">¥105.04</div>
+					<div className="top-weather__data">2020-04-12 11:55 UTC</div>
 				</div>
 			</div>
 			<div className="slide">
@@ -260,7 +255,7 @@ const IndexPage = ({ data }) => {
 					</div>
 				</div>
 			</div>
-			<div class="top-popular_article--more t-align-c">
+			<div className="top-popular_article--more t-align-c">
 				<Link to="#" className="show-more">
 					おすすめの記事をもっと見る
 				</Link>
