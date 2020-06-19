@@ -29,7 +29,6 @@ const BlogArticle = ({ data, pageContext }) => {
 						)
 					}
 					</ul>
-					<p>うううえ</p>
 					<ul>
 					{tags.map(({ blog_article }) =>
 							blog_article && blog_article.map(({ slug }) =>
