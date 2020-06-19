@@ -68,9 +68,6 @@ export const pageQuery = graphql`
 			title
 			slug
 			category
-			content {
-				json
-			}
 			contentMarkdown{
 				contentMarkdown
 			}
@@ -95,8 +92,8 @@ export const pageQuery = graphql`
 					title
 					slug
 					category
-					content {
-						content
+					contentMarkdown{
+						contentMarkdown
 					}
 					thumbnail {
 						file {

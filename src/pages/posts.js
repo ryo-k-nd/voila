@@ -50,8 +50,8 @@ export const query = graphql`
 					id
 					title
 					slug
-					content {
-						content
+					contentMarkdown{
+						contentMarkdown
 					}
 					thumbnail {
 						file {

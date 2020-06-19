@@ -41,8 +41,8 @@ export const query = graphql`
           title
           slug
           category
-          content {
-            content
+          contentMarkdown{
+            contentMarkdown
           }
           thumbnail {
             file {
