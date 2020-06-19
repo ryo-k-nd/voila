@@ -28,7 +28,7 @@ const BlogArticle = ({ data, pageContext, location }) => {
 				<p>投稿日: {createdAt}</p>
 				<img alt={title} src={thumbnail.file.url} />
 				<p className="body-text">
-					{contentMarkdown.contentMarkdown}
+					{/*contentMarkdown*/}
 				</p>
 				<div>
 					<p>タグ: </p>
