@@ -1,16 +1,21 @@
 import React from "react";
 //import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
-//import SEO from "../components/seo";
+import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
 
 import PostBasic from "../components/post-basic";
 
-const MainCategoryArticles = ({ data, pageContext }) => {
+const MainCategoryArticles = ({ data, pageContext, location }) => {
   //const { title, content, thumbnail } = data.contentfulBlogArticle;
   const blogPosts = data.mainCategoryArticles.edges;
   return (
 <Layout>
+  <SEO
+    pageTitle={`${pageContext.name_fr}｜フランスで${pageContext.name_ja}`}
+    pageDescription={pageContext.desc}
+    pagePath={location.pathname}
+  />
   <div className="container flex-row">
     <div className="main">
       <h1>{pageContext.name_fr} の記事一覧</h1>

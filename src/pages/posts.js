@@ -4,11 +4,16 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
 
-const BlogArticles = ({ data }) => {
+const BlogArticles = ({ data, location }) => {
 	const blogPosts = data.allContentfulBlogArticle.edges;
 	return (
 		<Layout>
-			<SEO title="Blog Article" />
+			<SEO
+				pageTitle="最新の記事"
+				showSiteNameInTitle="true"
+				pageDescription=""
+				pagePath={location.pathname}
+			/>
 			<div className="container flex-row">
 				<div className="main">
 					<h1>{"Latest Articles"}</h1>

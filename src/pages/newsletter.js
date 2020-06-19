@@ -6,9 +6,14 @@ import SEO from "../components/seo"
 
 import Sidebar from "../components/sidebar"
 
-const NewslettePage = () => (
+const NewslettePage = ( {location} ) => (
   <Layout>
-    <SEO title="メールマガジン登録" />
+    <SEO
+      pageTitle="メルマガ登録"
+      showSiteNameInTitle="true"
+      pageDescription="メルマガへのご登録は、以下のフォームよりお申し込みください。"
+      pagePath={location.pathname}
+    />
     <div className="container flex-row">
       <div className="main">
         <h1>Newsletter登録ページ</h1>

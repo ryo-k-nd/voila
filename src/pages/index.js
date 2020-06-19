@@ -30,13 +30,16 @@ const settings = {
 };
 
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
 	const blogPosts = data.allContentfulBlogArticle.edges;
 	const topUpdates = data.allContentfulPageUpdate.edges;
 
 	return (
 		<Layout>
-			<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+			<SEO
+				pageTitle="Voilà｜ヴォワラ・フランス生活情報メディア！"
+				keywords={[`gatsby`, `application`, `react`]}
+			/>
 			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
 			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
 			<div className="container t-align-c">
@@ -55,7 +58,6 @@ const IndexPage = ({ data }) => {
 						<div className="weather-temp">12ºC/5ºC</div>
 					</div>
 				</div>
-
 				<div className="top-weather__place">
 					<div className="top-wather__place-datatime">
 						JAPAN
@@ -290,9 +292,6 @@ export const query = graphql`
 					title
 					slug
 					category
-					content {
-						content
-					}
 					thumbnail {
 						file {
 							url

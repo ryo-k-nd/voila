@@ -2,9 +2,11 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: `Voila`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Voilà`,
+    description: `フランスの「旅」「生活」「学び」「仕事」「遊び」を中心に、お役立ち情報を届けるウェブメディアです。現地スタッフによるリアルな情報を、ぜひお役立てください。`,
+    lang: `ja`,
     author: `@gatsbyjs`,
+    siteUrl: `https://voila-france.com`,
   },
   plugins: [
     {
