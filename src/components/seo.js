@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ lang, meta, pageTitle, pageDescription, showSiteNameInTitle, pagePath }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,29 +19,41 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = pageDescription || site.siteMetadata.description
+
+  let Title = `${site.siteMetadata.title}｜ヴォワラ・フランス生活情報メディア`
+  if (pageTitle){
+    if (showSiteNameInTitle === "true") {
+       Title = `${pageTitle}｜Voilà`
+    } else {
+       Title = pageTitle
+    }
+  }
+
+  const url = `${site.siteMetadata.siteUrl}${pagePath}`
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={Title}
+      //titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
+        //{ダメこれ動かない
+        //  name: `description`,
+        //  content: "metaDescription",
+        //},
         {
           property: `og:title`,
-          content: title,
+          content: Title,
         },
         {
           property: `og:description`,
@@ -61,21 +73,25 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: Title,
         },
         {
           name: `twitter:description`,
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+    <meta name="description" content={metaDescription} />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={url} />
+    </Helmet>
   )
 }
 
 SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
+  lang: `ja`,
+  //meta: [],
+  description: `フランスの「旅」「生活」「学び」「仕事」「遊び」を中心に、お役立ち情報を届けるウェブメディアです。現地スタッフによるリアルな情報を、ぜひお役立てください。1`,
 }
 
 SEO.propTypes = {

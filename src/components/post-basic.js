@@ -9,7 +9,7 @@ const PostBasic = ({ postData }) => (
       <div className="post-basic-textblock">
         <p className="post-basic-postedat">{post.createdAt}</p>
         <h4><Link to={`/post/${post.slug}`}>{post.title}</Link></h4>
-        <p className="post-basic-desc">{post.content.content}</p>
+        <p className="post-basic-desc"></p>
         <div className="post-basic-catbox">
           <ul className="post-basic-tags tags">
             <li className="post-basic-catname">{post.category}</li>

@@ -1,17 +1,23 @@
 import React from "react";
 //import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
-//import SEO from "../components/seo";
+import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
 
 import PostBasic from "../components/post-basic";
 
-const TagArticles = ({ data }) => {
+const TagArticles = ({ data, location }) => {
   //const { title, content, thumbnail } = data.contentfulBlogArticle;
   const blogPosts = data.tagArticles.edges;
   const tagInfo = data.tagInfo;
   return (
 <Layout>
+  <SEO
+    pageTitle={`${tagInfo.name}の記事`}
+    showSiteNameInTitle="true"
+    pageDescription=""
+    pagePath={location.pathname}
+  />
   <div className="container flex-row">
     <div className="main">
       <h1>#{tagInfo.name} の記事一覧</h1>

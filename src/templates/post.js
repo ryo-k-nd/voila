@@ -5,14 +5,21 @@ import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
 
 import PostBasic from "../components/post-basic";
+//import { documentToReactComponents } from '@contentful/rich-text-html-renderer';
+//import marked from "marked";
 
-const BlogArticle = ({ data, pageContext }) => {
-	const { title, content, thumbnail, category, createdAt, tags } = data.contentfulBlogArticle;
+const BlogArticle = ({ data, pageContext, location }) => {
+	const { title, content, contentMarkdown, thumbnail, category, createdAt, tags } = data.contentfulBlogArticle;
 	const relatedArticle = data.relatedArticle.edges;
 
 	return (
 <Layout>
-	<SEO title={title} />
+	<SEO
+		pageTitle={title}
+		showSiteNameInTitle="true"
+		pageDescription=""
+		pagePath={location.pathname}
+	/>
 	<div className="container flex-row">
 		<div className="main">
 			<div className="post">
@@ -20,7 +27,9 @@ const BlogArticle = ({ data, pageContext }) => {
 				<p>カテゴリ: {category}</p>
 				<p>投稿日: {createdAt}</p>
 				<img alt={title} src={thumbnail.file.url} />
-				<p className="body-text">{content.content}</p>
+				<p className="body-text">
+					{contentMarkdown.contentMarkdown}
+				</p>
 				<div>
 					<p>タグ: </p>
 					<ul>
@@ -58,7 +67,10 @@ export const pageQuery = graphql`
 			slug
 			category
 			content {
-				content
+				json
+			}
+			contentMarkdown{
+				contentMarkdown
 			}
 			thumbnail {
 				file {

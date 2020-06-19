@@ -52,11 +52,36 @@ exports.createPages = ({ graphql, actions }) => {
 			//Main Categoryごとの記事一覧ページ
 			const mainCategoryTemplate = path.resolve("./src/templates/category.js");
 			const categories = [
-				{ name_en: 'Travel', slug: 'travel', name_fr: 'FR Travel'},
-				{ name_en: 'Life', slug: 'life', name_fr: 'FR Life'},
-				{ name_en: 'Study', slug: 'study', name_fr: 'FR Study'},
-				{ name_en: 'Work', slug: 'work', name_fr: 'FR Work'},
-				{ name_en: 'Play', slug: 'play', name_fr: 'FR Play'},
+				{ name_en: 'Travel',
+					slug: 'travel',
+					name_fr: 'Voyage',
+					name_ja: '旅する',
+					desc: '日本からフランスへの旅行、フランス国内旅、ヨーロッパへの旅を楽しむための便利情報'
+				},
+				{ name_en: 'Life',
+					slug: 'life',
+					name_fr: 'Vie',
+					name_ja: 'クラス',
+					desc: 'フランス生活を始めるためのヒントや、暮らしの役立ち情報、時事ニュースなど'
+				},
+				{ name_en: 'Study',
+					slug: 'study',
+					name_fr: 'Edudes',
+					name_ja: '学ぶ',
+					desc: '語学学校、交換留学、大学院留学、社会人留学、専門学校などに関する情報はこちらから'
+				},
+				{ name_en: 'Work',
+					slug: 'work',
+					name_fr: 'Travail',
+					name_ja: '働く',
+					desc: 'フランスの仕事事情、就職・転職、ビジネスマナー、履歴書やレジュメの書き方などに関するTIPS'
+				},
+				{ name_en: 'Play',
+					slug: 'play',
+					name_fr: 'Divertissement',
+					name_ja: '遊ぶ',
+					desc: 'ショッピング、グルメ、レストラン、カフェ、スイーツ、観光、ホテル、お土産など、フランスを楽しむためのおすすめ情報'
+				},
 			];
 			categories.forEach(categoryItem => {
 				createPage({
@@ -67,6 +92,8 @@ exports.createPages = ({ graphql, actions }) => {
 						slug: categoryItem.slug,
 						name_en: categoryItem.name_en,
 						name_fr: categoryItem.name_fr,
+						name_ja: categoryItem.name_ja,
+						desc: categoryItem.desc,
 					},
 				})
 			})
