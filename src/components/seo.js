@@ -69,7 +69,7 @@ function SEO({ lang, meta, pageTitle, pageDescription, showSiteNameInTitle, page
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: '@account_name',
         },
         {
           name: `twitter:title`,

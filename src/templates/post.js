@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
+import ReactMarkdown from "react-markdown";
 
 import PostBasic from "../components/post-basic";
 //import { documentToReactComponents } from '@contentful/rich-text-html-renderer';
@@ -29,6 +30,7 @@ const BlogArticle = ({ data, pageContext, location }) => {
 				<img alt={title} src={thumbnail.file.url} />
 				<p className="body-text">
 					{/*contentMarkdown*/}
+					<ReactMarkdown source={contentMarkdown.contentMarkdown} />
 				</p>
 				<div>
 					<p>タグ: </p>
