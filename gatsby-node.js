@@ -61,7 +61,7 @@ exports.createPages = ({ graphql, actions }) => {
 				{ name_en: 'Life',
 					slug: 'life',
 					name_fr: 'Vie',
-					name_ja: 'クラス',
+					name_ja: '暮らす',
 					desc: 'フランス生活を始めるためのヒントや、暮らしの役立ち情報、時事ニュースなど'
 				},
 				{ name_en: 'Study',

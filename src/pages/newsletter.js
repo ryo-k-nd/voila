@@ -17,7 +17,12 @@ const NewslettePage = ( {location} ) => (
     <div className="container flex-row">
       <div className="main">
         <h1>Newsletter登録ページ</h1>
-        <div>abcde</div>
+        <div>
+          <form name="contact" method="POST" netlify>
+            <input type="text" id="name" name="name" required />
+            <button type="submit">Send</button>
+          </form>
+        </div>
       </div>
       <Sidebar />
     </div>
