@@ -39,20 +39,20 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-source-google-analytics-reporting-api`,
-      options: {
-        email: process.env.GOOGLE_CLIENT_EMAIL,
-        // 「サービス アカウント」生成時にダウンロードできる json データに含まれる
-        // `private_key` から生成される公開鍵を秘密鍵にがっちゃんこしてまとめ、扱いやすいよう base64 で
-        // あらかじめエンコードしたものを環境変数として渡して、ビルド時にデコードする。
-        key: Buffer.from(process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'), 'base64').toString(),
-        //key: require('fs').readFileSync('smart-column-173515-5686e61f47a7.json'),
-        viewId: `221204796`,
-        // 使い始めの日を指定
-        startDate: `2020-06-18`,
-      },
-    },
+    //{
+    //  resolve: `gatsby-source-google-analytics-reporting-api`,
+    //  options: {
+    //    email: process.env.GOOGLE_CLIENT_EMAIL,
+    //    // 「サービス アカウント」生成時にダウンロードできる json データに含まれる
+    //    // `private_key` から生成される公開鍵を秘密鍵にがっちゃんこしてまとめ、扱いやすいよう base64 で
+    //    // あらかじめエンコードしたものを環境変数として渡して、ビルド時にデコードする。
+    //    key: Buffer.from(process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'), 'base64').toString(),
+    //    //key: require('fs').readFileSync('smart-column-173515-5686e61f47a7.json'),
+    //    viewId: `221204796`,
+    //    // 使い始めの日を指定
+    //    startDate: `2020-06-18`,
+    //  },
+    //},
     {
       resolve: `gatsby-source-contentful`,
       options: {
