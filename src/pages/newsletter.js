@@ -18,7 +18,7 @@ const NewslettePage = ( {location} ) => (
       <div className="main">
         <h1>Newsletter登録ページ</h1>
         <div>
-          <form name="contact" method="POST" data-netlify="true">
+          <form name="contact" method="POST" data-netlify="true" netlify>
             <label>Your Name: <input type="text" name="name" /></label>
             <button type="submit">Send</button>
           </form>
