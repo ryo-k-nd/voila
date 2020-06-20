@@ -10,7 +10,7 @@ import PostBasic from "../components/post-basic";
 //import marked from "marked";
 
 const BlogArticle = ({ data, pageContext, location }) => {
-	const { title, content, contentMarkdown, thumbnail, category, createdAt, tags } = data.contentfulBlogArticle;
+	const { title, contentMarkdown, thumbnail, category, createdAt, tags } = data.contentfulBlogArticle;
 	const relatedArticle = data.relatedArticle.edges;
 
 	return (
