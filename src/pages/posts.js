@@ -24,7 +24,7 @@ const BlogArticles = ({ data, location }) => {
 							<div className="post-basic-textblock">
 								<p className="post-basic-postedat">2020/04/24</p>
 								<h3><Link to={`/post/${post.slug}`}>{post.title}</Link></h3>
-								<p>{post.content.content}</p>
+								<p>{/*post.content.content*/}</p>
 								<div className="post-basic-catbox">
 									<span className="post-basic-catname">Voyage</span>
 									<span className="post-basic-tagname">#パリの交通</span>
