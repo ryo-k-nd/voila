@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 
 import Sidebar from "../components/sidebar"
 
-const NewslettePage = ( {location} ) => (
+const NewsletterPage = ( {location} ) => (
   <Layout>
     <SEO
       pageTitle="メルマガ登録"
@@ -20,7 +20,9 @@ const NewslettePage = ( {location} ) => (
         <div>
           <form name="contact" method="POST" data-netlify="true" netlify>
             <label>Your Name: <input type="text" name="name" /></label>
+            <input type="hidden" name="form-name" value="contact" />
             <button type="submit">Send</button>
+
           </form>
         </div>
       </div>
@@ -29,4 +31,4 @@ const NewslettePage = ( {location} ) => (
   </Layout>
 )
 
-export default NewslettePage
+export default NewsletterPage
