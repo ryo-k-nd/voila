@@ -1,4 +1,4 @@
-//import { Link } from "gatsby"
+import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
@@ -9,59 +9,60 @@ const Footer = ({ siteTitle }) => (
 				<div className="flex-column-2">
 					<p>Voyage</p>
 					<ul>
-						<li>旅の基本情報</li>
-						<li>渡仏の準備</li>
-						<li>空港から市内まで</li>
-						<li>パリと地方都市</li>
-						<li>便利マップ</li>
+						<li><Link to="/">旅の基本情報</Link></li>
+						<li><Link to="/">渡仏の準備</Link></li>
+						<li><Link to="/">空港から市内まで</Link></li>
+						<li><Link to="/">パリと地方都市</Link></li>
+						<li><Link to="/">便利マップ</Link></li>
 					</ul>
 				</div>
 				<div className="flex-column-2">
 					<p>Vie</p>
 					<ul>
-						<li>暮らしの基本情報</li>
-						<li>住まい</li>
-						<li>お金</li>
-						<li>医療＆健康</li>
-						<li>交際＆子育て</li>
+						<li><Link to="/">暮らしの基本情報</Link></li>
+						<li><Link to="/">住まい</Link></li>
+						<li><Link to="/">お金</Link></li>
+						<li><Link to="/">医療＆健康</Link></li>
+						<li><Link to="/">交際＆子育て</Link></li>
 					</ul>
 				</div>
 				<div className="flex-column-2">
 					<p>Etudes</p>
 					<ul>
-						<li>学びの基本情報</li>
-						<li>語学留学</li>
-						<li>専門学校＆ディプロマ</li>
-						<li>大学・大学院</li>
-						<li>趣味・生涯学習</li>
+						<li><Link to="/">学びの基本情報</Link></li>
+						<li><Link to="/">語学留学</Link></li>
+						<li><Link to="/">専門学校＆ディプロマ</Link></li>
+						<li><Link to="/">大学・大学院</Link></li>
+						<li><Link to="/">趣味・生涯学習</Link></li>
 					</ul>
 				</div>
 				<div className="flex-column-2">
 					<p>Travail</p>
 					<ul>
-						<li>仕事の基本情報</li>
-						<li>仕事を見つける</li>
-						<li>職場と働き方</li>
-						<li>ビジネスマナー</li>
-						<li>仕事図鑑</li>
+						<li><Link to="/">仕事の基本情報</Link></li>
+						<li><Link to="/">仕事を見つける</Link></li>
+						<li><Link to="/">職場と働き方</Link></li>
+						<li><Link to="/">ビジネスマナー</Link></li>
+						<li><Link to="/">仕事図鑑</Link></li>
 					</ul>
 				</div>
 				<div className="flex-column-2">
 					<p>Divertissement</p>
 					<ul>
-						<li>レストラン・カフェ</li>
-						<li>アート・カルチャー</li>
-						<li>ショッピング</li>
-						<li>旅行</li>
-						<li>お土産</li>
+						<li><Link to="/">レストラン・カフェ</Link></li>
+						<li><Link to="/">アート・カルチャー</Link></li>
+						<li><Link to="/">ショッピング</Link></li>
+						<li><Link to="/">旅行</Link></li>
+						<li><Link to="/">お土産</Link></li>
 					</ul>
 				</div>
 				<div className="flex-column-2 footer-contact">
 					<ul>
-						<li>お問い合わせ</li>
-						<li>広告掲載</li>
-						<li>プライバシーポリシー</li>
-						<li>VOILAについて</li>
+						<li><Link to="/contact">お問い合わせ</Link></li>
+						<li><Link to="/terms">利用規約</Link></li>
+						<li><Link to="/advertiser">広告掲載</Link></li>
+						<li><Link to="/privacy">プライバシーポリシー</Link></li>
+						<li><Link to="/aboutus">VOILAについて</Link></li>
 					</ul>
 				</div>
 			</div>

@@ -47,24 +47,24 @@ const IndexPage = ({ data, location }) => {
 			</div>
 			<div className="top-weather container t-align-c">
 				<div className="top-weather__place">
-					<div className="top-wather__place-datatime">
+					<div className="top-weather__place-datatime">
 						FRANCE
 						<div className="place-time">04:19</div>
 						<div className="place-data">11 APR 2020</div>
 					</div>
-					<div className="top-wather__place-weather">
+					<div className="top-weather__place-weather">
 						PARIS
 						<div className="weather-mark"><i className="fas fa-cloud-sun fa-2x"></i></div>
 						<div className="weather-temp">12ºC/5ºC</div>
 					</div>
 				</div>
 				<div className="top-weather__place">
-					<div className="top-wather__place-datatime">
+					<div className="top-weather__place-datatime">
 						JAPAN
 						<div className="place-time">14:19</div>
 						<div className="place-data">11 APR 2020</div>
 					</div>
-					<div className="top-wather__place-weather">
+					<div className="top-weather__place-weather">
 						TOKYO
 						<div className="weather-mark"><i className="fas fa-sun fa-2x"></i></div>
 						<div className="weather-temp">12ºC/5ºC</div>
@@ -188,9 +188,9 @@ const IndexPage = ({ data, location }) => {
 								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
 								<div className="post-tile-catname">Voyage</div>
 								<div className="post-tile-tagbox tags">
-									<Link tp="#" className="post-tile-tagname">#パリの交通</Link>
-									<Link tp="#" className="post-tile-tagname">#行きたい店</Link>
-									<Link tp="#" className="post-tile-tagname">#買ってよかったもの</Link>
+									<Link to="#" className="post-tile-tagname">#パリの交通</Link>
+									<Link to="#" className="post-tile-tagname">#行きたい店</Link>
+									<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
 								</div>
 							</div>
 						</div>
@@ -200,9 +200,9 @@ const IndexPage = ({ data, location }) => {
 								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
 								<div className="post-tile-catname">Voyage</div>
 								<div className="post-tile-tagbox tags">
-									<Link tp="#" className="post-tile-tagname">#パリの交通</Link>
-									<Link tp="#" className="post-tile-tagname">#行きたい店</Link>
-									<Link tp="#" className="post-tile-tagname">#買ってよかったもの</Link>
+									<Link to="#" className="post-tile-tagname">#パリの交通</Link>
+									<Link to="#" className="post-tile-tagname">#行きたい店</Link>
+									<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
 								</div>
 							</div>
 						</div>
@@ -212,9 +212,9 @@ const IndexPage = ({ data, location }) => {
 								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
 								<div className="post-tile-catname">Voyage</div>
 								<div className="post-tile-tagbox tags">
-									<Link tp="#" className="post-tile-tagname">#パリの交通</Link>
-									<Link tp="#" className="post-tile-tagname">#行きたい店</Link>
-									<Link tp="#" className="post-tile-tagname">#買ってよかったもの</Link>
+									<Link to="#" className="post-tile-tagname">#パリの交通</Link>
+									<Link to="#" className="post-tile-tagname">#行きたい店</Link>
+									<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
 								</div>
 							</div>
 						</div>
@@ -224,9 +224,9 @@ const IndexPage = ({ data, location }) => {
 								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
 								<div className="post-tile-catname">Voyage</div>
 								<div className="post-tile-tagbox tags">
-									<Link tp="#" className="post-tile-tagname">#パリの交通</Link>
-									<Link tp="#" className="post-tile-tagname">#行きたい店</Link>
-									<Link tp="#" className="post-tile-tagname">#買ってよかったもの</Link>
+									<Link to="#" className="post-tile-tagname">#パリの交通</Link>
+									<Link to="#" className="post-tile-tagname">#行きたい店</Link>
+									<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
 								</div>
 							</div>
 						</div>
@@ -236,9 +236,9 @@ const IndexPage = ({ data, location }) => {
 								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
 								<div className="post-tile-catname">Voyage</div>
 								<div className="post-tile-tagbox tags">
-									<Link tp="#" className="post-tile-tagname">#パリの交通</Link>
-									<Link tp="#" className="post-tile-tagname">#行きたい店</Link>
-									<Link tp="#" className="post-tile-tagname">#買ってよかったもの</Link>
+									<Link to="#" className="post-tile-tagname">#パリの交通</Link>
+									<Link to="#" className="post-tile-tagname">#行きたい店</Link>
+									<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
 								</div>
 							</div>
 						</div>
@@ -248,9 +248,9 @@ const IndexPage = ({ data, location }) => {
 								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
 								<div className="post-tile-catname">Voyage</div>
 								<div className="post-tile-tagbox tags">
-									<Link tp="#" className="post-tile-tagname">#パリの交通</Link>
-									<Link tp="#" className="post-tile-tagname">#行きたい店</Link>
-									<Link tp="#" className="post-tile-tagname">#買ってよかったもの</Link>
+									<Link to="#" className="post-tile-tagname">#パリの交通</Link>
+									<Link to="#" className="post-tile-tagname">#行きたい店</Link>
+									<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
 								</div>
 							</div>
 						</div>
@@ -267,7 +267,7 @@ const IndexPage = ({ data, location }) => {
 				<img src={BannerSuper} alt="banner" />
 			</div>
 			<div className="top-newsletter container">
-				<Link to="">
+				<Link to="/newsletter">
 					<div className="flex-row">
 						<i className="fas fa-envelope fa-2x fa-newsletter"></i>
 						<div className="top-newsletter__text flex-row">
