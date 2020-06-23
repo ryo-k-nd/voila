@@ -15,6 +15,7 @@
     "gatsby-plugin-react-helmet": "^3.3.4",
     "gatsby-plugin-sass": "^2.3.4",
     "gatsby-plugin-sharp": "^2.6.9",
+    "gatsby-plugin-sitemap": "^2.4.6",
     "gatsby-source-contentful": "^2.3.15",
     "gatsby-source-filesystem": "^2.3.8",
     "gatsby-source-google-analytics-reporting-api": "^1.0.2",
