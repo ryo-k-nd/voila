@@ -5,7 +5,7 @@ import React from "react"
 const PostBasic = ({ postData }) => (
   postData.map(({ node: post }) => (
     <div className="post-basic-item">
-      <img src={post.thumbnail.file.url} alt="Slide1" className="thumbnail" />
+      <img src={`${post.thumbnail.file.url}?w=235&fm=webp`} alt="Slide1" className="thumbnail" />
       <div className="post-basic-textblock">
         <p className="post-basic-postedat">{post.createdAt}</p>
         <h4><Link to={`/post/${post.slug}`}>{post.title}</Link></h4>

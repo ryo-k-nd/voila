@@ -2,6 +2,8 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 //import Image from "../components/image";
+import useContentfulImage from "../utils/useContentfulImage";
+import Img from "gatsby-image";
 import SEO from "../components/seo";
 import Slider from "react-slick";
 //import Styles from "../components/style/index.module.scss"
@@ -83,7 +85,8 @@ const IndexPage = ({ data, location }) => {
 						topUpdates.map(({ node: post }) => (
 							post.favouriteArticleTop && post.favouriteArticleTop.map(({ title, thumbnail }) =>
 								<div className="slide-img">
-									<img src={thumbnail.file.url} alt="Slide3" />
+									<img src={`${thumbnail.file.url}?w=750`} alt="Slide3" />
+
 									<p className="slide-title">
 										<span className="slide-title__title">{title}</span>
 										<span className="slide-title__data">2020/04/20</span>

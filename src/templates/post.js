@@ -4,6 +4,8 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
 import ReactMarkdown from "react-markdown";
+import useContentfulImage from "../utils/useContentfulImage";
+import Img from "gatsby-image";
 
 import PostBasic from "../components/post-basic";
 //import { documentToReactComponents } from '@contentful/rich-text-html-renderer';
@@ -27,7 +29,9 @@ const BlogArticle = ({ data, pageContext, location }) => {
 				<h1>{title}</h1>
 				<p>カテゴリ: {category}</p>
 				<p>投稿日: {createdAt}</p>
-				<img alt={title} src={thumbnail.file.url} />
+				<Img
+					fluid={useContentfulImage(thumbnail.file.url)}
+				/>
 				<p className="body-text">
 					{/*contentMarkdown*/}
 					<ReactMarkdown source={contentMarkdown.contentMarkdown} />
