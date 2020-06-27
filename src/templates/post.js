@@ -3,17 +3,24 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
-import ReactMarkdown from "react-markdown";
+//import ReactMarkdown from "react-markdown";
 import useContentfulImage from "../utils/useContentfulImage";
 import Img from "gatsby-image";
 
 import PostBasic from "../components/post-basic";
 //import { documentToReactComponents } from '@contentful/rich-text-html-renderer';
-//import marked from "marked";
+import marked from "marked";
 
 const BlogArticle = ({ data, pageContext, location }) => {
 	const { title, contentMarkdown, thumbnail, category, createdAt, tags } = data.contentfulBlogArticle;
 	const relatedArticle = data.relatedArticle.edges;
+
+	const source = contentMarkdown.contentMarkdown.replace(/\n/gi, '\nreplaced_text ');
+	marked.setOptions({
+		gfm: true,
+		breaks: true,
+	});
+	const parsedSouce = marked(source).replace(/replaced_text/g, '');
 
 	return (
 <Layout>
@@ -33,8 +40,11 @@ const BlogArticle = ({ data, pageContext, location }) => {
 					fluid={useContentfulImage(thumbnail.file.url)}
 				/>
 				<p className="body-text">
-					{/*contentMarkdown*/}
-					<ReactMarkdown source={contentMarkdown.contentMarkdown} />
+					{
+						/* contentMarkdown */
+						/* parsedSouce */
+					}
+					<span dangerouslySetInnerHTML={{ __html: marked(parsedSouce) }} />
 				</p>
 				<div>
 					<p>タグ: </p>
