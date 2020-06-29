@@ -39,13 +39,11 @@ const BlogArticle = ({ data, pageContext, location }) => {
 				<Img
 					fluid={useContentfulImage(thumbnail.file.url)}
 				/>
-				<p className="body-text">
 					{
 						/* contentMarkdown */
 						/* parsedSouce */
 					}
-					<span dangerouslySetInnerHTML={{ __html: marked(parsedSouce) }} />
-				</p>
+				<div className="body-text" dangerouslySetInnerHTML={{ __html: marked(parsedSouce) }} />
 				<div>
 					<p>タグ: </p>
 					<ul>
