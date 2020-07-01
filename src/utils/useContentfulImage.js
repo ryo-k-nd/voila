@@ -19,4 +19,5 @@ export default assetUrl => {
   }
 `)
  return allContentfulAsset.nodes.find(n => n.file.url === assetUrl).fluid
+ // return allContentfulAsset.nodes.file && allContentfulAsset.nodes.find(n => n.file.url === assetUrl).fluid
 }

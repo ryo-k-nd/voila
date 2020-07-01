@@ -34,7 +34,7 @@ exports.createPages = ({ graphql, actions }) => {
 
 				const relatedTags = [];
 
-				edge.node.tags.forEach(tag => {
+				edge.node.tags && edge.node.tags.forEach(tag => {
 					relatedTags.push(tag.slug);
 				})
 
