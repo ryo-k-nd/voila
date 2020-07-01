@@ -45,7 +45,7 @@ const BlogArticle = ({ data, pageContext, location }) => {
 						/* contentMarkdown */
 						/* parsedSouce */
 					}
-				<div className="body-text" dangerouslySetInnerHTML={{ __html: marked(parsedSouce) }} />
+				{/*<div className="body-text" dangerouslySetInnerHTML={{ __html: marked(parsedSouce) }} />*/}
 				<div>
 					<p>タグ: </p>
 					<ul>
