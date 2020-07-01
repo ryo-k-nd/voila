@@ -4,6 +4,8 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
 
+import PostBasic from "../components/post-basic";
+
 const BlogArticles = ({ data, location }) => {
 	const blogPosts = data.allContentfulBlogArticle.edges;
 	return (
@@ -18,22 +20,7 @@ const BlogArticles = ({ data, location }) => {
 				<div className="main">
 					<h1>{"Latest Articles"}</h1>
 					<div className="post-basic">
-						{blogPosts.map(({ node: post }) => (
-						<div className="post-basic-item">
-							<img src={post.thumbnail.file.url} alt="Slide1" className="thumbnail" />
-							<div className="post-basic-textblock">
-								<p className="post-basic-postedat">2020/04/24</p>
-								<h3><Link to={`/post/${post.slug}`}>{post.title}</Link></h3>
-								<p>{/*post.content.content*/}</p>
-								<div className="post-basic-catbox">
-									<span className="post-basic-catname">Voyage</span>
-									<span className="post-basic-tagname">#パリの交通</span>
-									<span className="post-basic-tagname">#行きたい店</span>
-									<span className="post-basic-tagname">#買ってよかったもの</span>
-								</div>
-							</div>
-						</div>
-						))}
+					  <PostBasic postData={blogPosts} />
 					</div>
 				</div>
 				<Sidebar />
@@ -50,6 +37,7 @@ export const query = graphql`
 					id
 					title
 					slug
+					category
 					contentMarkdown{
 						contentMarkdown
 					}
@@ -58,6 +46,11 @@ export const query = graphql`
 							url
 						}
 					}
+					tags {
+						name
+						slug
+					}
+					createdAt(formatString: "YYYY/MM/DD")
 				}
 			}
 		}
