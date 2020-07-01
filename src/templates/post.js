@@ -38,9 +38,9 @@ const BlogArticle = ({ data, pageContext, location }) => {
 				<h1>{title}</h1>
 				<p>カテゴリ: {category}</p>
 				<p>投稿日: {createdAt}</p>
-				{/*<Img
+				<Img
 					fluid={useContentfulImage(imageUrl)}
-				/>*/}
+				/>
 					{
 						/* contentMarkdown */
 						/* parsedSouce */
