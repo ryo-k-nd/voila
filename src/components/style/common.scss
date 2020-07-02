@@ -453,14 +453,13 @@ aside.sidebar{
 		width: 55%;
 		margin: 0 auto;
 		.slide-img{
-			//width: 586px;
-			//height: 424px;
 			overflow: hidden;
 			position: relative;
 			img{
 				width: 100%;
 				height: auto;
 				object-fit: cover;
+				height: 25vw;
 			}
 			.slide-title{
 				position: absolute;
@@ -670,15 +669,6 @@ aside.sidebar{
 				text-decoration: underline;
 			}
 		}
-//		&-ckbox{
-//			display: block;
-//			text-align: center;
-//			margin: 20px auto 30px;
-//			width: 150px;
-//			& input#agree{
-//				margin-right: 5px;
-//			}
-//		}
 		&-submit{
 			width: 100%;
 			font-size: 1.5rem;
