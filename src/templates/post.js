@@ -22,58 +22,63 @@ const BlogArticle = ({ data, pageContext, location }) => {
 	});
 	const parsedSouce = marked(source).replace(/replaced_text/g, '');
 
-	const imageUrl = thumbnail ? thumbnail.file.url : "//images.ctfassets.net/zbyipzusy20r/69YBVOds5ZZwcOtPgKe6dC/8bb092eeefb0372aa3f6e1be78d6f58d/pr_competition_img.jpg"
-
 	return (
-<Layout>
-	<SEO
-		pageTitle={title}
-		showSiteNameInTitle="true"
-		pageDescription=""
-		pagePath={location.pathname}
-	/>
-	<div className="container flex-row">
-		<div className="main">
-			<div className="post">
-				<h1>{title}</h1>
-				<p>カテゴリ: {category}</p>
-				<p>投稿日: {createdAt}</p>
-				<Img
-					fluid={useContentfulImage(imageUrl)}
-				/>
-					{
-						/* contentMarkdown */
-						/* parsedSouce */
-					}
-				<div className="body-text" dangerouslySetInnerHTML={{ __html: marked(parsedSouce) }} />
-				<div>
-					<p>タグ: </p>
-					<ul>
-					{tags && tags.map(({ name, slug }) =>
-						<li><Link to={`/tag/${slug}`}>#{name}</Link></li>
-						)
-					}
-					</ul>
-					{/*
-					<ul>
-					{tags.map(({ blog_article }) =>
-							blog_article && blog_article.map(({ slug }) =>
-								<li>{slug}</li>
-							)
-						)
-					}
-					</ul>
-				*/}
+		<Layout>
+			<SEO
+				pageTitle={title}
+				showSiteNameInTitle="true"
+				pageDescription=""
+				pagePath={location.pathname}
+			/>
+			<div className="container flex-row">
+				<div className="main">
+					<div className="post">
+						<h1>{title}</h1>
+						<p className="post__date">{category} | {createdAt}</p>
+						<Img
+							fluid={useContentfulImage(thumbnail.file.url)}
+						/>
+						{
+							/* contentMarkdown */
+							/* parsedSouce */
+						}
+						<div className="body-text" dangerouslySetInnerHTML={{ __html: marked(parsedSouce) }} />
+						<div className="post__sns">
+							<div className="post__sns-text">この記事をシェアする</div>
+							<Link to="/blog"><i class="fab fa-twitter"></i></Link>
+							<span>
+								<Link to="/blog"><i class="fab fa-facebook-square"></i></Link>
+							</span>
+							<Link to="/blog"><i class="fas fa-envelope"></i></Link>
+						</div>
+						<div className="top-keywords post__keywords">
+							<div className="post__keywords-text">関連キーワード</div>
+							<ul>
+								{tags && tags.map(({ name, slug }) =>
+									<li><Link to={`/tag/${slug}`} className="top-keywords-tagname">{name}</Link></li>
+								)
+								}
+								{/* 
+							</ul>
+							<ul>
+							*/}
+								{tags.map(({ blog_article }) =>
+									blog_article && blog_article.map(({ slug }) =>
+										<li><Link to="/blog" className="top-keywords-tagname">{slug}</Link></li>
+									)
+								)
+								}
+							</ul>
+						</div>
+						<div className="post__tagged">
+							<div className="post__keywords-text">関連記事{pageContext.taggedArticles}</div>
+							<PostBasic postData={relatedArticle} />
+						</div>
+					</div>
 				</div>
-				<div>
-					<p>関連記事:</p>
-					<PostBasic postData={relatedArticle} />
-				</div>
+				<Sidebar />
 			</div>
-		</div>
-		<Sidebar />
-	</div>
-</Layout>
+		</Layout>
 	);
 };
 export default BlogArticle;

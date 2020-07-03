@@ -1,50 +1,73 @@
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useLayoutEffect } from "react"
 import { Link } from "gatsby"
 import { StaticQuery, graphql } from "gatsby"
 import BannerSquare from '../images/top/bannerSquare.gif'
 
-const Sidebar = ( { data } ) => {
+const Sidebar = ({ data }) => {
 	const Updates = data.allContentfulPageUpdateSidebar.edges;
 	return (
 		<aside className="sidebar">
 			<img src={BannerSquare} alt="BannerSquare" />
-			<p>人気記事</p>
 			<hr />
-			<div className="sidebar-keywords">
-				<h2>オススメ記事</h2>
+			<div className="sidebar-article">
+				<div className="sidebar-article__title"><span className="font-serif">Articles les plus lus</span><br />人気記事</div>
 				<div>
 					{
 						Updates.map(({ node: post }) => (
-							post.favouriteArticleTop && post.favouriteArticleTop.map(({ title, thumbnail }) =>
+							post.favouriteArticleTop && post.favouriteArticleTop.map(({ title, thumbnail, slug }) =>
 								<div className="slide-img">
-									<img src={thumbnail.file.url} alt="Slide3" />
-									<p className="slide-title">
-										<span className="slide-title__title">{title}</span>
-										<span className="slide-title__data">2020/04/20</span>
-									</p>
+									<Link to={`/post/${slug}`}>
+										<img src={thumbnail.file.url} alt="Slide3" />
+										<div className="slide-title">
+											<span className="slide-title__title">{title}</span>
+											{/*<span className="slide-title__date">2020/04/20</span>*/}
+										</div>
+									</Link>
 								</div>
 							)
 						))
 					}
 				</div>
+				<div className="sidebar-article__all"><Link to="/blog">すべて見る</Link></div>
 			</div>
-
 			<hr />
-			<div className="sidebar-keywords">
-				<div>
-					<h2>Mots-clés</h2>
-					<span>今話題のキーワード</span>
-				</div>
+			<div className="sidebar-article">
+				<div className="sidebar-article__title"><span className="font-serif">Pick up articles</span><br />ピックアップ記事</div>
 				<div>
 					{
 						Updates.map(({ node: post }) => (
-							post.popularTag && post.popularTag.map(({ name, slug }) =>
-								<Link to={`/tag/${slug}`}><span>{name}</span><br /></Link>
+							post.favouriteArticleTop && post.favouriteArticleTop.map(({ title, thumbnail, slug }) =>
+								<div className="slide-img">
+									<Link to={`/post/${slug}`}>
+										<img src={thumbnail.file.url} alt="Slide3" />
+										<div className="slide-title">
+											<span className="slide-title__title">{title}</span>
+											{/*<span className="slide-title__date">2020/04/20</span>*/}
+										</div>
+									</Link>
+								</div>
 							)
 						))
 					}
 				</div>
+				<div className="sidebar-article__all"><Link to="/blog">すべて見る</Link></div>
+			</div>
+			<div className="sidebar-keywords">
+				<div className="sidebar-keywords__title">
+					<span className="font-serif">Mots-clés</span>話題のキーワード
+				</div>
+				<ul className="sidebar-keywords__tags tags">
+					{
+						Updates.map(({ node: post }) => (
+							post.popularTag && post.popularTag.map(({ name, slug }) =>
+								<li>
+									<Link to={`/tag/${slug}`}>{name}</Link>
+								</li>
+							)
+						))
+					}
+				</ul>
 			</div>
 		</aside>
 	)
@@ -61,6 +84,7 @@ export default function showSidebar(props) {
 								favouriteArticleTop {
 									title
 									createdAt(formatString: "YYYY-MM-DD")
+									slug
 									thumbnail {
 										file {
 											url
