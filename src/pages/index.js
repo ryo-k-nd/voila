@@ -10,12 +10,12 @@ import Slider from "react-slick";
 //import PropTypes from 'prop-types';
 
 import Slide1 from '../images/top/slide1.jpg'
-//import Slide2 from '../images/top/slide2.jpg'
-//import Slide3 from '../images/top/slide3.jpg'
 import BannerSuper from '../images/top/bannerSuper.jpg'
 import BannerSquare from '../images/top/bannerSquare.gif'
 
 import PostBasic from "../components/post-basic";
+//import PostPV from "../components/post-pvranking";
+import generateContentByPageViews from "../utils/generateContentByPageViews";
 
 //import "./index.css";
 const settings = {
@@ -35,7 +35,7 @@ const settings = {
 const IndexPage = ({ data, location }) => {
 	const blogPosts = data.allContentfulBlogArticle.edges;
 	const topUpdates = data.allContentfulPageUpdate.edges;
-
+	const blogPostsByPageViews = data.allPageViews.nodes;
 	return (
 		<Layout>
 			<SEO
@@ -86,7 +86,6 @@ const IndexPage = ({ data, location }) => {
 							post.favouriteArticleTop && post.favouriteArticleTop.map(({ title, thumbnail }) =>
 								<div className="slide-img">
 									<img src={`${thumbnail.file.url}?w=750`} alt="Slide3" />
-
 									<p className="slide-title">
 										<span className="slide-title__title">{title}</span>
 										<span className="slide-title__data">2020/04/20</span>
@@ -185,78 +184,27 @@ const IndexPage = ({ data, location }) => {
 						<span>人気の記事</span>
 					</div>
 					<div className="post-tile">
-						<div className="post-tile-item">
-							<div className="post-tile-inner">
-								<img src={Slide1} alt="Slide1" className="thumbnail" />
-								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
-								<div className="post-tile-catname">Voyage</div>
-								<div className="post-tile-tagbox tags">
-									<Link to="#" className="post-tile-tagname">#パリの交通</Link>
-									<Link to="#" className="post-tile-tagname">#行きたい店</Link>
-									<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
-								</div>
-							</div>
-						</div>
-						<div className="post-tile-item">
-							<div className="post-tile-inner">
-								<img src={Slide1} alt="Slide1" className="thumbnail" />
-								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
-								<div className="post-tile-catname">Voyage</div>
-								<div className="post-tile-tagbox tags">
-									<Link to="#" className="post-tile-tagname">#パリの交通</Link>
-									<Link to="#" className="post-tile-tagname">#行きたい店</Link>
-									<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
-								</div>
-							</div>
-						</div>
-						<div className="post-tile-item">
-							<div className="post-tile-inner">
-								<img src={Slide1} alt="Slide1" className="thumbnail" />
-								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
-								<div className="post-tile-catname">Voyage</div>
-								<div className="post-tile-tagbox tags">
-									<Link to="#" className="post-tile-tagname">#パリの交通</Link>
-									<Link to="#" className="post-tile-tagname">#行きたい店</Link>
-									<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
-								</div>
-							</div>
-						</div>
-						<div className="post-tile-item">
-							<div className="post-tile-inner">
-								<img src={Slide1} alt="Slide1" className="thumbnail" />
-								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
-								<div className="post-tile-catname">Voyage</div>
-								<div className="post-tile-tagbox tags">
-									<Link to="#" className="post-tile-tagname">#パリの交通</Link>
-									<Link to="#" className="post-tile-tagname">#行きたい店</Link>
-									<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
-								</div>
-							</div>
-						</div>
-						<div className="post-tile-item">
-							<div className="post-tile-inner">
-								<img src={Slide1} alt="Slide1" className="thumbnail" />
-								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
-								<div className="post-tile-catname">Voyage</div>
-								<div className="post-tile-tagbox tags">
-									<Link to="#" className="post-tile-tagname">#パリの交通</Link>
-									<Link to="#" className="post-tile-tagname">#行きたい店</Link>
-									<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
-								</div>
-							</div>
-						</div>
-						<div className="post-tile-item">
-							<div className="post-tile-inner">
-								<img src={Slide1} alt="Slide1" className="thumbnail" />
-								<h4>パリで徹底取材「フランスで働く」 現実はこういうこと</h4>
-								<div className="post-tile-catname">Voyage</div>
-								<div className="post-tile-tagbox tags">
-									<Link to="#" className="post-tile-tagname">#パリの交通</Link>
-									<Link to="#" className="post-tile-tagname">#行きたい店</Link>
-									<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
-								</div>
-							</div>
-						</div>
+						{
+							blogPostsByPageViews && blogPostsByPageViews.map(({ path, totalCount }) => {
+								if (path.indexOf('/post/') != -1 && path.substr(-1) != '/' ){
+									const pagePath = path.replace('post/', '').replace(/\//g, '');
+									return (
+										<div className="post-tile-item">
+											<Link to={path} className="post-tile-inner">
+												<img src={Slide1} alt="Slide1" className="thumbnail" />
+												<h4>PV: {totalCount} | {generateContentByPageViews(pagePath)}</h4>
+												<div className="post-tile-catname">Voyage</div>
+												<div className="post-tile-tagbox tags">
+													<Link to="#" className="post-tile-tagname">#パリの交通</Link>
+													<Link to="#" className="post-tile-tagname">#行きたい店</Link>
+													<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
+												</div>
+											</Link>
+										</div>
+									)
+								}
+						})
+						}
 					</div>
 				</div>
 			</div>
@@ -306,6 +254,12 @@ export const query = graphql`
 					}
 					createdAt(formatString: "YYYY-MM-DD")
 				}
+			}
+		}
+		allPageViews: allPageViews(sort: {fields: totalCount, order: DESC}, filter: {path: {glob: "/post/*"}}, limit: 3) {
+			nodes {
+				path
+				totalCount
 			}
 		}
 		allContentfulPageUpdate: allContentfulPageUpdate(filter: {node_locale: {eq: "ja-JP"}}) {
