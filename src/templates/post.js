@@ -59,18 +59,12 @@ const BlogArticle = ({ data, pageContext, location }) => {
 							<ul>
 								{tags && tags.map(({ name, slug }) =>
 									<li><Link to={`/tag/${slug}`} className="top-keywords-tagname">{name}</Link></li>
-								)
-								}
-								{/*
-							</ul>
-							<ul>
-							*/}
-								{tags.map(({ blog_article }) =>
+								)}
+								{tags && tags.map(({ blog_article }) =>
 									blog_article && blog_article.map(({ slug }) =>
 										<li><Link to="/blog" className="top-keywords-tagname">{slug}</Link></li>
 									)
-								)
-								}
+								)}
 							</ul>
 						</div>
 						<div className="post__tagged">
