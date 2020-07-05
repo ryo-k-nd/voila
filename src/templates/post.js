@@ -22,6 +22,9 @@ const BlogArticle = ({ data, pageContext, location }) => {
 	});
 	const parsedSouce = marked(source).replace(/replaced_text/g, '');
 
+	const imageUrl = thumbnail ? thumbnail.file.url : "//images.ctfassets.net/zbyipzusy20r/69YBVOds5ZZwcOtPgKe6dC/8bb092eeefb0372aa3f6e1be78d6f58d/pr_competition_img.jpg"
+
+
 	return (
 		<Layout>
 			<SEO
@@ -36,7 +39,7 @@ const BlogArticle = ({ data, pageContext, location }) => {
 						<h1>{title}</h1>
 						<p className="post__date">{category} | {createdAt}</p>
 						<Img
-							fluid={useContentfulImage(thumbnail.file.url)}
+							fluid={useContentfulImage(imageUrl)}
 						/>
 						{
 							/* contentMarkdown */
@@ -58,7 +61,7 @@ const BlogArticle = ({ data, pageContext, location }) => {
 									<li><Link to={`/tag/${slug}`} className="top-keywords-tagname">{name}</Link></li>
 								)
 								}
-								{/* 
+								{/*
 							</ul>
 							<ul>
 							*/}
