@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import ModalSeach from "../components/modalSearch";
 
 const Header = ({ siteTitle }) => (
 	<header className="header-common">
@@ -54,7 +55,9 @@ const Header = ({ siteTitle }) => (
 			</div>
 			<div className="header-link flex-row">
 				<div className="header-link__search">
-					<i className="fas fa-search"></i>
+
+					<ModalSeach />
+
 				</div>
 				<Link to="/newsletter" className="header-link__newsletter"><i className="fas fa-envelope"></i>メルマガ登録</Link>
 			</div>

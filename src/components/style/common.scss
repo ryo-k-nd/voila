@@ -921,3 +921,12 @@ footer{
 		margin-bottom: 100px;
 	}
 }
+.seachIcon{
+	border: none;
+	background: none;
+	&:focus {
+		outline:0;
+	}
+}
+
+

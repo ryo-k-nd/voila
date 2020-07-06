@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
-//import ReactMarkdown from "react-markdown";
 import useContentfulImage from "../utils/useContentfulImage";
 import Img from "gatsby-image";
 
@@ -23,7 +22,6 @@ const BlogArticle = ({ data, pageContext, location }) => {
 	const parsedSouce = marked(source).replace(/replaced_text/g, '');
 
 	const imageUrl = thumbnail ? thumbnail.file.url : "//images.ctfassets.net/zbyipzusy20r/69YBVOds5ZZwcOtPgKe6dC/8bb092eeefb0372aa3f6e1be78d6f58d/pr_competition_img.jpg"
-
 
 	return (
 		<Layout>
