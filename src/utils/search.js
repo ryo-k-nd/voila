@@ -9,7 +9,7 @@ const SearchResult = props => {
 	// 全記事データ取得 //
 	const tempData = useStaticQuery(graphql`
 		query SearchData {
-			allContentfulBlogArticleForSearch: allContentfulBlogArticle(sort: {fields: createdAt, order: DESC}, filter: {node_locale: {eq: "ja-JP"}}) {
+			allContentfulBlogArticleForSearch: allContentfulBlogArticle(sort: {fields: createdAt, order: DESC}, filter: {node_locale: {eq: "ja-JP"}}, limit: 10) {
 				edges {
 					node {
 						title
@@ -124,13 +124,16 @@ const Search = props => {
 	}
 	return (
 		<div className={props.className} focus={focus}>
-			<input
-				type="text"
-				placeholder="Search..."
-				onFocus={onFocus}
-				onBlur={onBlur}
-				onChange={onChange}
-			/>
+			<div className="searchInputWrapper">
+				<input
+					type="text"
+					placeholder="Search..."
+					onFocus={onFocus}
+					onBlur={onBlur}
+					onChange={onChange}
+					className="searchInput"
+				/>
+			</div>
 			<SearchResult focus={focus} value={value} />
 		</div>
 	)

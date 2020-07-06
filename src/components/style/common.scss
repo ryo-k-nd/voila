@@ -582,7 +582,7 @@ footer{
 				transform: scale(1.2) translateY(3px);
 				transition: all  0.3s ease;
 				position: relative;
-				z-index: 9999;
+				z-index: 955;
 			}
 		}
 		.slick-next{
@@ -605,7 +605,7 @@ footer{
 			transform: translateX(-70px) translateY(-20px)
 		}
 		.slick-arrow.slick-prev {
-			z-index: 999;
+			z-index: 950;
 			transform: translateX(110px) translateY(-10px);
 			&::before{
 				content: "\f053";
@@ -921,6 +921,7 @@ footer{
 		margin-bottom: 100px;
 	}
 }
+
 .seachIcon{
 	border: none;
 	background: none;
@@ -928,5 +929,37 @@ footer{
 		outline:0;
 	}
 }
+.modalSearchOverlay{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: rgba(0, 0, 0, 0.75);
+	z-index: 960;
+}
+.modalSearchWindow{
+	position: absolute;
+	background: #fff;
+	width: 662px;
+	padding: 40px;
+	top: 85px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 965;
+	.searchInputWrapper{
+		margin-bottom: 20px;
+		input.searchInput{
+			width: 100%;
+			height: 35px;
+		}
+	}
+}
+
+
+
+
+
 
 

@@ -1,18 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Search from "../utils/search";
-const customStyles = {
-	content : {
-		top                   : '50%',
-		left                  : '50%',
-		right                 : 'auto',
-		bottom                : 'auto',
-		marginRight           : '-50%',
-		transform             : 'translate(-50%, -50%)'
- }
-};
 
-Modal.setAppElement('#___gatsby') //任意のアプリを設定する　create-react-appなら#root
+Modal.setAppElement('#___gatsby') //public/htmlのid参照
 class ModalSeach extends React.Component {
 	constructor() {
 		super();
@@ -40,8 +30,9 @@ class ModalSeach extends React.Component {
 					isOpen={this.state.modalIsOpen}
 					onAfterOpen={this.afterOpenModal}
 					onRequestClose={this.closeModal}
-					style={customStyles}
 					contentLabel="Example Modal"
+					className="modalSearchWindow"
+					overlayClassName="modalSearchOverlay"
 				>
 					<h2 ref={subtitle => this.subtitle = subtitle}>記事を検索する</h2>
 					<Search />
