@@ -67,12 +67,11 @@ const SearchResult = props => {
 		})
 		setResult(temp)
 	}
-	const searchAll = () => {
-		const value = ""
+	const searchNull = () => {
+		const value = "oiu94823ud0j98472075dj89u4j359027097"
 		const temp = data.filter(e => {
 			const target = `
 				${e.title.toLowerCase()}
-				${e.contentMarkdown.contentMarkdown.toLowerCase()}
 			`
 			return target.indexOf(value) !== -1
 		})
@@ -82,7 +81,7 @@ const SearchResult = props => {
 		if (props.value !== "") {
 			search()
 		}else{
-			searchAll()
+			searchNull()
 		}
 	}, [props.value])
 
