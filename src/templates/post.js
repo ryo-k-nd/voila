@@ -6,7 +6,7 @@ import Sidebar from "../components/sidebar"
 import useContentfulImage from "../utils/useContentfulImage";
 import Img from "gatsby-image";
 
-import PostBasic from "../components/post-basic";
+import PostBasic from "../components/postBasic";
 //import { documentToReactComponents } from '@contentful/rich-text-html-renderer';
 import marked from "marked";
 

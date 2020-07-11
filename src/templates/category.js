@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
 
-import PostBasic from "../components/post-basic";
+import PostBasic from "../components/postBasic";
 
 const MainCategoryArticles = ({ data, pageContext, location }) => {
   //const { title, content, thumbnail } = data.contentfulBlogArticle;

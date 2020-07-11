@@ -13,9 +13,9 @@ import Slide1 from '../images/top/slide1.jpg'
 import BannerSuper from '../images/top/bannerSuper.jpg'
 import BannerSquare from '../images/top/bannerSquare.gif'
 
-import PostBasic from "../components/post-basic";
+import PostBasic from "../components/postBasic";
 //import PostPV from "../components/post-pvranking";
-import generateContentByPageViews from "../utils/generateContentByPageViews";
+//import generateContentByPageViews from "../utils/generateContentByPageViews";
 
 //import "./index.css";
 const settings = {
@@ -236,7 +236,7 @@ export default IndexPage;
 
 export const query = graphql`
 	query BlogArticleQueryTop {
-		allContentfulBlogArticle: allContentfulBlogArticle(sort: {fields: createdAt, order: DESC}, filter: {node_locale: {eq: "ja-JP"}}) {
+		allContentfulBlogArticle: allContentfulBlogArticle(limit: 3, sort: {fields: createdAt, order: DESC}, filter: {node_locale: {eq: "ja-JP"}}) {
 			edges {
 				node {
 					id
@@ -244,8 +244,8 @@ export const query = graphql`
 					slug
 					category
 					thumbnail {
-						file {
-							url
+						fluid(maxWidth : 800) {
+							...GatsbyContentfulFluid_withWebp
 						}
 					}
 					tags {
