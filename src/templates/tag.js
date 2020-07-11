@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
-
 import PostBasic from "../components/postBasic";
 
 const TagArticles = ({ data, location }) => {
@@ -45,8 +44,8 @@ export const query = graphql`
             contentMarkdown
           }
           thumbnail {
-            file {
-              url
+            fluid(maxWidth : 800) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           tags {

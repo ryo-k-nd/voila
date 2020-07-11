@@ -5,7 +5,6 @@ import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
 import useContentfulImage from "../utils/useContentfulImage";
 import Img from "gatsby-image";
-
 import PostBasic from "../components/postBasic";
 //import { documentToReactComponents } from '@contentful/rich-text-html-renderer';
 import marked from "marked";
@@ -112,8 +111,8 @@ export const pageQuery = graphql`
 						contentMarkdown
 					}
 					thumbnail {
-						file {
-							url
+						fluid(maxWidth : 800) {
+							...GatsbyContentfulFluid_withWebp
 						}
 					}
 					tags {

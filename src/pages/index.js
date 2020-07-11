@@ -15,7 +15,7 @@ import BannerSquare from '../images/top/bannerSquare.gif'
 
 import PostBasic from "../components/postBasic";
 //import PostPV from "../components/post-pvranking";
-//import generateContentByPageViews from "../utils/generateContentByPageViews";
+import generateContentByPageViews from "../utils/generateContentByPageViews";
 
 //import "./index.css";
 const settings = {
@@ -236,7 +236,7 @@ export default IndexPage;
 
 export const query = graphql`
 	query BlogArticleQueryTop {
-		allContentfulBlogArticle: allContentfulBlogArticle(limit: 3, sort: {fields: createdAt, order: DESC}, filter: {node_locale: {eq: "ja-JP"}}) {
+		allContentfulBlogArticle: allContentfulBlogArticle(limit: 5, sort: {fields: createdAt, order: DESC}, filter: {node_locale: {eq: "ja-JP"}}) {
 			edges {
 				node {
 					id

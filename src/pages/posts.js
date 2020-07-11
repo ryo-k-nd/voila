@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Sidebar from "../components/sidebar"
-import Img from "gatsby-image";
 import PostBasic from "../components/postBasic";
 
 const BlogArticles = ({ data, location }) => {
@@ -42,7 +41,7 @@ export const query = graphql`
 						contentMarkdown
 					}
 					thumbnail {
-						fluid(maxWidth : 800) {
+						fluid(maxWidth : 300) {
 							...GatsbyContentfulFluid_withWebp
 						}
 					}

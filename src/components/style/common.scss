@@ -476,11 +476,16 @@ footer{
 		display: -ms-flexbox;
 		display: flex;
 		margin-bottom: 5px;
-		.thumbnail{
+		.thumbnail-wrapper{
 			width: 235px;
 			height: 158px;
-			object-fit: cover;
 			margin-right: 20px;
+			overflow: visible !important;
+			.thumbnail{
+				height: 100%;
+				object-fit: cover;
+			overflow: visible !important;
+			}
 		}
 		.post-basic-textblock{
 			width: 100%;

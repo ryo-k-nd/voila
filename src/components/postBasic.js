@@ -4,12 +4,22 @@ import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
 
 const PostBasic = ({ postData }) => (
-	postData.map(({ node: post }) => (
+	postData && postData.map(({ node: post }) => {
+		return (
 		<div className="post-basic-item">
-			<Img
-				fluid={post.thumbnail.fluid}
-				className="thumbnail"
-			/>
+			<div className="thumbnail-wrapper">
+			{post.thumbnail ? //もしサムネイル画像をもっていれば
+				<Img
+					fluid={post.thumbnail.fluid}
+					className="thumbnail"
+				/>
+			:
+				<img
+					src="//images.ctfassets.net/zbyipzusy20r/69YBVOds5ZZwcOtPgKe6dC/8bb092eeefb0372aa3f6e1be78d6f58d/pr_competition_img.jpg"
+					className="thumbnail"
+				/>
+			}
+			</div>
 			<div className="post-basic-textblock">
 				<p className="post-basic-postedat">{post.createdAt}</p>
 				<h4><Link to={`/post/${post.slug}`}>{post.title}</Link></h4>
@@ -25,7 +35,8 @@ const PostBasic = ({ postData }) => (
 				</div>
 			</div>
 		</div>
-	))
+		)
+	})
 )
 
 export default PostBasic
