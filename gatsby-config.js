@@ -16,6 +16,29 @@ module.exports = {
         head: true
       }
     },
+    {
+      resolve: `gatsby-source-mysql`,
+      options: {
+        connectionDetails: {
+          host: '35.187.39.199',
+          user: 'root',
+          password: process.env.MYSQL_PSWD,
+          database: 'wp_summary',
+        },
+        queries: [
+          {
+            statement: 'SELECT * FROM jd_api_currency limit 1',
+            idFieldName: 'Code',
+            name: 'jd_api_currency',
+          },
+          {
+            statement: 'SELECT * FROM jd_api_weather limit 1',
+            idFieldName: 'Code',
+            name: 'jd_api_weather',
+          }
+        ]
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

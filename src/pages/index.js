@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 //import Image from "../components/image";
@@ -8,6 +8,7 @@ import SEO from "../components/seo";
 import Slider from "react-slick";
 //import Styles from "../components/style/index.module.scss"
 //import PropTypes from 'prop-types';
+import { interval } from 'rxjs'
 
 import Slide1 from '../images/top/slide1.jpg'
 import BannerSuper from '../images/top/bannerSuper.jpg'
@@ -17,7 +18,6 @@ import PostBasic from "../components/postBasic";
 //import PostPV from "../components/post-pvranking";
 import generateContentByPageViews from "../utils/generateContentByPageViews";
 
-//import "./index.css";
 const settings = {
 	dots: true,
 	infinite: true,
@@ -31,11 +31,15 @@ const settings = {
 	focusOnSelect: true,
 };
 
-
 const IndexPage = ({ data, location }) => {
 	const blogPosts = data.allContentfulBlogArticle.edges;
 	const topUpdates = data.allContentfulPageUpdate.edges;
 	const blogPostsByPageViews = data.allPageViews.nodes;
+	const currency = data.mysqlJdApiCurrency;
+	const weather = data.mysqlJdApiWeather;
+
+	//現在時刻
+
 	return (
 		<Layout>
 			<SEO
@@ -51,7 +55,9 @@ const IndexPage = ({ data, location }) => {
 				<div className="top-weather__place">
 					<div className="top-weather__place-datatime">
 						FRANCE
-						<div className="place-time">04:19</div>
+						<div className="place-time">
+							14:19
+						</div>
 						<div className="place-data">11 APR 2020</div>
 					</div>
 					<div className="top-weather__place-weather">
@@ -75,8 +81,8 @@ const IndexPage = ({ data, location }) => {
 
 				<div className="top-weather__money">
 					1€
-      <div className="top-weather__money-yen">¥105.04</div>
-					<div className="top-weather__data">2020-04-12 11:55 UTC</div>
+			<div className="top-weather__money-yen">¥{currency.Rate}</div>
+					<div className="top-weather__data">{currency.Date}</div>
 				</div>
 			</div>
 			<div className="slide">
@@ -280,6 +286,18 @@ export const query = graphql`
 					}
 				}
 			}
+		}
+		mysqlJdApiCurrency {
+			Currency
+			Date
+			Rate
+		}
+		mysqlJdApiWeather {
+			City
+			Date
+			Max
+			Min
+			Telop
 		}
 	}
 `;
