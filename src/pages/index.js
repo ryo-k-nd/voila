@@ -32,7 +32,7 @@ const settings = {
 
 const IndexPage = ({ data, location }) => {
 	const blogPosts = data.allContentfulBlogArticle.edges;
-	const topUpdates = data.allContentfulPageUpdate.edges;
+	const topUpdates = data.contentfulPageUpdate;
 	const blogPostsByPageViews = data.allPageViews.nodes;
 	const currency = data.mysqlJdApiCurrency;
 	const weather = data.mysqlJdApiWeather;
@@ -57,6 +57,13 @@ const IndexPage = ({ data, location }) => {
 			/>
 			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
 			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+			<div className="notification-common">
+				<div className="container">
+					<a href={topUpdates.topNOtificationLink && topUpdates.topNOtificationLink} target="_blank">
+					{topUpdates.topNotificationText && topUpdates.topNotificationText}
+					</a>
+				</div>
+			</div>
 			<div className="container t-align-c">
 				<img src={BannerSuper} alt="banner" />
 			</div>
@@ -95,17 +102,15 @@ const IndexPage = ({ data, location }) => {
 			<div className="slide">
 				<Slider {...settings}>
 					{
-						topUpdates.map(({ node: post }) => (
-							post.favouriteArticleTop && post.favouriteArticleTop.map(({ title, thumbnail }) =>
-								<div className="slide-img">
-									<img src={`${thumbnail.file.url}?w=750`} alt="Slide3" />
-									<p className="slide-title">
-										<span className="slide-title__title">{title}</span>
-										<span className="slide-title__data">2020/04/20</span>
-									</p>
-								</div>
-							)
-						))
+						topUpdates.favouriteArticleTop && topUpdates.favouriteArticleTop.map(({ title, thumbnail }) =>
+							<div className="slide-img">
+								<img src={`${thumbnail.file.url}?w=750`} alt="Slide3" />
+								<p className="slide-title">
+									<span className="slide-title__title">{title}</span>
+									<span className="slide-title__data">2020/04/20</span>
+								</p>
+							</div>
+						)
 					}
 				</Slider>
 			</div>
@@ -182,11 +187,9 @@ const IndexPage = ({ data, location }) => {
 				</div>
 				<div className="t-align-c">
 					{
-						topUpdates.map(({ node: post }) => (
-							post.popularTag && post.popularTag.map(({ name, slug }) =>
-								<Link to={`/tag/${slug}`} className="top-keywords-tagname"><span>{name}</span></Link>
-							)
-						))
+						topUpdates.popularTag && topUpdates.popularTag.map(({ name, slug }) =>
+							<Link to={`/tag/${slug}`} className="top-keywords-tagname"><span>{name}</span></Link>
+						)
 					}
 				</div>
 			</div>
@@ -275,24 +278,22 @@ export const query = graphql`
 				totalCount
 			}
 		}
-		allContentfulPageUpdate: allContentfulPageUpdate(filter: {node_locale: {eq: "ja-JP"}}) {
-			edges {
-				node {
-					favouriteArticleTop {
-						title
-						createdAt(formatString: "YYYY-MM-DD")
-						thumbnail {
-							file {
-								url
-							}
-						}
-					}
-					popularTag {
-						name
-						slug
+		contentfulPageUpdate: contentfulPageUpdate(node_locale: {eq: "ja-JP"}) {
+			favouriteArticleTop {
+				title
+				createdAt(formatString: "YYYY-MM-DD")
+				thumbnail {
+					file {
+						url
 					}
 				}
 			}
+			popularTag {
+				name
+				slug
+			}
+			topNotificationText
+			topNOtificationLink
 		}
 		mysqlJdApiCurrency {
 			Currency
