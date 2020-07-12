@@ -88,7 +88,7 @@ const IndexPage = ({ data, location }) => {
 
 				<div className="top-weather__money">
 					1€
-			<div className="top-weather__money-yen">¥{currency.Rate}</div>
+			<div className="top-weather__money-yen">¥{currency.Rate.toFixed(2)}</div>
 					<div className="top-weather__data">{currency.Date}</div>
 				</div>
 			</div>
@@ -296,7 +296,7 @@ export const query = graphql`
 		}
 		mysqlJdApiCurrency {
 			Currency
-			Date
+			Date(formatString: "YYYY-MM-DD HH:mm")
 			Rate
 		}
 		mysqlJdApiWeather {
