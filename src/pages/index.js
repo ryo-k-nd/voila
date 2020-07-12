@@ -9,14 +9,13 @@ import Slider from "react-slick";
 //import Styles from "../components/style/index.module.scss"
 //import PropTypes from 'prop-types';
 import { interval } from 'rxjs'
-
 import Slide1 from '../images/top/slide1.jpg'
 import BannerSuper from '../images/top/bannerSuper.jpg'
 import BannerSquare from '../images/top/bannerSquare.gif'
-
 import PostBasic from "../components/postBasic";
-//import PostPV from "../components/post-pvranking";
 import generateContentByPageViews from "../utils/generateContentByPageViews";
+import moment from 'moment'
+import momentTimezone from 'moment-timezone'
 
 const settings = {
 	dots: true,
@@ -38,7 +37,17 @@ const IndexPage = ({ data, location }) => {
 	const currency = data.mysqlJdApiCurrency;
 	const weather = data.mysqlJdApiWeather;
 
-	//現在時刻
+	//現在時刻取得と毎秒更新
+	const dateTimeUtc = momentTimezone.tz(new Date(), 'UTC');
+	const [date, setDate] = useState(dateTimeUtc)
+	useEffect(() => {
+		const subscription = interval(60000).subscribe(() => {
+			setDate(new Date())
+		})
+		return () => {
+			subscription.unsubscribe()
+		}
+	}, [])
 
 	return (
 		<Layout>
@@ -55,10 +64,8 @@ const IndexPage = ({ data, location }) => {
 				<div className="top-weather__place">
 					<div className="top-weather__place-datatime">
 						FRANCE
-						<div className="place-time">
-							14:19
-						</div>
-						<div className="place-data">11 APR 2020</div>
+						<div className="place-time">{dateTimeUtc.tz('Europe/Paris').format('H:mm')}</div>
+						<div className="place-data">{dateTimeUtc.tz('Europe/Paris').format('DD MMM YYYY').toUpperCase()}</div>
 					</div>
 					<div className="top-weather__place-weather">
 						PARIS
@@ -69,8 +76,8 @@ const IndexPage = ({ data, location }) => {
 				<div className="top-weather__place">
 					<div className="top-weather__place-datatime">
 						JAPAN
-						<div className="place-time">14:19</div>
-						<div className="place-data">11 APR 2020</div>
+						<div className="place-time">{dateTimeUtc.tz('Asia/Tokyo').format('H:mm')}</div>
+						<div className="place-data">{dateTimeUtc.tz('Asia/Tokyo').format('DD MMM YYYY').toUpperCase()}</div>
 					</div>
 					<div className="top-weather__place-weather">
 						TOKYO
