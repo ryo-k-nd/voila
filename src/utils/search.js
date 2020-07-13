@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Link } from "gatsby"
 import Img from "gatsby-image";
+//import { Link } from "gatsby"
 //import { FaSearch } from "react-icons/fa"
 //import TextHighlighter from "./highlight"
 //import { Wrapper, ResultWrapper } from "./style"
@@ -113,7 +113,7 @@ const SearchResult = props => {
 					{result && result.map(e => {
 						return (
 							<li key={e.slug}>
-								<Link to={`/post/${e.slug}/`}>
+								<a href={`/post/${e.slug}/`}>
 									{e.thumbnail != null
 										? <Img fluid={e.thumbnail.fluid} alt={e.title} className="result-inner__img" />
 										: <div className="result-inner__img img-dummy">{e.title.slice(0, 9)}...</div>
@@ -134,7 +134,7 @@ const SearchResult = props => {
 								</div>*/}
 									</div>
 									{/*e.contentMarkdown.contentMarkdown*/}
-								</Link>
+								</a>
 							</li>
 						)
 					})}
