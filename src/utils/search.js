@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
+import Img from "gatsby-image";
 //import { FaSearch } from "react-icons/fa"
 //import TextHighlighter from "./highlight"
 //import { Wrapper, ResultWrapper } from "./style"
@@ -8,18 +9,31 @@ import { Link } from "gatsby"
 const SearchResult = props => {
 	// 全記事データ取得 //
 	const tempData = useStaticQuery(graphql`
-		query SearchData {
-			allContentfulBlogArticleForSearch: allContentfulBlogArticle(sort: {fields: createdAt, order: DESC}, filter: {node_locale: {eq: "ja-JP"}}, limit: 10) {
+			query SearchData {
+			allContentfulBlogArticleForSearch: allContentfulBlogArticle(sort: {fields: createdAt, order: DESC}, filter: {node_locale: {eq: "ja-JP"}, updatedAt: {}}) {
 				edges {
 					node {
 						title
 						slug
 						category
-						contentMarkdown{
+						contentMarkdown {
 							contentMarkdown
 						}
 						tags {
 							name
+						}
+						createdAt(formatString: "YYYY-MM-DD")
+						thumbnail {
+							file {
+								url
+							}
+							fluid(maxWidth : 300) {
+								...GatsbyContentfulFluid_withWebp
+							}
+						}
+						tags {
+							name
+							slug
 						}
 						createdAt(formatString: "YYYY-MM-DD")
 					}
@@ -72,6 +86,7 @@ const SearchResult = props => {
 		const temp = data.filter(e => {
 			const target = `
 				${e.title.toLowerCase()}
+				${e.contentMarkdown.contentMarkdown.toLowerCase()}
 			`
 			return target.indexOf(value) !== -1
 		})
@@ -80,7 +95,7 @@ const SearchResult = props => {
 	useEffect(() => {
 		if (props.value !== "") {
 			search()
-		}else{
+		} else {
 			searchNull()
 		}
 	}, [props.value])
@@ -88,16 +103,36 @@ const SearchResult = props => {
 	return (
 		<div className={className}>
 			<div className="result-inner">
-				<span className="res">
-					<b>{result.length}</b>件ヒットしました
-				</span>
-				<ul>
+				<div className="result-inner__res">
+					{props.value != "" ?
+						props.value + " の検索結果" + result.length + "件"
+						: "　"
+					}
+				</div>
+				<ul className="result-inner__search">
 					{result && result.map(e => {
 						return (
 							<li key={e.slug}>
 								<Link to={`/post/${e.slug}/`}>
+									{e.thumbnail != null
+										? <Img fluid={e.thumbnail.fluid} alt={e.title} className="result-inner__img" />
+										: <div className="result-inner__img img-dummy">{e.title.slice(0, 9)}...</div>
+									}
 									{/*<TextHighlighter str={e.title} includes={props.value} />*/}
-									{e.title}
+									<div className="result-inner__title">
+										{e.title}
+									</div>
+									<div className="result-inner__info flex-row">
+										<div className="result-inner__info-cate">{e.category}</div>
+										<div className="result-inner__info-date">{e.createdAt}</div>
+										{/*<div className="result-inner__info-tags">
+											<ul className="flex-row">
+												{e.tags && e.tags.map(({ name, slug }) =>
+													<li><Link to={`/tag/${slug}`}>#{name}</Link></li>
+												)}
+											</ul>
+								</div>*/}
+									</div>
 									{/*e.contentMarkdown.contentMarkdown*/}
 								</Link>
 							</li>

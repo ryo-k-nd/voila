@@ -14,13 +14,16 @@ class ModalSeach extends React.Component {
 		this.closeModal = this.closeModal.bind(this);
 	}
 	openModal() {
-		this.setState({modalIsOpen: true});
+		this.setState({ modalIsOpen: true });
+		document.getElementsByTagName('html')[0].setAttribute('style', 'overflow-y: hidden;');
+
 	}
 	afterOpenModal() {
-		this.subtitle.style.color = '#f00';
+		//this.subtitle.style.color = '#f00';
 	}
 	closeModal() {
-		this.setState({modalIsOpen: false});
+		this.setState({ modalIsOpen: false });
+		document.getElementsByTagName('html')[0].setAttribute('style', 'overflow-y: scroll;');
 	}
 	render() {
 		return (
@@ -34,9 +37,9 @@ class ModalSeach extends React.Component {
 					className="modalSearchWindow"
 					overlayClassName="modalSearchOverlay"
 				>
-					<h2 ref={subtitle => this.subtitle = subtitle}>記事を検索する</h2>
+					{/*<h2 ref={subtitle => this.subtitle = subtitle}>記事を検索する</h2>*/}
 					<Search />
-					<button onClick={this.closeModal}>close</button>
+					<button onClick={this.closeModal}><i class="fas fa-times"></i></button>
 				</Modal>
 			</div>
 		);
