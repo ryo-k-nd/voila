@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css");
+@import url("https://use.typekit.net/gon8zcg.css");
 
 $c-basic: #222222;
 $c-lightgray: #EEEEEE;
@@ -147,6 +148,7 @@ a{
 		}
 		span{
 			font-size: 0.8rem;
+			font-style: normal;
 		}
 		h2,span{
 			display: block;
@@ -165,6 +167,22 @@ a{
 	text-align: center;
 	flex: 0 0 auto;
 }
+.font-lemonde{
+	font-family: lemonde-sans, sans-serif;
+	&.italic{
+		font-style: italic;
+	}
+	&.light{
+		font-weight: 300;
+	}
+	&.regular{
+		font-weight: 400;
+	}
+	&.demi{
+		font-weight: 600;
+	}
+
+}
 
 
 //Header
@@ -179,12 +197,10 @@ header{
 			margin: 0 auto 0 0;
 			display: flex;
 			align-items: flex-end;
-
 			&__img{
 				width: 150px;
-				height: 60px;
-				background: lightgrey;
-				text-align: center;
+				height: auto;
+				margin: 0;
 				display: block;
 			}
 
@@ -200,7 +216,7 @@ header{
 					&:after{
 						content:"";
 						border-left: 1px solid black;
-						margin: 0px 10px;
+						margin: 0px 8px;
 					}
 				}
 			}
@@ -222,7 +238,6 @@ header{
 
 				&__fr{
 					font-size: 1.2rem;
-					font-family: 'Noto Serif JP', serif;
 				}
 
 				&:hover{
@@ -239,7 +254,7 @@ header{
 			}
 		}
 		.header-link{
-			margin-left: 3vw;
+			margin-left: 1.5vw;
 
 			&__search{
 				font-size: 1.5rem;
@@ -418,7 +433,7 @@ footer{
 	background: $c-basic;
 	color: #fff;
 	.container{
-		padding: 2px 0;
+		padding: 1px 0;
 		text-align: center;
 		a{
 			margin: 0;
@@ -641,6 +656,7 @@ footer{
 	font-size: 1.2rem;
 	p{
 		margin-bottom: 1rem;
+		font-size: 1.3rem;
 	}
 	ul{
 		margin: 0;
@@ -656,6 +672,7 @@ footer{
 	h2{
 		text-align: left;
 		margin-bottom: 15px;
+
 		span{
 			font-weight: normal;
 			margin-left: 10px;
@@ -685,35 +702,40 @@ footer{
 }
 .top-keywords{
 	border-top: $c-gray1 solid 2px;
-	margin-top: 50px;
+	margin: 120px auto 70px;
 	padding-top: 50px;
 	position: relative;
-	.top-keywords-title{
+	&-title{
 		display: inline-block;
 		background: #fff;
 		margin-bottom: 20px;
+		padding: 0 50px;
 		position: absolute;
-		top: -36px;
+		top: -30px;
 		left: 50%;
 		transform: translateX(-50%);
 		-webkit-transform: translateX(-50%);
 		-ms-transform: translateX(-50%);
 	}
-	a.top-keywords-tagname{
+	&__tags{
+		margin: 30px auto 0;
+		width: 70%;
+	}
+	&-tagname{
 		margin: 8px;
-		padding: 8px;
+		padding: 4px;
 		font-size: 0.8rem;
-		border: solid 1px $c-basic;
+		border-bottom: solid 1px $c-basic;
 		word-break: keep-all;
 		display: inline-block;
 		text-decoration: none;
 		color: inherit;
 		line-height: 100%;
-		&:hover{
-			color: white;
-			background: $c-basic;
-			opacity: 1;
-		};
+		//&:hover{
+		//	color: white;
+		//	background: $c-basic;
+		//	opacity: 1;
+		//};
 	}
 }
 .top-popular_article{
@@ -982,6 +1004,15 @@ footer{
 		}
 	}
 }
+.ReactModalPortal{
+    transition: opacity .3s, visibility .3s;
+    opacity: 0;
+	visibility: hidden;
+	&.is-show{
+		opacity: 1;
+		visibility: visible;
+	}
+}
 .ReactModal{
 	&__Body{
 		&--open{
@@ -1028,12 +1059,12 @@ footer{
 					&__img{
 						margin-bottom: 10px;
 						width: 100%;
-						height: 50%;
+						height: 40%;
 						object-fit: cover;
 						&.img-dummy{
 							width: 100%;
-							height: 50%;
-							min-height: 145px;
+							height: 40%;
+							min-height: 130px;
 							background: $c-gray1;
 							color: white;
 							font-size: 1.5rem;
@@ -1073,13 +1104,18 @@ footer{
 					&__info{
 						color: $c-gray1;
 						font-size: 0.7rem;
-						&-cate{
+						&-date{
+							display: inline;
 							margin-right: 10px;
+						}
+						&-cate{
+							display: inline;
 						}
 						&-tags{
 							ul{
-								flex-wrap: nowrap;
+								flex-wrap: wrap;
 								margin-right: 5px;
+								white-space: nowrap;
 								li{
 									width: auto;
 									margin: 0 5px 0 0;

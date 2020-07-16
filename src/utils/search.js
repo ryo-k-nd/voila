@@ -122,16 +122,16 @@ const SearchResult = props => {
 									<div className="result-inner__title">
 										{e.title}
 									</div>
-									<div className="result-inner__info flex-row">
-										<div className="result-inner__info-cate">{e.category}</div>
+									<div className="result-inner__info">
 										<div className="result-inner__info-date">{e.createdAt}</div>
-										{/*<div className="result-inner__info-tags">
+										<div className="result-inner__info-cate">{e.category}</div>
+										<div className="result-inner__info-tags">
 											<ul className="flex-row">
 												{e.tags && e.tags.map(({ name, slug }) =>
-													<li><Link to={`/tag/${slug}`}>#{name}</Link></li>
+													<li><a href={`/tag/${slug}`}>#{name}</a></li>
 												)}
 											</ul>
-								</div>*/}
+										</div>
 									</div>
 									{/*e.contentMarkdown.contentMarkdown*/}
 								</a>

@@ -60,7 +60,7 @@ const IndexPage = ({ data, location }) => {
 			<div className="notification-common">
 				<div className="container">
 					<a href={topUpdates.topNOtificationLink && topUpdates.topNOtificationLink} target="_blank">
-					{topUpdates.topNotificationText && topUpdates.topNotificationText}
+						{topUpdates.topNotificationText && topUpdates.topNotificationText}
 					</a>
 				</div>
 			</div>
@@ -116,7 +116,7 @@ const IndexPage = ({ data, location }) => {
 			</div>
 			<div className="top-sub_category container flex-row">
 				<div className="flex-column-2point4">
-					<p>Voyage</p>
+					<p className="font-lemonde italic demi">Voyage</p>
 					<ul>
 						<li><Link to="#">旅の基本情報</Link></li>
 						<li><Link to="#">渡仏の準備</Link></li>
@@ -126,7 +126,7 @@ const IndexPage = ({ data, location }) => {
 					</ul>
 				</div>
 				<div className="flex-column-2point4">
-					<p>Vie</p>
+					<p className="font-lemonde italic demi">Vie</p>
 					<ul>
 						<li><Link to="#">暮らしの基本情報</Link></li>
 						<li><Link to="#">住まい</Link></li>
@@ -136,7 +136,7 @@ const IndexPage = ({ data, location }) => {
 					</ul>
 				</div>
 				<div className="flex-column-2point4">
-					<p>Études</p>
+					<p className="font-lemonde italic demi">Études</p>
 					<ul>
 						<li><Link to="#">学びの基本情報</Link></li>
 						<li><Link to="#">語学留学</Link></li>
@@ -146,7 +146,7 @@ const IndexPage = ({ data, location }) => {
 					</ul>
 				</div>
 				<div className="flex-column-2point4">
-					<p>Travail</p>
+					<p className="font-lemonde italic demi">Travail</p>
 					<ul>
 						<li><Link to="#">仕事の基本情報</Link></li>
 						<li><Link to="#">仕事を見つける</Link></li>
@@ -156,7 +156,7 @@ const IndexPage = ({ data, location }) => {
 					</ul>
 				</div>
 				<div className="flex-column-2point4">
-					<p>Divertissement</p>
+					<p className="font-lemonde italic demi">Divertissement</p>
 					<ul>
 						<li><Link to="#">レストラン・カフェ</Link></li>
 						<li><Link to="#">アート・カルチャー</Link></li>
@@ -168,13 +168,15 @@ const IndexPage = ({ data, location }) => {
 			</div>
 			<div className="top-latest_article container flex-row">
 				<div className="main top-heading">
-					<h2>Les derniers articles<span>新しい記事!</span></h2>
+					<h2 className="font-lemonde italic regular">Les derniers articles<span>新しい記事</span></h2>
 					<div className="post-basic">
 						<PostBasic postData={blogPosts} />
 					</div>
-					<Link to="/posts" className="show-more t-align-c">
-						新しい記事をもっと見る
-					</Link>
+					<div className="flex-row">
+						<Link to="/posts" className="show-more t-align-c">
+							新しい記事をもっと見る
+						</Link>
+					</div>
 				</div>
 				<aside className="sidebar">
 					<img src={BannerSquare} alt="BannerSquare" />
@@ -182,13 +184,13 @@ const IndexPage = ({ data, location }) => {
 			</div>
 			<div className="top-keywords container t-align-c">
 				<div className="top-keywords-title top-heading">
-					<h2>Mots-clés</h2>
+					<h2 className="font-lemonde italic regular">Mots-clés</h2>
 					<span>今話題のキーワード</span>
 				</div>
-				<div className="t-align-c">
+				<div className="t-align-c top-keywords__tags">
 					{
 						topUpdates.popularTag && topUpdates.popularTag.map(({ name, slug }) =>
-							<Link to={`/tag/${slug}`} className="top-keywords-tagname"><span>{name}</span></Link>
+							<Link to={`/tag/${slug}`} className="top-keywords-tagname"><span>#{name}</span></Link>
 						)
 					}
 				</div>
@@ -202,7 +204,7 @@ const IndexPage = ({ data, location }) => {
 					<div className="post-tile">
 						{
 							blogPostsByPageViews && blogPostsByPageViews.map(({ path, totalCount }) => {
-								if (path.indexOf('/post/') != -1 && path.substr(-1) != '/' ){
+								if (path.indexOf('/post/') != -1 && path.substr(-1) != '/') {
 									const pagePath = path.replace('post/', '').replace(/\//g, '');
 									return (
 										<div className="post-tile-item">
@@ -219,16 +221,15 @@ const IndexPage = ({ data, location }) => {
 										</div>
 									)
 								}
-						})
+							})
 						}
 					</div>
 				</div>
 			</div>
-			<div className="top-popular_article--more t-align-c">
+			<div className="top-popular_article--more t-align-c flex-row">
 				<Link to="#" className="show-more">
 					おすすめの記事をもっと見る
 				</Link>
-
 			</div>
 			<div className="container t-align-c">
 				<img src={BannerSuper} alt="banner" />
