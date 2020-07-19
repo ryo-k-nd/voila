@@ -13,12 +13,17 @@ const BlogArticle = ({ data, pageContext, location }) => {
 	const { title, contentMarkdown, thumbnail, category, createdAt, tags } = data.contentfulBlogArticle;
 	const relatedArticle = data.relatedArticle.edges;
 
-	const source = contentMarkdown.contentMarkdown.replace(/\n/gi, '\nreplaced_text ');
 	marked.setOptions({
+		pedantic: false,
 		gfm: true,
 		breaks: true,
+		sanitize: false,
+		smartLists: true,
+		smartypants: false,
+		xhtml: false
 	});
-	const parsedSouce = marked(source).replace(/replaced_text/g, '');
+	//const source = contentMarkdown.contentMarkdown.replace(/\n/gi, '\nreplaced_text ');
+	//const parsedSouce = marked(source).replace(/replaced_text/g, '');
 
 	const imageUrl = thumbnail ? thumbnail.file.url : "//images.ctfassets.net/zbyipzusy20r/69YBVOds5ZZwcOtPgKe6dC/8bb092eeefb0372aa3f6e1be78d6f58d/pr_competition_img.jpg"
 
@@ -38,11 +43,12 @@ const BlogArticle = ({ data, pageContext, location }) => {
 						<Img
 							fluid={useContentfulImage(imageUrl)}
 						/>
-						{
+							{
 							/* contentMarkdown */
 							/* parsedSouce */
-						}
-						<div className="body-text" dangerouslySetInnerHTML={{ __html: marked(parsedSouce) }} />
+							/* contentMarkdown.contentMarkdown */
+							}
+						<div className="body-text" dangerouslySetInnerHTML={{ __html: marked(contentMarkdown.contentMarkdown) }} />
 						<div className="post__sns">
 							<div className="post__sns-text">この記事をシェアする</div>
 							<Link to="/blog"><i class="fab fa-twitter"></i></Link>
