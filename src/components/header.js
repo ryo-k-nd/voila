@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import ModalSeach from "../components/modalSearch";
 import Logo from '../images/top/logo.svg';
+import icon_mail_w from '../images/top/icon-newsletter-w.svg';
 
 const Header = ({ siteTitle }) => (
 	<header className="header-common">
@@ -21,38 +22,37 @@ const Header = ({ siteTitle }) => (
 				<Link to="/">
 					<img src={Logo} alt={siteTitle} width="150" height="55" className="header-logo__img" />
 				</Link>
-				<div>[ヴォワラ]</div>
-				<div>フランス暮らしを快適に</div>
+				<div>［ヴォワラ］<span className="sen"></span>フランス暮らしを快適に</div>
 			</div>
 			<div className="header-navi flex-row">
 				<div className="header-navi-text">
 					<Link to="/travel/">
 						<span className="header-navi-text__ja">旅する</span>
-						<span className="header-navi-text__fr font-lemonde italic demi">Voyage</span>
+						<span className="header-navi-text__fr font-lemonde italic regular">Voyage</span>
 					</Link>
 				</div>
 				<div className="header-navi-text">
 					<Link to="/life/">
 						<span className="header-navi-text__ja">暮らす</span>
-						<span className="header-navi-text__fr font-lemonde italic demi">Vie</span>
+						<span className="header-navi-text__fr font-lemonde italic regular">Vie</span>
 					</Link>
 				</div>
 				<div className="header-navi-text">
 					<Link to="/study/">
 						<span className="header-navi-text__ja">学ぶ</span>
-						<span className="header-navi-text__fr font-lemonde italic demi">Études</span>
+						<span className="header-navi-text__fr font-lemonde italic regular">Études</span>
 					</Link>
 				</div>
 				<div className="header-navi-text">
 					<Link to="/work/">
 						<span className="header-navi-text__ja">働く</span>
-						<span className="header-navi-text__fr font-lemonde italic demi">Travail</span>
+						<span className="header-navi-text__fr font-lemonde italic regular">Travail</span>
 					</Link>
 				</div>
 				<div className="header-navi-text">
 					<Link to="/play/">
 						<span className="header-navi-text__ja">遊ぶ</span>
-						<span className="header-navi-text__fr font-lemonde italic demi">Divertissement</span>
+						<span className="header-navi-text__fr font-lemonde italic regular">Divertissement</span>
 					</Link>
 				</div>
 			</div>
@@ -62,7 +62,7 @@ const Header = ({ siteTitle }) => (
 					<ModalSeach />
 
 				</div>
-				<Link to="/newsletter" className="header-link__newsletter"><i className="fas fa-envelope"></i>メルマガ登録</Link>
+				<Link to="/newsletter" className="header-link__newsletter"><img src={icon_mail_w}></img>メルマガ登録</Link>
 			</div>
 		</div>
 	</header>

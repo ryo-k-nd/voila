@@ -11,7 +11,7 @@ const Sidebar = ({ data }) => {
 			<img src={BannerSquare} alt="BannerSquare" />
 			<hr />
 			<div className="sidebar-article">
-				<div className="sidebar-article__title"><span className="font-serif">Articles les plus lus</span><br />人気記事</div>
+				<div className="sidebar-article__title"><span className="font-lemonde italic demi">Articles les plus lus</span><br />人気記事</div>
 				<div>
 					{
 						Updates.map(({ node: post }) => (
@@ -33,7 +33,7 @@ const Sidebar = ({ data }) => {
 			</div>
 			<hr />
 			<div className="sidebar-article">
-				<div className="sidebar-article__title"><span className="font-serif">Pick up articles</span><br />ピックアップ記事</div>
+				<div className="sidebar-article__title"><span className="font-lemonde italic demi">Pick up articles</span><br />ピックアップ記事</div>
 				<div>
 					{
 						Updates.map(({ node: post }) => (

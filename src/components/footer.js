@@ -7,7 +7,7 @@ const Footer = ({ siteTitle }) => (
 		<div className="container">
 			<div className="flex-row">
 				<div className="flex-column-2">
-					<p>Voyage</p>
+					<p className="font-lemonde italic demi">Voyage</p>
 					<ul>
 						<li><Link to="/">旅の基本情報</Link></li>
 						<li><Link to="/">渡仏の準備</Link></li>
@@ -17,7 +17,7 @@ const Footer = ({ siteTitle }) => (
 					</ul>
 				</div>
 				<div className="flex-column-2">
-					<p>Vie</p>
+					<p className="font-lemonde italic demi">Vie</p>
 					<ul>
 						<li><Link to="/">暮らしの基本情報</Link></li>
 						<li><Link to="/">住まい</Link></li>
@@ -27,7 +27,7 @@ const Footer = ({ siteTitle }) => (
 					</ul>
 				</div>
 				<div className="flex-column-2">
-					<p>Etudes</p>
+					<p className="font-lemonde italic demi">Etudes</p>
 					<ul>
 						<li><Link to="/">学びの基本情報</Link></li>
 						<li><Link to="/">語学留学</Link></li>
@@ -37,7 +37,7 @@ const Footer = ({ siteTitle }) => (
 					</ul>
 				</div>
 				<div className="flex-column-2">
-					<p>Travail</p>
+					<p className="font-lemonde italic demi">Travail</p>
 					<ul>
 						<li><Link to="/">仕事の基本情報</Link></li>
 						<li><Link to="/">仕事を見つける</Link></li>
@@ -47,7 +47,7 @@ const Footer = ({ siteTitle }) => (
 					</ul>
 				</div>
 				<div className="flex-column-2">
-					<p>Divertissement</p>
+					<p className="font-lemonde italic demi">Divertissement</p>
 					<ul>
 						<li><Link to="/">レストラン・カフェ</Link></li>
 						<li><Link to="/">アート・カルチャー</Link></li>

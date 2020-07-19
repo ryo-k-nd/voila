@@ -16,6 +16,7 @@ import PostBasic from "../components/postBasic";
 import generateContentByPageViews from "../utils/generateContentByPageViews";
 import moment from 'moment'
 import momentTimezone from 'moment-timezone'
+import icon_mail from '../images/top/icon-newsletter.svg';
 
 const settings = {
 	dots: true,
@@ -116,7 +117,7 @@ const IndexPage = ({ data, location }) => {
 			</div>
 			<div className="top-sub_category container flex-row">
 				<div className="flex-column-2point4">
-					<p className="font-lemonde italic demi">Voyage</p>
+					<p className="font-lemonde italic regular">Voyage</p>
 					<ul>
 						<li><Link to="#">旅の基本情報</Link></li>
 						<li><Link to="#">渡仏の準備</Link></li>
@@ -126,7 +127,7 @@ const IndexPage = ({ data, location }) => {
 					</ul>
 				</div>
 				<div className="flex-column-2point4">
-					<p className="font-lemonde italic demi">Vie</p>
+					<p className="font-lemonde italic regular">Vie</p>
 					<ul>
 						<li><Link to="#">暮らしの基本情報</Link></li>
 						<li><Link to="#">住まい</Link></li>
@@ -136,7 +137,7 @@ const IndexPage = ({ data, location }) => {
 					</ul>
 				</div>
 				<div className="flex-column-2point4">
-					<p className="font-lemonde italic demi">Études</p>
+					<p className="font-lemonde italic regular">Études</p>
 					<ul>
 						<li><Link to="#">学びの基本情報</Link></li>
 						<li><Link to="#">語学留学</Link></li>
@@ -146,7 +147,7 @@ const IndexPage = ({ data, location }) => {
 					</ul>
 				</div>
 				<div className="flex-column-2point4">
-					<p className="font-lemonde italic demi">Travail</p>
+					<p className="font-lemonde italic regular">Travail</p>
 					<ul>
 						<li><Link to="#">仕事の基本情報</Link></li>
 						<li><Link to="#">仕事を見つける</Link></li>
@@ -156,7 +157,7 @@ const IndexPage = ({ data, location }) => {
 					</ul>
 				</div>
 				<div className="flex-column-2point4">
-					<p className="font-lemonde italic demi">Divertissement</p>
+					<p className="font-lemonde italic regular">Divertissement</p>
 					<ul>
 						<li><Link to="#">レストラン・カフェ</Link></li>
 						<li><Link to="#">アート・カルチャー</Link></li>
@@ -198,7 +199,7 @@ const IndexPage = ({ data, location }) => {
 			<div className="top-popular_article t-align-c">
 				<div className="container">
 					<div className="top-popular_article-title top-heading">
-						<h2>Articles les plus lus</h2>
+						<h2 className="font-lemonde italic regular">Articles les plus lus</h2>
 						<span>人気の記事</span>
 					</div>
 					<div className="post-tile">
@@ -237,8 +238,8 @@ const IndexPage = ({ data, location }) => {
 			<div className="top-newsletter container">
 				<Link to="/newsletter">
 					<div className="flex-row">
-						<i className="fas fa-envelope fa-2x fa-newsletter"></i>
-						<div className="top-newsletter__text flex-row">
+						<div className="top-newsletter__img"><img src={icon_mail} alt="mail"></img></div>
+						<div className="top-newsletter__text">
 							<div className="top-newsletter__text-title">最新のフランス情報満載のメルマガ</div>
 							<div className="top-newsletter__text-text">フランス・パリの現地から最新情報、便利なイベント情報、コラムなどを配信します。お気軽にご登録ください。</div>
 						</div>

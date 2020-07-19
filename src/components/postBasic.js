@@ -21,11 +21,10 @@ const PostBasic = ({ postData }) => (
 					}
 				</div>
 				<div className="post-basic-textblock">
-					<div className="post-basic-postedat">{post.createdAt}</div>
 					<h4><Link to={`/post/${post.slug}`}>{post.title}</Link></h4>
 					{/*<p className="post-basic-desc"></p>*/}
 					<div className="post-basic-catbox flex-row">
-						<div className="post-basic-catname">{post.category}</div>
+						<div className="post-basic-catname">{post.category} </div>
 						<ul className="post-basic-tags tags">
 							{post.tags && post.tags.map(({ name, slug }) =>
 								<li><Link to={`/tag/${slug}`}>#{name}</Link></li>
@@ -33,6 +32,7 @@ const PostBasic = ({ postData }) => (
 							}
 						</ul>
 					</div>
+					<div className="post-basic-postedat">{post.createdAt}</div>
 				</div>
 			</div>
 		)

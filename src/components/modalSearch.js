@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Search from "../utils/search";
+import searchpng from '../images/top/icon-search.svg';
 
 Modal.setAppElement('#___gatsby') //public/htmlのid参照
 class ModalSeach extends React.Component {
@@ -30,7 +31,7 @@ class ModalSeach extends React.Component {
 	render() {
 		return (
 			<div>
-				<button onClick={this.openModal} className="seachIcon"><i className="fas fa-search"></i></button>
+				<button onClick={this.openModal} className="seachIcon">{/*<i className="fas fa-search"></i>*/}<img src={searchpng} width="27" height="27"></img></button>
 				<Modal
 					isOpen={this.state.modalIsOpen}
 					onAfterOpen={this.afterOpenModal}

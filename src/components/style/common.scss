@@ -141,31 +141,7 @@ a{
 }
 .font-serif{
 	font-family: 'Noto Serif JP', serif;
-}
-.top-heading{
-		h2{
-			font-size: 2rem;
-		}
-		span{
-			font-size: 0.8rem;
-			font-style: normal;
-		}
-		h2,span{
-			display: block;
-			text-align: center;
-			margin: 5px;
-		}
-}
-.img-dummy{
-	background: $c-gray1;
-	color: white;
-	font-size: 2rem;
-	line-height: 150%;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	text-align: center;
-	flex: 0 0 auto;
+	font-style: normal;
 }
 .font-lemonde{
 	font-family: lemonde-sans, sans-serif;
@@ -181,10 +157,40 @@ a{
 	&.demi{
 		font-weight: 600;
 	}
-
+}
+.top-heading{
+		h2{
+			font-size: 2rem;
+		}
+		span{
+			font-size: 12.6px;
+			font-style: normal;
+		}
+		h2,span{
+			display: block;
+			text-align: center;
+			margin: 2px 5px;
+		}
+}
+.img-dummy{
+	background: $c-gray1;
+	color: white;
+	font-size: 2rem;
+	line-height: 150%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	flex: 0 0 auto;
 }
 
-
+.sen{
+	border-right: 1px solid $c-basic;
+    margin: 0px 6px 0 2px;
+    top: 0;
+    position: relative;
+    top: 1px;
+}
 //Header
 header{
 	&.header-common{
@@ -208,32 +214,30 @@ header{
 				font-size: 0.6rem;
 				line-height: 100%;
 
-				&:first-of-type{
-					font-family: 'Noto Serif JP', serif;
-					font-size: 0.5rem;
-					margin-left: 0.5vw;
-
-					&:after{
-						content:"";
-						border-left: 1px solid black;
-						margin: 0px 8px;
-					}
+				&:first-of-type{					
+					margin-left: 15px;
+					margin-bottom: 2px;
 				}
 			}
 		}
 		.header-navi{
+			    margin-top: 4px;
 			.header-navi-text{
 				margin-left: 2vw;
 				font-size: 0.65rem;
 				text-align: center;
 
-				&__ja:after{
-					width: 1.5rem;
-					height: 2px;
-					background: rgba(0,0,0,0);
+				&__ja{
 					display: block;
-					margin: 0 auto;
-					content: "";
+    				margin-bottom: -6px;
+					&:after{
+						width: 1.5rem;
+						height: 2px;
+						background: rgba(0,0,0,0);
+						display: block;
+						margin: -4px auto 5px;
+						content: "";
+				}
 				}
 
 				&__fr{
@@ -258,7 +262,7 @@ header{
 
 			&__search{
 				font-size: 1.5rem;
-				margin-right: 1.5vw;
+				margin: 0 15px 0px 10px;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
@@ -270,12 +274,14 @@ header{
 				color: #fff;
 				font-size: 0.7rem;
 				font-weight: bold;
-				display: inline-table;
+				display: flex;
 				padding: 3px 5px;
 				margin: auto 0;
 
-				i{
-					margin-right: 3px;
+				img{
+					margin: 0 5px 0 0;
+					width: 25px;
+					height: auto;
 				}
 			}
 		}
@@ -301,6 +307,7 @@ footer{
 		padding-top: 30px;
 		p{
 			margin-bottom: 15px;
+			font-size: 18px;
 		}
 		ul{
 			margin: 0;
@@ -336,7 +343,7 @@ footer{
 //Main
 .main{
 	margin: 0 auto 0 0;
-	width: 662px;
+	width: 650px;
 }
 
 //Sidebar
@@ -349,22 +356,10 @@ footer{
 		&__title{
 			margin-bottom: 20px;
 			position: relative;
-			padding-left: 43px;
+			font-size: 0.7rem;
 			span{
-				font-size: 1.2rem;
-			}
-			&::before {
-				content: "";
-				position: absolute;
-				width: 35px;
-				height: 17.5px;
-				border-radius: 17.5px 17.5px 0 0;
-				background: #222222;
-				top: 55%;
-				left: 0;
-				transform: translateY(-50%) rotate(-135deg);
-			}
-		}
+				font-size: 1.4rem;
+			}		}
 		.slide-img{
 			a{
 				margin-bottom: 25px;
@@ -501,9 +496,11 @@ footer{
 		display: -webkit-flex;
 		display: -ms-flexbox;
 		display: flex;
-	margin-bottom: 35px;
+		margin-bottom: 35px;
 		h4{
 			margin-bottom: 20px;
+			font-size: 18px;
+			line-height: 130%;
 		}
 		.thumbnail-wrapper{
 			width: 235px;
@@ -519,14 +516,13 @@ footer{
 		.post-basic-textblock{
 			width: 100%;
 			.post-basic-postedat{
-				text-align: right;
-				margin-bottom: 10px;
+				margin-top: 10px;
 			}
 			.post-basic-catbox{
+				font-size: 13.5px;
 			}
 			.post-basic-catname{
 				margin-right: 8px;
-				font-size: 0.8rem;
 			}
 			.post-basic-tags{
 				margin: 0;
@@ -547,6 +543,7 @@ footer{
 	-webkit-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	margin-top: 10px;
 	&-item{
 		max-width: 33.3%;
 		-webkit-flex-basis: 33.3%;
@@ -563,7 +560,9 @@ footer{
 			display: inline-block;
 			h4{
 				margin-bottom: 1rem;
-				min-height: 90px;
+				min-height: 70px;
+				font-size: 15px;
+				line-height: 150%;
 			}
 		}
 		.post-tile-tagname{
@@ -656,7 +655,7 @@ footer{
 	font-size: 1.2rem;
 	p{
 		margin-bottom: 1rem;
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 	}
 	ul{
 		margin: 0;
@@ -665,6 +664,7 @@ footer{
 			list-style: none;
 			font-size: 0.7rem;
 			margin: 0;
+			line-height: 180%;
 		}
 	}
 }
@@ -677,6 +677,7 @@ footer{
 			font-weight: normal;
 			margin-left: 10px;
 			display: inline;
+			font-size: 12.6px;
 		}
 	}
 	.post-basic{
@@ -758,15 +759,25 @@ footer{
 		margin-bottom: 60px;
 		width: 40%;
 	}
+	&__img{
+		width: 20%;
+		height: auto;
+		margin: 0 20px 0 0;
+		background: #222;
+		box-sizing: border-box;
+		padding: 20px;
+		border-radius: 50%;
+		display: flex;
+		& img{
+			margin: 0;
+		}
+	}
 	&__text{
 		text-align: left;
-		&.flex-row{
-			flex-wrap: wrap;
-			align-content: space-between;
-		}
 		&-title{
 			font-size: 1rem;
 			font-weight: bold;
+			margin-bottom: 10px;
 		}
 		&-text{
 			font-size: 0.8rem;
@@ -852,7 +863,6 @@ footer{
 }
 .post{
 	letter-spacing: .05rem;
-	margin-right: 37px;
 	.body-text{
 		margin-top: 40px;
 		a{
@@ -880,7 +890,7 @@ footer{
 			margin: 0 0 20px;
 		}
 		p{
-			margin: 0 0 60px;
+			margin: 0 0 30px;
 		}
 	}
 	&__row2{
@@ -973,6 +983,9 @@ footer{
 	&:focus {
 		outline:0;
 	}
+	& img{
+		margin-bottom: 0;
+	}
 }
 .modalSearchOverlay{
 	position: fixed;
@@ -1008,6 +1021,8 @@ footer{
     transition: opacity .3s, visibility .3s;
     opacity: 0;
 	visibility: hidden;
+	z-index: 1000;
+	position: relative;
 	&.is-show{
 		opacity: 1;
 		visibility: visible;
