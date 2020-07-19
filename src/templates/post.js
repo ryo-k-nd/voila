@@ -32,7 +32,7 @@ const BlogArticle = ({ data, pageContext, location }) => {
 			<SEO
 				pageTitle={title}
 				showSiteNameInTitle="true"
-				pageDescription=""
+				pageDescription={contentMarkdown.contentMarkdown.replace(/\n/gi, '').replace(/#/gi, '').slice( 0, 90 )}
 				pagePath={location.pathname}
 			/>
 			<div className="container flex-row">
