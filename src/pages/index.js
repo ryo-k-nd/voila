@@ -207,16 +207,22 @@ const IndexPage = ({ data, location }) => {
 							blogPostsByPageViews && blogPostsByPageViews.map(({ path, totalCount }) => {
 								if (path.indexOf('/post/') != -1 && path.substr(-1) != '/') {
 									const pagePath = path.replace('post/', '').replace(/\//g, '');
+									const node = generateContentByPageViews(pagePath);
 									return (
 										<div className="post-tile-item">
 											<Link to={path} className="post-tile-inner">
-												<img src={Slide1} alt="Slide1" className="thumbnail" />
-												<h4>PV: {totalCount} | {generateContentByPageViews(pagePath)}</h4>
-												<div className="post-tile-catname">Voyage</div>
+												{node.thumbnail != null
+													? <Img fluid={node.thumbnail.fluid} alt={node.title} className="thumbnail" />
+													: <div className="thumbnail img-dummy">{node.title.slice(0, 9)}...</div>
+												}
+												<h4>PV: {totalCount} | {node.title}</h4>
+												<div className="post-tile-catname">{node.category}</div>
 												<div className="post-tile-tagbox tags">
-													<Link to="#" className="post-tile-tagname">#パリの交通</Link>
-													<Link to="#" className="post-tile-tagname">#行きたい店</Link>
-													<Link to="#" className="post-tile-tagname">#買ってよかったもの</Link>
+													{
+														node.tags && node.tags.map(({ name, slug }) =>
+															<Link to={`/tag/${slug}`} className="post-tile-tagname"><span>#{name}</span></Link>
+														)
+													}
 												</div>
 											</Link>
 										</div>
