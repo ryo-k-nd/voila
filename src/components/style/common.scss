@@ -762,7 +762,7 @@ footer{
 				margin: 0;
 			}
 		}
-		& .img-dummy{
+		&.img-dummy{
 			height: 175px;
 			width: 100%;
 			margin-bottom: 10px;
@@ -890,7 +890,8 @@ footer{
 			text-decoration: underline;
 		}
 		h1,h2 ,h3, h4{
-			margin-bottom: 20px;
+			margin: 55px 0 20px;
+
 		}
 		h1{
 			margin-top: 75px;
@@ -900,12 +901,10 @@ footer{
 			border-left: 5px solid $c-basic;
 		}
 		h2{
-			margin-top: 55px;
 			padding: 5px 0;
 			border-bottom: 2px solid #707070;
 		}
 		h3{
-			margin-top: 55px;
 			background: linear-gradient(transparent 50%, $c-lightgray 50%);
 			display: inline;
 			&::before {
@@ -928,17 +927,17 @@ footer{
 		blockquote{
 			background: $c-lightgray;
 			color: $c-gray1;
-			padding: 60px 40px 25px 70px;
+			padding: 55px 40px 25px 65px;
 			position: relative;
 			&::before{
 				content: "\f10d";
 				font-weight: 900;
 				font-family: "Font Awesome 5 Free";
-				font-size: 2rem;
+				font-size: 1.2rem;
 				color: $c-gray1;
 				position: absolute;
 				left: 30px;
-				top: 25px
+				top: 25px;
 			}
 			p{
 				margin-bottom: 10px;
@@ -946,29 +945,36 @@ footer{
 			cite {
 				display: block;
 				text-align: right;
+				margin-top: 10px;
 			}
 		}
-	}
-	&__row2{
-		border: 2px solid #EEE;
-		padding: 5px 15px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		width: 80%;
-		margin: 0 auto 75px;
 		table{
-			width: 80%;
 			font-size: 14px;
-			thead tr th{
-				width: 100px;
-				border-bottom: none;
+			border: 2px solid #EEEEEE;
+			padding: 5px 55px;
+			margin: 50px auto 80px;
+			width: 75%;
+			display: block;
+			border: 2px solid $c-lightgray;
+			thead{
+				tr{
+					th{
+						border-bottom: none;
+						white-space: nowrap;
+					}
+				}
 			}
-			tr{
-				td{
-					a{
-						word-break: break-all;
+			tbody{
+				tr{
+					&:last-of-type{
+						& td{
+							border: none;
+						}
+					}
+					td{
+						&:first-of-type {
+							white-space: nowrap;
+						}
 					}
 				}
 			}
@@ -1201,7 +1207,18 @@ footer{
 	}
 }
 
-
+@media screen and (max-width: 896px){
+	header{
+		&.header-common{
+			.managementConsole{
+				display: none;
+			}
+		}
+	}
+	.container {
+		width: 100%;
+	}
+}
 
 
 
