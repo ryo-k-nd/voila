@@ -24,36 +24,38 @@ const Header = ({ siteTitle }) => (
 				</Link>
 				<div>［ヴォワラ］<span className="sen"></span>フランス暮らしを快適に</div>
 			</div>
-			<div className="header-navi flex-row">
-				<div className="header-navi-text">
-					<Link to="/travel/">
-						<span className="header-navi-text__ja">旅する</span>
-						<span className="header-navi-text__fr font-lemonde italic regular">Voyage</span>
-					</Link>
-				</div>
-				<div className="header-navi-text">
-					<Link to="/life/">
-						<span className="header-navi-text__ja">暮らす</span>
-						<span className="header-navi-text__fr font-lemonde italic regular">Vie</span>
-					</Link>
-				</div>
-				<div className="header-navi-text">
-					<Link to="/study/">
-						<span className="header-navi-text__ja">学ぶ</span>
-						<span className="header-navi-text__fr font-lemonde italic regular">Études</span>
-					</Link>
-				</div>
-				<div className="header-navi-text">
-					<Link to="/work/">
-						<span className="header-navi-text__ja">働く</span>
-						<span className="header-navi-text__fr font-lemonde italic regular">Travail</span>
-					</Link>
-				</div>
-				<div className="header-navi-text">
-					<Link to="/play/">
-						<span className="header-navi-text__ja">遊ぶ</span>
-						<span className="header-navi-text__fr font-lemonde italic regular">Divertissement</span>
-					</Link>
+			<div className="header-left flex-row">
+				<div className="header-navi flex-row">
+					<div className="header-navi-text">
+						<Link to="/travel/">
+							<span className="header-navi-text__ja">旅する</span>
+							<span className="header-navi-text__fr font-lemonde italic regular">Voyage</span>
+						</Link>
+					</div>
+					<div className="header-navi-text">
+						<Link to="/life/">
+							<span className="header-navi-text__ja">暮らす</span>
+							<span className="header-navi-text__fr font-lemonde italic regular">Vie</span>
+						</Link>
+					</div>
+					<div className="header-navi-text">
+						<Link to="/study/">
+							<span className="header-navi-text__ja">学ぶ</span>
+							<span className="header-navi-text__fr font-lemonde italic regular">Études</span>
+						</Link>
+					</div>
+					<div className="header-navi-text">
+						<Link to="/work/">
+							<span className="header-navi-text__ja">働く</span>
+							<span className="header-navi-text__fr font-lemonde italic regular">Travail</span>
+						</Link>
+					</div>
+					<div className="header-navi-text">
+						<Link to="/play/">
+							<span className="header-navi-text__ja">遊ぶ</span>
+							<span className="header-navi-text__fr font-lemonde italic regular">Divertissement</span>
+						</Link>
+					</div>
 				</div>
 			</div>
 			<div className="header-link flex-row">
@@ -62,7 +64,7 @@ const Header = ({ siteTitle }) => (
 					<ModalSeach />
 
 				</div>
-				<Link to="/newsletter" className="header-link__newsletter"><img src={icon_mail_w}></img>メルマガ登録</Link>
+				<Link to="/newsletter" className="header-link__newsletter"><img src={icon_mail_w}></img></Link>
 			</div>
 		</div>
 	</header>

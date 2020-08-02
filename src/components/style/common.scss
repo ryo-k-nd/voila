@@ -277,12 +277,17 @@ header{
 				display: flex;
 				padding: 3px 5px;
 				margin: auto 0;
-
+				&::after{
+					content: "メルマガ登録";
+				}
 				img{
 					margin: 0 5px 0 0;
 					width: 25px;
 					height: auto;
 				}
+			}
+			&__sp{
+				display: none;
 			}
 		}
 		.managementConsole{
@@ -359,7 +364,8 @@ footer{
 			font-size: 0.7rem;
 			span{
 				font-size: 1.4rem;
-			}		}
+			}
+		}
 		.sideber-img{
 			a{
 				margin-bottom: 25px;
@@ -1062,7 +1068,7 @@ footer{
 	position: relative;
 	background: #fff;
 	padding: 50px 40px 40px;
-	margin: 5% auto 0;
+	margin: 4vw auto 0;
 	z-index: 965;
 	.searchInputWrapper{
 		margin-bottom: 30px;
@@ -1119,7 +1125,7 @@ footer{
 				}
 				.result-inner{
 					overflow: scroll;
-					max-height: 60vh;
+					max-height: 70vh;
 					-ms-overflow-style: none;
 					scrollbar-width: none;
 					&::-webkit-scrollbar {
@@ -1161,8 +1167,8 @@ footer{
 						ul{
 							list-style: none;
 							margin: 0;
-							grid-template-columns: repeat(4, 23.5%);
-							gap: 3% 2%;
+							grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+							gap: 1vw;
 						li{
 							width: 100%;
 							height: 100%;
@@ -1208,15 +1214,224 @@ footer{
 }
 
 @media screen and (max-width: 896px){
+	.container {
+		width: 100%;
+	}
+	img{
+		margin: 0;
+	}
+	*{
+		box-sizing: border-box;
+	}
 	header{
 		&.header-common{
 			.managementConsole{
 				display: none;
 			}
+			.container{
+				padding: 1% 10px;
+				margin-top: 300px;
+			}
+			.header-logo {
+				width: auto;
+				a {
+					width: 100px;
+				}
+			}
+			.header-left {
+				position: absolute;
+				flex-direction: column-reverse;
+				background: white;
+				z-index: 999;
+				top: 150px;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				.header-navi {
+					flex-direction: column;
+					.header-navi-text{
+						margin: 0 0 10px 0;
+					}
+				}
+			}
+			.header-link{
+				margin: 0;
+				&__search{
+					margin: 0;
+				}
+				&__newsletter{
+				display: none !important;
+					&::after{
+						content: "" !important;
+					}
+				}
+				&__sp{
+					display: block;
+				}
+			}
 		}
 	}
-	.container {
+	.ReactModal{
+		&__Content{
+			&--after{
+				&-open{
+					width: 90%;
+				}
+			}
+		}
+	}
+	.top-weather{
+		display: none;
+	}
+	.slide{
+		padding-top: 0;
+		.slick-slider{
+			width: 100%;
+			height: auto;
+			.slick-list {
+				width: 100%;
+				padding: 0 !important;
+			}
+			.slick-next::before{
+				display: none;
+			}
+			.slick-arrow.slick-prev::before{
+				display: none;
+			}
+			.slide-img{
+				img{
+					max-height: none;
+					height: 300px;
+				}
+			}
+			.slick-slide{
+				&.slick-center{
+					width: 100%;
+					transform: scale(1) translateY(0);
+				}
+			}
+		}
+	}
+	.top-sub_category{
+		margin: 30px 0 10px;
+	}
+	.top-latest_article{
+		.post-basic{
+			margin: 0 10px;
+			&-item{
+				flex-wrap: wrap;
+				.thumbnail-wrapper{
+					width: 100%;
+					height: auto;
+					margin: 0 0 10px 0;
+				}
+			}
+			&-textblock{
+				h4{
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+	.top-sub_category{
+		padding: 5px 10px 25px;
+		&.container.flex-row{
+			flex-direction: row;
+			flex-wrap: wrap;
+			.flex-column-2point4{
+				width: 33%;
+				p{
+					margin: 20px 0 10px;
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+	.top-latest_article {
+		flex-wrap: wrap;
+		.main{
+			order: 2;
+			margin-top: 50px;
+			h2{
+				text-align: center;
+				margin-bottom: 25px;
+				span{
+					margin-right: 0;
+				}
+			}
+		}
+		aside.sidebar{
+			order: 1;
+			margin: 0 auto;
+		}
+	}
+	.top-keywords {
+		margin: 70px 0 35px;
+		&-title{
+			white-space: nowrap;
+			margin: 0;
+			padding: 0 25px;
+		}
+		&__tags{
+			width: 90%;
+			margin-top: 10px;
+		}
+		&-tagname{
+			margin: 4px;
+		}
+	}
+	.top-popular_article{
+		.post-tile{
+			overflow: scroll;
+			flex-wrap: nowrap;
+			justify-content: normal;
+			&-item {
+				max-width: 100%;
+			}
+		}
+		.thumbnail.img-dummy{
+			width: 265px;
+		}
+	}
+	.top-newsletter {
+		padding: 25px 10px;
+		box-sizing: border-box;
+		&.container{
+			width: 100%;
+		}
+		&__img{
+			width: 80px;
+			height: 80px;
+			flex-shrink: 0;
+			margin: auto 10px auto 0px;
+		}
+	}
+	main .container.flex-row{
+		flex-direction: column;
+	}
+	.main{
 		width: 100%;
+		padding: 0 10px;
+	}
+	.sidebar{
+		width: 100%;
+		padding: 0 10px;
+		img{
+			margin: 0 auto;
+			display: block;
+		}
+		&-article{
+			.sideber-img{
+				a{
+					.gatsby-image-wrapper{
+						width: 45%;
+						flex-shrink: 0;
+					}
+				}
+				& .img-dummy {
+					width: 45%;
+				}
+			}
+		}
 	}
 }
 

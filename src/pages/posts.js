@@ -19,7 +19,7 @@ const BlogArticles = ({ data, location }) => {
 				<div className="main">
 					<h1>{"Latest Articles"}</h1>
 					<div className="post-basic">
-					  <PostBasic postData={blogPosts} />
+						<PostBasic postData={blogPosts} />
 					</div>
 				</div>
 				<Sidebar />

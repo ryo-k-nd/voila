@@ -32,7 +32,7 @@ const BlogArticle = ({ data, pageContext, location }) => {
 			<SEO
 				pageTitle={title}
 				showSiteNameInTitle="true"
-				pageDescription={contentMarkdown.contentMarkdown.replace(/\n/gi, '').replace(/#/gi, '').slice( 0, 90 )}
+				pageDescription={contentMarkdown.contentMarkdown.replace(/\n/gi, '').replace(/#/gi, '').slice(0, 90)}
 				pagePath={location.pathname}
 			/>
 			<div className="container flex-row">
@@ -43,11 +43,11 @@ const BlogArticle = ({ data, pageContext, location }) => {
 						<Img
 							fluid={useContentfulImage(imageUrl)}
 						/>
-							{
+						{
 							/* contentMarkdown */
 							/* parsedSouce */
 							/* contentMarkdown.contentMarkdown */
-							}
+						}
 						<div className="body-text" dangerouslySetInnerHTML={{ __html: marked(contentMarkdown.contentMarkdown) }} />
 						<div className="post__sns">
 							<div className="post__sns-text">この記事をシェアする</div>
