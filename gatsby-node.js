@@ -25,6 +25,14 @@ exports.createPages = ({ graphql, actions }) => {
 						}
 					}
 				}
+				subCategories: allContentfulSubCategory {
+					nodes {
+						parentCategory
+						name_ja
+						name_fr
+						name_en
+					}
+				}
 				tags: allContentfulBlogArticle {
 					distinct(field: tags___slug)
 				}
@@ -102,6 +110,22 @@ exports.createPages = ({ graphql, actions }) => {
 						name_fr: categoryItem.name_fr,
 						name_ja: categoryItem.name_ja,
 						desc: categoryItem.desc,
+					},
+				})
+			})
+
+			//subCategoryごとのページ作成
+			const subCategoryTemplate = path.resolve("./src/templates/subCategory.js");
+			const subCategory = result.data.subCategories.nodes;
+			subCategory.forEach(subCategoryItem => {
+				createPage({
+					//path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+					path: `/${subCategoryItem.parentCategory}/${subCategoryItem.name_en}/`,
+					component: subCategoryTemplate,
+					context: {
+						name_en: subCategoryItem.name_en,
+						name_fr: subCategoryItem.name_fr,
+						name_ja: subCategoryItem.name_ja,
 					},
 				})
 			})

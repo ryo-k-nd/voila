@@ -123,7 +123,7 @@ const IndexPage = ({ data, location }) => {
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
 							if (parentCategory == 'Travel') {
 								return (
-									<li><Link to={name_en}>{name_ja}</Link></li>
+									<li><Link to={`/${parentCategory.toLowerCase()}/${name_en}`}>{name_ja}</Link></li>
 								)
 							}
 						})}
@@ -135,7 +135,7 @@ const IndexPage = ({ data, location }) => {
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
 							if (parentCategory == 'Life') {
 								return (
-									<li><Link to={name_en}>{name_ja}</Link></li>
+									<li><Link to={`/${parentCategory.toLowerCase()}/${name_en}`}>{name_ja}</Link></li>
 								)
 							}
 						})}
@@ -147,7 +147,7 @@ const IndexPage = ({ data, location }) => {
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
 							if (parentCategory == 'Study') {
 								return (
-									<li><Link to={name_en}>{name_ja}</Link></li>
+									<li><Link to={`/${parentCategory.toLowerCase()}/${name_en}`}>{name_ja}</Link></li>
 								)
 							}
 						})}
@@ -159,7 +159,7 @@ const IndexPage = ({ data, location }) => {
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
 							if (parentCategory == 'Work') {
 								return (
-									<li><Link to={name_en}>{name_ja}</Link></li>
+									<li><Link to={`/${parentCategory.toLowerCase()}/${name_en}`}>{name_ja}</Link></li>
 								)
 							}
 						})}
@@ -171,7 +171,7 @@ const IndexPage = ({ data, location }) => {
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
 							if (parentCategory == 'Play') {
 								return (
-									<li><Link to={name_en}>{name_ja}</Link></li>
+									<li><Link to={`/${parentCategory.toLowerCase()}/${name_en}`}>{name_ja}</Link></li>
 								)
 							}
 						})}
