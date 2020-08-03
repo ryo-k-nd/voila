@@ -1,59 +1,71 @@
-import { Link } from "gatsby"
+import { Link, StaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const Footer = ({ siteTitle }) => (
+const Footer = ({ siteTitle, data }) => {
+	const subCategories = data.subCategory.nodes;
+	return (
 	<footer className="footer-common">
 		<div className="container">
 			<div className="flex-row">
 				<div className="flex-column-2">
 					<p className="font-lemonde italic demi">Voyage</p>
 					<ul>
-						<li><Link to="/">旅の基本情報</Link></li>
-						<li><Link to="/">渡仏の準備</Link></li>
-						<li><Link to="/">空港から市内まで</Link></li>
-						<li><Link to="/">パリと地方都市</Link></li>
-						<li><Link to="/">便利マップ</Link></li>
+						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+							if (parentCategory == 'Travel') {
+								return (
+									<li><Link to={name_en}>{name_ja}</Link></li>
+								)
+							}
+						})}
 					</ul>
 				</div>
 				<div className="flex-column-2">
 					<p className="font-lemonde italic demi">Vie</p>
 					<ul>
-						<li><Link to="/">暮らしの基本情報</Link></li>
-						<li><Link to="/">住まい</Link></li>
-						<li><Link to="/">お金</Link></li>
-						<li><Link to="/">医療＆健康</Link></li>
-						<li><Link to="/">交際＆子育て</Link></li>
+						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+							if (parentCategory == 'Life') {
+								return (
+									<li><Link to={name_en}>{name_ja}</Link></li>
+								)
+							}
+						})}
 					</ul>
 				</div>
 				<div className="flex-column-2">
 					<p className="font-lemonde italic demi">Etudes</p>
 					<ul>
-						<li><Link to="/">学びの基本情報</Link></li>
-						<li><Link to="/">語学留学</Link></li>
-						<li><Link to="/">専門学校＆ディプロマ</Link></li>
-						<li><Link to="/">大学・大学院</Link></li>
-						<li><Link to="/">趣味・生涯学習</Link></li>
+						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+							if (parentCategory == 'Study') {
+								return (
+									<li><Link to={name_en}>{name_ja}</Link></li>
+								)
+							}
+						})}
 					</ul>
 				</div>
 				<div className="flex-column-2">
 					<p className="font-lemonde italic demi">Travail</p>
 					<ul>
-						<li><Link to="/">仕事の基本情報</Link></li>
-						<li><Link to="/">仕事を見つける</Link></li>
-						<li><Link to="/">職場と働き方</Link></li>
-						<li><Link to="/">ビジネスマナー</Link></li>
-						<li><Link to="/">仕事図鑑</Link></li>
+						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+							if (parentCategory == 'Work') {
+								return (
+									<li><Link to={name_en}>{name_ja}</Link></li>
+								)
+							}
+						})}
 					</ul>
 				</div>
 				<div className="flex-column-2">
 					<p className="font-lemonde italic demi">Divertissement</p>
 					<ul>
-						<li><Link to="/">レストラン・カフェ</Link></li>
-						<li><Link to="/">アート・カルチャー</Link></li>
-						<li><Link to="/">ショッピング</Link></li>
-						<li><Link to="/">旅行</Link></li>
-						<li><Link to="/">お土産</Link></li>
+						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+							if (parentCategory == 'Play') {
+								return (
+									<li><Link to={name_en}>{name_ja}</Link></li>
+								)
+							}
+						})}
 					</ul>
 				</div>
 				<div className="flex-column-2 footer-contact">
@@ -69,14 +81,37 @@ const Footer = ({ siteTitle }) => (
 			<div className="footer-common__copyright">Copyright © 2020 Doitsu News Digest GmbH. All Rights Reserved. Do not duplicate or redistribute in any form.</div>
 		</div>
 	</footer>
-)
+	)
+}
+
+
+export default function showFooter(props) {
+	return (
+		<StaticQuery
+			query={graphql`
+				query SubCategoryQuery {
+					subCategory: allContentfulSubCategory {
+						nodes {
+							name_en
+							name_ja
+							parentCategory
+						}
+					}
+				}
+			`}
+			render={data => <Footer data={data} {...props} />}
+		/>
+	)
+}
 
 Footer.propTypes = {
-	siteTitle: PropTypes.string,
+	data: PropTypes.shape({
+		nodes: PropTypes.shape({
+			name_en: PropTypes.string.isRequired,
+			name_ja: PropTypes.string.isRequired,
+			parentCategory: PropTypes.string.isRequired,
+		}).isRequired,
+	}).isRequired,
 }
 
-Footer.defaultProps = {
-	siteTitle: ``,
-}
 
-export default Footer

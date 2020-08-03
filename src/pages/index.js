@@ -35,6 +35,7 @@ const IndexPage = ({ data, location }) => {
 	const blogPosts = data.allContentfulBlogArticle.edges;
 	const topUpdates = data.contentfulPageUpdate;
 	const blogPostsByPageViews = data.allPageViews.nodes;
+	const subCategories = data.subCategory.nodes;
 	const currency = data.mysqlJdApiCurrency;
 	const weather = data.mysqlJdApiWeather;
 
@@ -119,51 +120,61 @@ const IndexPage = ({ data, location }) => {
 				<div className="flex-column-2point4">
 					<p className="font-lemonde italic regular">Voyage</p>
 					<ul>
-						<li><Link to="#">旅の基本情報</Link></li>
-						<li><Link to="#">渡仏の準備</Link></li>
-						<li><Link to="#">空港から市内まで</Link></li>
-						<li><Link to="#">パリと地方都市</Link></li>
-						<li><Link to="#">便利マップ</Link></li>
+						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+							if (parentCategory == 'Travel') {
+								return (
+									<li><Link to={name_en}>{name_ja}</Link></li>
+								)
+							}
+						})}
 					</ul>
 				</div>
 				<div className="flex-column-2point4">
 					<p className="font-lemonde italic regular">Vie</p>
 					<ul>
-						<li><Link to="#">暮らしの基本情報</Link></li>
-						<li><Link to="#">住まい</Link></li>
-						<li><Link to="#">お金</Link></li>
-						<li><Link to="#">医療＆健康</Link></li>
-						<li><Link to="#">交際＆子育て</Link></li>
+						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+							if (parentCategory == 'Life') {
+								return (
+									<li><Link to={name_en}>{name_ja}</Link></li>
+								)
+							}
+						})}
 					</ul>
 				</div>
 				<div className="flex-column-2point4">
 					<p className="font-lemonde italic regular">Études</p>
 					<ul>
-						<li><Link to="#">学びの基本情報</Link></li>
-						<li><Link to="#">語学留学</Link></li>
-						<li><Link to="#">専門学校＆ディプロマ</Link></li>
-						<li><Link to="#">大学・大学院</Link></li>
-						<li><Link to="#">趣味・生涯学習</Link></li>
+						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+							if (parentCategory == 'Study') {
+								return (
+									<li><Link to={name_en}>{name_ja}</Link></li>
+								)
+							}
+						})}
 					</ul>
 				</div>
 				<div className="flex-column-2point4">
 					<p className="font-lemonde italic regular">Travail</p>
 					<ul>
-						<li><Link to="#">仕事の基本情報</Link></li>
-						<li><Link to="#">仕事を見つける</Link></li>
-						<li><Link to="#">職場と働き方</Link></li>
-						<li><Link to="#">ビジネスマナー</Link></li>
-						<li><Link to="#">仕事図鑑</Link></li>
+						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+							if (parentCategory == 'Work') {
+								return (
+									<li><Link to={name_en}>{name_ja}</Link></li>
+								)
+							}
+						})}
 					</ul>
 				</div>
 				<div className="flex-column-2point4">
 					<p className="font-lemonde italic regular">Divertissement</p>
 					<ul>
-						<li><Link to="#">レストラン・カフェ</Link></li>
-						<li><Link to="#">アート・カルチャー</Link></li>
-						<li><Link to="#">ショッピング</Link></li>
-						<li><Link to="#">旅行</Link></li>
-						<li><Link to="#">お土産</Link></li>
+						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+							if (parentCategory == 'Play') {
+								return (
+									<li><Link to={name_en}>{name_ja}</Link></li>
+								)
+							}
+						})}
 					</ul>
 				</div>
 			</div>
@@ -284,6 +295,13 @@ export const query = graphql`
 			nodes {
 				path
 				totalCount
+			}
+		}
+		subCategory: allContentfulSubCategory {
+			nodes {
+				name_en
+				name_ja
+				parentCategory
 			}
 		}
 		contentfulPageUpdate: contentfulPageUpdate(node_locale: {eq: "ja-JP"}) {
