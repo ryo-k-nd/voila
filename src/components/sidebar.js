@@ -38,7 +38,7 @@ const Sidebar = ({ data }) => {
 						}
 					})
 				}
-				<div className="sidebar-article__all"><Link to="/blog">すべて見る</Link></div>
+				{/*<div className="sidebar-article__all"><Link to="/blog">すべて見る</Link></div>*/}
 			</div>
 			<hr />
 			<div className="sidebar-article">
@@ -63,7 +63,7 @@ const Sidebar = ({ data }) => {
 						))
 					}
 				</div>
-				<div className="sidebar-article__all"><Link to="/blog">すべて見る</Link></div>
+				{/*<div className="sidebar-article__all"><Link to="/blog">すべて見る</Link></div>*/}
 			</div>
 			<div className="sidebar-keywords">
 				<div className="sidebar-keywords__title">

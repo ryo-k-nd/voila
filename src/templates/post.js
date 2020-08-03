@@ -70,10 +70,14 @@ const BlogArticle = ({ data, pageContext, location }) => {
 								)}
 							</ul>
 						</div>
+						{relatedArticle ?
 						<div className="post__tagged">
 							<div className="post__keywords-text">関連記事{pageContext.taggedArticles}</div>
 							<PostBasic postData={relatedArticle} />
 						</div>
+						:
+						""
+						}
 					</div>
 				</div>
 				<Sidebar />
