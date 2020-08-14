@@ -28,13 +28,15 @@ module.exports = {
         queries: [
           {
             statement: 'SELECT * FROM jd_api_currency limit 1',
-            idFieldName: 'Code',
             name: 'jd_api_currency',
           },
           {
-            statement: 'SELECT * FROM jd_api_weather limit 1',
-            idFieldName: 'Code',
-            name: 'jd_api_weather',
+            statement: 'SELECT * FROM weather_voila where City = "Tokyo"',
+            name: 'weather_voila_tokyo',
+          },
+          {
+            statement: 'SELECT * FROM weather_voila where City = "Paris"',
+            name: 'weather_voila_paris',
           }
         ]
       }

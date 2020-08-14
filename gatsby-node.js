@@ -2,14 +2,13 @@ const path = require(`path`);
 const slash = require(`slash`);
 exports.createPages = ({ graphql, actions }) => {
 	const { createRedirect } = actions;
-	createRedirect({
-		fromPath: "/testaaa/",
-		toPath: "/test/",
-		isPermanent: true
-	});
+	//createRedirect({
+	//	fromPath: "/testaaa/",
+	//	toPath: "/test/",
+	//	isPermanent: true
+	//});
 	const { createPage } = actions;
 	// we use the provided allContentfulBlogArticle query to fetch the data from Contentful
-
 
 	return graphql(
 		`

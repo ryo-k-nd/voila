@@ -37,7 +37,8 @@ const IndexPage = ({ data, location }) => {
 	const blogPostsByPageViews = data.allPageViews.nodes;
 	const subCategories = data.subCategory.nodes;
 	const currency = data.mysqlJdApiCurrency;
-	const weather = data.mysqlJdApiWeather;
+	const weatherTokyo = data.mysqlWeatherVoilaTokyo;
+	const weatherParis = data.mysqlWeatherVoilaParis;
 
 	//現在時刻取得と毎秒更新
 	const dateTimeUtc = momentTimezone.tz(new Date(), 'UTC');
@@ -77,9 +78,9 @@ const IndexPage = ({ data, location }) => {
 						<div className="place-data">{dateTimeUtc.tz('Europe/Paris').format('DD MMM YYYY').toUpperCase()}</div>
 					</div>
 					<div className="top-weather__place-weather">
-						PARIS
-						<div className="weather-mark"><i className="fas fa-cloud-sun fa-2x"></i></div>
-						<div className="weather-temp">12ºC/5ºC</div>
+						{weatherParis.City}
+						<div className="weather-mark"><img src={weatherParis.Icon} /></div>
+						<div className="weather-temp">{weatherParis.Max}ºC/{weatherParis.Min}ºC</div>
 					</div>
 				</div>
 				<div className="top-weather__place">
@@ -89,9 +90,9 @@ const IndexPage = ({ data, location }) => {
 						<div className="place-data">{dateTimeUtc.tz('Asia/Tokyo').format('DD MMM YYYY').toUpperCase()}</div>
 					</div>
 					<div className="top-weather__place-weather">
-						TOKYO
-						<div className="weather-mark"><i className="fas fa-sun fa-2x"></i></div>
-						<div className="weather-temp">12ºC/5ºC</div>
+						{weatherTokyo.City}
+						<div className="weather-mark"><img src={weatherTokyo.Icon} /></div>
+						<div className="weather-temp">{weatherTokyo.Max}ºC/{weatherTokyo.Min}ºC</div>
 					</div>
 				</div>
 
@@ -326,12 +327,21 @@ export const query = graphql`
 			Date(formatString: "YYYY-MM-DD HH:mm")
 			Rate
 		}
-		mysqlJdApiWeather {
+		mysqlWeatherVoilaTokyo {
 			City
-			Date
+			Datetime
 			Max
 			Min
 			Telop
+			Icon
+		}
+		mysqlWeatherVoilaParis {
+			City
+			Datetime
+			Max
+			Min
+			Telop
+			Icon
 		}
 	}
 `;
