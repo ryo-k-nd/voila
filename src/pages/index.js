@@ -193,7 +193,7 @@ const IndexPage = ({ data, location }) => {
 				</div>
 				<aside className="sidebar">
 					{topUpdates.bannerSquareImage !== null
-						&& <div className="container t-align-c"><a href={topUpdates.bannerSquare && topUpdates.bannerSquare} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSquare.fluid} alt="square bunner" className="thumbnail" /></a></div>
+						&& <a href={topUpdates.bannerSquare && topUpdates.bannerSquare} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSquareImage.fluid} alt="square bunner" className="thumbnail" /></a>
 					}
 				</aside>
 			</div>
