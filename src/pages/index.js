@@ -10,8 +10,8 @@ import Slider from "react-slick";
 //import PropTypes from 'prop-types';
 import { interval } from 'rxjs'
 //import Slide1 from '../images/top/slide1.jpg'
-import BannerSuper from '../images/top/bannerSuper.jpg'
-import BannerSquare from '../images/top/bannerSquare.gif'
+//import BannerSuper from '../images/top/bannerSuper.jpg'
+//import BannerSquare from '../images/top/bannerSquare.gif'
 import PostBasic from "../components/postBasic";
 import generateContentByPageViews from "../utils/generateContentByPageViews";
 //import moment from 'moment'
@@ -67,9 +67,9 @@ const IndexPage = ({ data, location }) => {
 					</a>
 				</div>
 			</div>
-			<div className="container t-align-c">
-				<img src={BannerSuper} alt="banner" />
-			</div>
+			{topUpdates.bannerSuperImage !== null
+				&& <div className="container t-align-c"><a href={topUpdates.bannerSuper && topUpdates.bannerSuper} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSuperImage.fluid} alt="super bunner"className="thumbnail" /></a></div>
+			}
 			<div className="top-weather container t-align-c">
 				<div className="top-weather__place">
 					<div className="top-weather__place-datatime">
@@ -192,7 +192,9 @@ const IndexPage = ({ data, location }) => {
 					</div>
 				</div>
 				<aside className="sidebar">
-					<img src={BannerSquare} alt="BannerSquare" />
+					{topUpdates.bannerSquareImage !== null
+						&& <div className="container t-align-c"><a href={topUpdates.bannerSquare && topUpdates.bannerSquare} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSquare.fluid} alt="square bunner" className="thumbnail" /></a></div>
+					}
 				</aside>
 			</div>
 			<div className="top-keywords container t-align-c">
@@ -201,11 +203,9 @@ const IndexPage = ({ data, location }) => {
 					<span>今話題のキーワード</span>
 				</div>
 				<div className="t-align-c top-keywords__tags">
-					{
-						topUpdates.popularTag && topUpdates.popularTag.map(({ name, slug }) =>
-							<Link to={`/tag/${slug}`} className="top-keywords-tagname"><span>#{name}</span></Link>
-						)
-					}
+					{topUpdates.popularTag && topUpdates.popularTag.map(({ name, slug }) =>
+						<Link to={`/tag/${slug}`} className="top-keywords-tagname"><span>#{name}</span></Link>
+					)}
 				</div>
 			</div>
 			<div className="top-popular_article t-align-c">
@@ -250,9 +250,9 @@ const IndexPage = ({ data, location }) => {
 					おすすめの記事をもっと見る
 				</Link>
 			</div>
-			<div className="container t-align-c">
-				<img src={BannerSuper} alt="banner" />
-			</div>
+			{topUpdates.bannerSuperImage !== null
+				&& <div className="container t-align-c"><a href={topUpdates.bannerSuper && topUpdates.bannerSuper} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSuperImage.fluid} alt="super bunner"className="thumbnail" /></a></div>
+			}
 			<div className="top-newsletter container">
 				<Link to="/newsletter">
 					<div className="flex-row">
@@ -305,7 +305,7 @@ export const query = graphql`
 				parentCategory
 			}
 		}
-		contentfulPageUpdate: contentfulPageUpdate(node_locale: {eq: "ja-JP"}) {
+		contentfulPageUpdate: contentfulPageUpdate(id: {eq: "fa14f0f7-c808-5d1f-a88f-c90238cb9530"}, node_locale: {eq: "ja-JP"}) {
 			favouriteArticleTop {
 				title
 				createdAt(formatString: "YYYY-MM-DD")
@@ -321,6 +321,18 @@ export const query = graphql`
 			}
 			topNotificationText
 			topNOtificationLink
+			bannerSuper
+			bannerSuperImage {
+				fluid(maxWidth: 728) {
+					...GatsbyContentfulFluid_withWebp
+				}
+			}
+			bannerSquare
+			bannerSquareImage {
+				fluid(maxWidth: 300) {
+					...GatsbyContentfulFluid_withWebp
+				}
+			}
 		}
 		mysqlJdApiCurrency {
 			Currency
