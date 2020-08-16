@@ -17,7 +17,7 @@ class ModalSeach extends React.Component {
 	openModal() {
 		this.setState({ modalIsOpen: true });
 		document.getElementsByTagName('html')[0].setAttribute('style', 'overflow-y: hidden;');
-		document.getElementsByClassName('ReactModalPortal')[0].classList.add('is-show');
+		document.getElementsByClassName('ReactModalPortal')[1].classList.add('is-show');
 
 	}
 	afterOpenModal() {
@@ -26,7 +26,7 @@ class ModalSeach extends React.Component {
 	closeModal() {
 		this.setState({ modalIsOpen: false });
 		document.getElementsByTagName('html')[0].setAttribute('style', 'overflow-y: scroll;');
-		document.getElementsByClassName('ReactModalPortal')[0].classList.remove('is-show');
+		document.getElementsByClassName('ReactModalPortal')[1].classList.remove('is-show');
 	}
 	render() {
 		return (

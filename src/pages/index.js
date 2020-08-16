@@ -26,9 +26,15 @@ const settings = {
 	autoplaySpeed: 4000,
 	arrows: true,
 	slidesToShow: 1,
-	centerMode: true,
 	centerPadding: '100px',
 	focusOnSelect: true,
+	centerMode: true,
+	responsive: [{
+		breakpoint: 896,
+		settings: {
+			centerMode: false,
+		}
+	}]
 };
 
 const IndexPage = ({ data, location }) => {
@@ -68,7 +74,7 @@ const IndexPage = ({ data, location }) => {
 				</div>
 			</div>
 			{topUpdates.bannerSuperImage !== null
-				&& <div className="container t-align-c"><a href={topUpdates.bannerSuper && topUpdates.bannerSuper} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSuperImage.fluid} alt="super bunner"className="thumbnail" /></a></div>
+				&& <div className="container t-align-c"><a href={topUpdates.bannerSuper && topUpdates.bannerSuper} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSuperImage.fluid} alt="super bunner" className="thumbnail" /></a></div>
 			}
 			<div className="top-weather container t-align-c">
 				<div className="top-weather__place">
@@ -251,7 +257,7 @@ const IndexPage = ({ data, location }) => {
 				</Link>
 			</div>
 			{topUpdates.bannerSuperImage !== null
-				&& <div className="container t-align-c"><a href={topUpdates.bannerSuper && topUpdates.bannerSuper} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSuperImage.fluid} alt="super bunner"className="thumbnail" /></a></div>
+				&& <div className="container t-align-c"><a href={topUpdates.bannerSuper && topUpdates.bannerSuper} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSuperImage.fluid} alt="super bunner" className="thumbnail" /></a></div>
 			}
 			<div className="top-newsletter container">
 				<Link to="/newsletter">

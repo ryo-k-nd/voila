@@ -27,7 +27,6 @@ const Header = ({ siteTitle }) => (
 				<div>［ヴォワラ］<span className="sen"></span>フランス暮らしを快適に</div>
 			</div>
 			<div className="header-left flex-row" id="sp-menu">
-				<Link to="/newsletter" className="header-link__newsletter for-sp"><img src={icon_mail_w}></img></Link>
 				<div className="header-navi flex-row">
 					<div className="header-navi-text">
 						<Link to="/travel/">
