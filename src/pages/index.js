@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 //import Image from "../components/image";
-import useContentfulImage from "../utils/useContentfulImage";
+//import useContentfulImage from "../utils/useContentfulImage";
 import Img from "gatsby-image";
 import SEO from "../components/seo";
 import Slider from "react-slick";
 //import Styles from "../components/style/index.module.scss"
 //import PropTypes from 'prop-types';
 import { interval } from 'rxjs'
-import Slide1 from '../images/top/slide1.jpg'
+//import Slide1 from '../images/top/slide1.jpg'
 import BannerSuper from '../images/top/bannerSuper.jpg'
 import BannerSquare from '../images/top/bannerSquare.gif'
 import PostBasic from "../components/postBasic";
 import generateContentByPageViews from "../utils/generateContentByPageViews";
-import moment from 'moment'
+//import moment from 'moment'
 import momentTimezone from 'moment-timezone'
 import icon_mail from '../images/top/icon-newsletter.svg';
 
@@ -62,7 +62,7 @@ const IndexPage = ({ data, location }) => {
 			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
 			<div className="notification-common">
 				<div className="container">
-					<a href={topUpdates.topNOtificationLink && topUpdates.topNOtificationLink} target="_blank">
+					<a href={topUpdates.topNOtificationLink && topUpdates.topNOtificationLink} target="_blank" rel="noreferrer" >
 						{topUpdates.topNotificationText && topUpdates.topNotificationText}
 					</a>
 				</div>
@@ -79,7 +79,7 @@ const IndexPage = ({ data, location }) => {
 					</div>
 					<div className="top-weather__place-weather">
 						{weatherParis.City}
-						<div className="weather-mark"><img src={weatherParis.Icon} /></div>
+						<div className="weather-mark"><img src={weatherParis.Icon} alt="Weather Icon Paris" /></div>
 						<div className="weather-temp">{weatherParis.Max}ºC/{weatherParis.Min}ºC</div>
 					</div>
 				</div>
@@ -91,7 +91,7 @@ const IndexPage = ({ data, location }) => {
 					</div>
 					<div className="top-weather__place-weather">
 						{weatherTokyo.City}
-						<div className="weather-mark"><img src={weatherTokyo.Icon} /></div>
+						<div className="weather-mark"><img src={weatherTokyo.Icon} alt="Weather Icon Tokyo" /></div>
 						<div className="weather-temp">{weatherTokyo.Max}ºC/{weatherTokyo.Min}ºC</div>
 					</div>
 				</div>
@@ -122,7 +122,7 @@ const IndexPage = ({ data, location }) => {
 					<p className="font-lemonde italic regular">Voyage</p>
 					<ul>
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory == 'Travel') {
+							if (parentCategory === 'Travel') {
 								return (
 									<li><Link to={`/${parentCategory.toLowerCase()}/${name_en}`}>{name_ja}</Link></li>
 								)
@@ -134,7 +134,7 @@ const IndexPage = ({ data, location }) => {
 					<p className="font-lemonde italic regular">Vie</p>
 					<ul>
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory == 'Life') {
+							if (parentCategory === 'Life') {
 								return (
 									<li><Link to={`/${parentCategory.toLowerCase()}/${name_en}`}>{name_ja}</Link></li>
 								)
@@ -146,7 +146,7 @@ const IndexPage = ({ data, location }) => {
 					<p className="font-lemonde italic regular">Études</p>
 					<ul>
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory == 'Study') {
+							if (parentCategory === 'Study') {
 								return (
 									<li><Link to={`/${parentCategory.toLowerCase()}/${name_en}`}>{name_ja}</Link></li>
 								)
@@ -158,7 +158,7 @@ const IndexPage = ({ data, location }) => {
 					<p className="font-lemonde italic regular">Travail</p>
 					<ul>
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory == 'Work') {
+							if (parentCategory === 'Work') {
 								return (
 									<li><Link to={`/${parentCategory.toLowerCase()}/${name_en}`}>{name_ja}</Link></li>
 								)
@@ -170,7 +170,7 @@ const IndexPage = ({ data, location }) => {
 					<p className="font-lemonde italic regular">Divertissement</p>
 					<ul>
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory == 'Play') {
+							if (parentCategory === 'Play') {
 								return (
 									<li><Link to={`/${parentCategory.toLowerCase()}/${name_en}`}>{name_ja}</Link></li>
 								)
@@ -217,13 +217,13 @@ const IndexPage = ({ data, location }) => {
 					<div className="post-tile">
 						{
 							blogPostsByPageViews && blogPostsByPageViews.map(({ path, totalCount }) => {
-								if (path.indexOf('/post/') != -1 && path.substr(-1) != '/') {
+								if (path.indexOf('/post/') !== -1 && path.substr(-1) !== '/') {
 									const pagePath = path.replace('post/', '').replace(/\//g, '');
 									const node = generateContentByPageViews(pagePath);
 									return (
 										<div className="post-tile-item">
 											<Link to={path} className="post-tile-inner">
-												{node.thumbnail != null
+												{node.thumbnail !== null
 													? <Img fluid={node.thumbnail.fluid} alt={node.title} className="thumbnail" />
 													: <div className="thumbnail img-dummy">{node.title.slice(0, 9)}...</div>
 												}

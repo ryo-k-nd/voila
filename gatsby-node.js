@@ -118,13 +118,14 @@ exports.createPages = ({ graphql, actions }) => {
 			const subCategory = result.data.subCategories.nodes;
 			subCategory.forEach(subCategoryItem => {
 				createPage({
-					//path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
-					path: `/${subCategoryItem.parentCategory}/${subCategoryItem.name_en}/`,
+					path: `/${subCategoryItem.parentCategory.toLowerCase()}/${subCategoryItem.name_en.toLowerCase()}/`,
+					//path: `/subs/${subCategoryItem.name_en}/`,
 					component: subCategoryTemplate,
 					context: {
 						name_en: subCategoryItem.name_en,
 						name_fr: subCategoryItem.name_fr,
 						name_ja: subCategoryItem.name_ja,
+						parentCategory: subCategoryItem.parentCategory,
 					},
 				})
 			})
@@ -134,7 +135,6 @@ exports.createPages = ({ graphql, actions }) => {
 			const tags = result.data.tags.distinct;
 			tags.forEach(tagSlug => {
 				createPage({
-					//path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
 					path: `/tag/${tagSlug}/`,
 					component: tagTemplate,
 					context: {

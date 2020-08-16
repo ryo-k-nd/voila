@@ -19,13 +19,13 @@ const Sidebar = ({ data }) => {
 
 				{
 					blogPostsByPageViews && blogPostsByPageViews.map(({ path, totalCount }) => {
-						if (path.indexOf('/post/') != -1 && path.substr(-1) != '/') {
+						if (path.indexOf('/post/') !== -1 && path.substr(-1) !== '/') {
 							const pagePath = path.replace('post/', '').replace(/\//g, '');
 							const node = generateContentByPageViews(pagePath);
 							return (
 								<div className="sideber-img">
 									<Link to={`/post/${node.slug}`} className="sideber-img">
-										{node.thumbnail != null
+										{node.thumbnail !== null
 											? <Img fluid={node.thumbnail.fluid} alt={node.title} className="sideber-img__img" />
 											: <div className="sideber-img__img img-dummy">{node.title.slice(0, 9)}...</div>
 										}
@@ -49,7 +49,7 @@ const Sidebar = ({ data }) => {
 							post.favouriteArticleTop && post.favouriteArticleTop.map(({ title, thumbnail, slug }) =>
 								<div className="sideber-img">
 									<Link to={`/post/${slug}`}>
-										{thumbnail != null
+										{thumbnail !== null
 											? <Img fluid={thumbnail.fluid} alt={title} className="sideber-img__img" />
 											: <div className="sideber-img__img img-dummy">{title.slice(0, 9)}...</div>
 										}

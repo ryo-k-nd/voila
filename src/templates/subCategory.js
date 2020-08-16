@@ -7,11 +7,11 @@ import PostBasic from "../components/postBasic";
 
 const SubCategoryArticles = ({ data, pageContext, location }) => {
   //const { title, content, thumbnail } = data.contentfulBlogArticle;
-  //const blogPosts = data.mainCategoryArticles.edges;
+  const blogPosts = data.subCategoryArticles.edges;
   return (
 <Layout>
   <SEO
-    pageTitle={`${pageContext.name_ja}`}
+    pageTitle={`${pageContext.name_ja}の記事一覧`}
     //pageDescription={pageContext.desc}
     pagePath={location.pathname}
   />
@@ -19,8 +19,7 @@ const SubCategoryArticles = ({ data, pageContext, location }) => {
     <div className="main">
       <h1>{pageContext.name_ja} の記事一覧</h1>
       <div className="post-basic">
-        {/*<PostBasic postData={blogPosts} />*/}
-        TEST
+        <PostBasic postData={blogPosts} />
       </div>
     </div>
     <Sidebar />
@@ -30,30 +29,30 @@ const SubCategoryArticles = ({ data, pageContext, location }) => {
 };
 export default SubCategoryArticles;
 
-//export const query = graphql`
-//  query SubCategoryArticleQuery($name_en: String!) {
-//    subCategoryArticles: allContentfulBlogArticle(filter: {category: {eq: $name_en}}) {
-//      edges {
-//        node {
-//          id
-//          title
-//          slug
-//          category
-//          contentMarkdown{
-//            contentMarkdown
-//          }
-//          thumbnail {
-//            fluid(maxWidth : 800) {
-//              ...GatsbyContentfulFluid_withWebp
-//            }
-//          }
-//          tags {
-//            name
-//            slug
-//          }
-//          createdAt(formatString: "YYYY/MM/DD")
-//        }
-//      }
-//    }
-//  }
-//`;
+export const query = graphql`
+  query SubCategoryArticleQuery($name_en: String!) {
+    subCategoryArticles: allContentfulBlogArticle(filter: {subCategory: {name_en: {eq: $name_en}}}) {
+      edges {
+        node {
+          id
+          title
+          slug
+          category
+          contentMarkdown{
+            contentMarkdown
+          }
+          thumbnail {
+            fluid(maxWidth : 800) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+          tags {
+            name
+            slug
+          }
+          createdAt(formatString: "YYYY/MM/DD")
+        }
+      }
+    }
+  }
+`;

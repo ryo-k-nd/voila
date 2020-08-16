@@ -104,7 +104,7 @@ const SearchResult = props => {
 		<div className={className}>
 			<div className="result-inner">
 				<div className="result-inner__res">
-					{props.value != "" ?
+					{props.value !== "" ?
 						props.value + " の検索結果" + result.length + "件"
 						: "　"
 					}

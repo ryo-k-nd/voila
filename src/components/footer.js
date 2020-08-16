@@ -12,7 +12,7 @@ const Footer = ({ siteTitle, data }) => {
 					<p className="font-lemonde italic demi">Voyage</p>
 					<ul>
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory == 'Travel') {
+							if (parentCategory === 'Travel') {
 								return (
 									<li><Link to={name_en}>{name_ja}</Link></li>
 								)
@@ -24,7 +24,7 @@ const Footer = ({ siteTitle, data }) => {
 					<p className="font-lemonde italic demi">Vie</p>
 					<ul>
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory == 'Life') {
+							if (parentCategory === 'Life') {
 								return (
 									<li><Link to={name_en}>{name_ja}</Link></li>
 								)
@@ -36,7 +36,7 @@ const Footer = ({ siteTitle, data }) => {
 					<p className="font-lemonde italic demi">Etudes</p>
 					<ul>
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory == 'Study') {
+							if (parentCategory === 'Study') {
 								return (
 									<li><Link to={name_en}>{name_ja}</Link></li>
 								)
@@ -48,7 +48,7 @@ const Footer = ({ siteTitle, data }) => {
 					<p className="font-lemonde italic demi">Travail</p>
 					<ul>
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory == 'Work') {
+							if (parentCategory === 'Work') {
 								return (
 									<li><Link to={name_en}>{name_ja}</Link></li>
 								)
@@ -60,7 +60,7 @@ const Footer = ({ siteTitle, data }) => {
 					<p className="font-lemonde italic demi">Divertissement</p>
 					<ul>
 						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory == 'Play') {
+							if (parentCategory === 'Play') {
 								return (
 									<li><Link to={name_en}>{name_ja}</Link></li>
 								)
