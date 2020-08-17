@@ -1,12 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, Component } from 'react'
 
-const toTop = () => {
+class toTop extends Component {
 
-    return (
-        <a className="toTop" href="#">
-            <i class="fas fa-chevron-up"></i>
-        </a>
-    )
+    render() {
+        return (
+            <a className="toTop" href="#" >
+                <i class="fas fa-chevron-up"></i>
+            </a >
+        )
+    }
 }
 
 export default toTop
