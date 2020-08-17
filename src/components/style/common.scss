@@ -895,8 +895,8 @@ footer{
 		}
 	}
 }
-.terms{
-	h3 {
+.terms ,.aboutus{
+	h2 {
 		padding-top: 30px;
 	}
 	a{
@@ -1503,6 +1503,9 @@ footer{
 				height: auto;
 				max-height: 60vw;
 				margin: 0 0 10px 0;
+				&.img-dummy{
+					height: 60vw;
+				}
 			}
 		}
 		&-textblock{

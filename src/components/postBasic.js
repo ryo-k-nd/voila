@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby";
-//import PropTypes from "prop-types"
 import Img from "gatsby-image";
 
 const PostBasic = ({ postData }) => (
@@ -13,10 +12,12 @@ const PostBasic = ({ postData }) => (
 						className="thumbnail"
 					/>
 					:
-					<img
-						src="//images.ctfassets.net/zbyipzusy20r/69YBVOds5ZZwcOtPgKe6dC/8bb092eeefb0372aa3f6e1be78d6f58d/pr_competition_img.jpg"
-						className="thumbnail"
-					/>
+					<div className="thumbnail gatsby-image-wrapper img-dummy">{post.title.slice(0, 9)}...</div>
+					//<img
+					//	src="//images.ctfassets.net/zbyipzusy20r/69YBVOds5ZZwcOtPgKe6dC/8bb092eeefb0372aa3f6e1be78d6f58d/pr_competition_img.jpg"
+					//	className="thumbnail"
+					//	alt={post.title}
+					///>
 				}
 				<div className="post-basic-textblock">
 					<h4>{post.title}</h4>
