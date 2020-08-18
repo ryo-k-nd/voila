@@ -1240,9 +1240,12 @@ footer{
     background: #EEE;
     padding: 1.5%;
 	border-radius: 50%;
-	opacity: 0.5;
+	opacity: 0;
+	visibility: hidden;
 	&.is-show{
 		opacity: 0.5;
+		visibility: visible;
+		transition: 0.5s;
 	}
 }
 @media screen and (max-width: 896px){
