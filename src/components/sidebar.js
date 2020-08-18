@@ -6,36 +6,35 @@ import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Slide1 from '../images/top/slide1.jpg'
 import generateContentByPageViews from "../utils/generateContentByPageViews";
+import SquareBanner from "../components/squareBanner"
 
 const Sidebar = ({ data }) => {
 	const Updates = data.contentfulPageUpdateSide;
 	const blogPostsByPageViews = data.allPageViews.nodes;
 	return (
 		<aside className="sidebar">
-			{Updates.bannerSquareImage !== null
-				&& <a href={Updates.bannerSquare && Updates.bannerSquare} target="_blank" rel="noreferrer"><Img fluid={Updates.bannerSquareImage.fluid} alt="square bunner" className="thumbnail" /></a>
-			}
+			<div className="for-pc"><SquareBanner /></div>
 			<hr />
 			<div className="sidebar-article">
 				<div className="sidebar-article__title"><span className="font-lemonde italic demi">Articles les plus lus</span><br />人気記事</div>
 				{blogPostsByPageViews && blogPostsByPageViews.map(({ path, totalCount }) => {
-						if (path.indexOf('/post/') !== -1 && path.substr(-1) !== '/') {
-							const pagePath = path.replace('post/', '').replace(/\//g, '');
-							const node = generateContentByPageViews(pagePath);
-							return (
-								<div className="sideber-img">
-									<Link to={`/post/${node.slug}`} className="sideber-img">
-										{node.thumbnail !== null
-											? <Img fluid={node.thumbnail.fluid} alt={node.title} className="sideber-img__img" />
-											: <div className="sideber-img__img img-dummy">{node.title.slice(0, 9)}...</div>
-										}
-										<div className="sideber--title">
-											<span className="sideber--title__title">{node.title}</span>
-										</div>
-									</Link>
-								</div>
-							)
-						}
+					if (path.indexOf('/post/') !== -1 && path.substr(-1) !== '/') {
+						const pagePath = path.replace('post/', '').replace(/\//g, '');
+						const node = generateContentByPageViews(pagePath);
+						return (
+							<div className="sideber-img">
+								<Link to={`/post/${node.slug}`} className="sideber-img">
+									{node.thumbnail !== null
+										? <Img fluid={node.thumbnail.fluid} alt={node.title} className="sideber-img__img" />
+										: <div className="sideber-img__img img-dummy">{node.title.slice(0, 9)}...</div>
+									}
+									<div className="sideber--title">
+										<span className="sideber--title__title">{node.title}</span>
+									</div>
+								</Link>
+							</div>
+						)
+					}
 				})}
 			</div>
 			<hr />
@@ -96,15 +95,6 @@ export default function showSidebar(props) {
 							name
 							slug
 						}
-						bannerSquare
-						bannerSquareImage {
-							file {
-								url
-							}
-							fluid(maxWidth: 300) {
-								...GatsbyContentfulFluid_withWebp
-							}
-						}
 					}
 					allPageViews: allPageViews(sort: {fields: totalCount, order: DESC}, filter: {path: {glob: "/post/*"}}, limit: 3) {
 						nodes {
@@ -131,12 +121,6 @@ Sidebar.propTypes = {
 		popularTag: PropTypes.shape({
 			name: PropTypes.string.isRequired,
 			slug: PropTypes.string.isRequired,
-		}).isRequired,
-		bannerSquare: PropTypes.string.isRequired,
-		bannerSquareImage: PropTypes.shape({
-			file: PropTypes.shape({
-				url: PropTypes.string.isRequired,
-			}).isRequired,
 		}).isRequired,
 	}).isRequired,
 }

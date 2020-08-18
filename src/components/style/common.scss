@@ -184,7 +184,7 @@ a{
 	flex: 0 0 auto;
 }
 .for-pc{
-	display: flex !important;
+	display: block !important;
 }
 .for-sp{
 	display: none !important;
@@ -895,7 +895,7 @@ footer{
 		}
 	}
 }
-.terms ,.aboutus{
+.terms ,.aboutus, .advertiser, .contact{
 	h2 {
 		padding-top: 30px;
 	}
@@ -910,6 +910,9 @@ footer{
 }
 .post{
 	letter-spacing: .05rem;
+	.post-lead{
+		margin-top: 30px;
+	}
 	.body-text{
 		margin-top: 40px;
 		a{
@@ -948,7 +951,10 @@ footer{
 			margin: 0 0 20px;
 		}
 		p{
-			margin: 0 0 30px;
+			margin: 0 0 20px;
+			img{
+				margin: 0;
+			}
 		}
 		blockquote{
 			background: $c-lightgray;
@@ -1055,9 +1061,6 @@ footer{
 				}
 			}
 		}
-	}
-	&__tagged {
-		margin-bottom: 100px;
 	}
 }
 
@@ -1259,7 +1262,7 @@ footer{
 		display: none !important;
 	}
 	.for-sp{
-		display: flex !important;
+		display: block !important;
 	}
 	header{
 		&.header-common{
@@ -1590,6 +1593,9 @@ footer{
 		}
 	}
 	.post{
+		.square-banner{
+			margin: 50px 0;
+		}
 		.body-text{
 			table{
 				width: 90%;

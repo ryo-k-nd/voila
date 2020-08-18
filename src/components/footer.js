@@ -5,82 +5,82 @@ import React from "react"
 const Footer = ({ siteTitle, data }) => {
 	const subCategories = data.subCategory.nodes;
 	return (
-	<footer className="footer-common">
-		<div className="container">
-			<div className="flex-row">
-				<div className="flex-column-2">
-					<p className="font-lemonde italic demi">Voyage</p>
-					<ul>
-						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory === 'Travel') {
-								return (
-									<li><Link to={name_en}>{name_ja}</Link></li>
-								)
-							}
-						})}
-					</ul>
+		<footer className="footer-common">
+			<div className="container">
+				<div className="flex-row">
+					<div className="flex-column-2">
+						<p className="font-lemonde italic demi">Voyage</p>
+						<ul>
+							{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+								if (parentCategory === 'Travel') {
+									return (
+										<li><Link to={name_en}>{name_ja}</Link></li>
+									)
+								}
+							})}
+						</ul>
+					</div>
+					<div className="flex-column-2">
+						<p className="font-lemonde italic demi">Vie</p>
+						<ul>
+							{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+								if (parentCategory === 'Life') {
+									return (
+										<li><Link to={name_en}>{name_ja}</Link></li>
+									)
+								}
+							})}
+						</ul>
+					</div>
+					<div className="flex-column-2">
+						<p className="font-lemonde italic demi">Etudes</p>
+						<ul>
+							{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+								if (parentCategory === 'Study') {
+									return (
+										<li><Link to={name_en}>{name_ja}</Link></li>
+									)
+								}
+							})}
+						</ul>
+					</div>
+					<div className="flex-column-2">
+						<p className="font-lemonde italic demi">Travail</p>
+						<ul>
+							{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+								if (parentCategory === 'Work') {
+									return (
+										<li><Link to={name_en}>{name_ja}</Link></li>
+									)
+								}
+							})}
+						</ul>
+					</div>
+					<div className="flex-column-2">
+						<p className="font-lemonde italic demi">Divertissement</p>
+						<ul>
+							{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
+								if (parentCategory === 'Play') {
+									return (
+										<li><Link to={name_en}>{name_ja}</Link></li>
+									)
+								}
+							})}
+						</ul>
+					</div>
+					<div className="flex-column-2 footer-contact">
+						<ul>
+							<li><Link to="/contact">お問い合わせ</Link></li>
+							<li><Link to="/terms">利用規約</Link></li>
+							<li><Link to="/advertiser">広告掲載</Link></li>
+							<li><Link to="/privacy">プライバシーポリシー</Link></li>
+							<li><Link to="/aboutus">VOILAについて</Link></li>
+						</ul>
+					</div>
 				</div>
-				<div className="flex-column-2">
-					<p className="font-lemonde italic demi">Vie</p>
-					<ul>
-						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory === 'Life') {
-								return (
-									<li><Link to={name_en}>{name_ja}</Link></li>
-								)
-							}
-						})}
-					</ul>
-				</div>
-				<div className="flex-column-2">
-					<p className="font-lemonde italic demi">Etudes</p>
-					<ul>
-						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory === 'Study') {
-								return (
-									<li><Link to={name_en}>{name_ja}</Link></li>
-								)
-							}
-						})}
-					</ul>
-				</div>
-				<div className="flex-column-2">
-					<p className="font-lemonde italic demi">Travail</p>
-					<ul>
-						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory === 'Work') {
-								return (
-									<li><Link to={name_en}>{name_ja}</Link></li>
-								)
-							}
-						})}
-					</ul>
-				</div>
-				<div className="flex-column-2">
-					<p className="font-lemonde italic demi">Divertissement</p>
-					<ul>
-						{subCategories && subCategories.map(({ name_en, name_ja, parentCategory }) => {
-							if (parentCategory === 'Play') {
-								return (
-									<li><Link to={name_en}>{name_ja}</Link></li>
-								)
-							}
-						})}
-					</ul>
-				</div>
-				<div className="flex-column-2 footer-contact">
-					<ul>
-						<li><Link to="/contact">お問い合わせ</Link></li>
-						<li><Link to="/terms">利用規約</Link></li>
-						<li><Link to="/advertiser">広告掲載</Link></li>
-						<li><Link to="/privacy">プライバシーポリシー</Link></li>
-						<li><Link to="/aboutus">VOILAについて</Link></li>
-					</ul>
-				</div>
+				<div className="footer-common__copyright">Copyright © 2020 Doitsu News Digest GmbH. All Rights Reserved. Do not duplicate or redistribute in any form.</div>
 			</div>
-			<div className="footer-common__copyright">Copyright © 2020 Doitsu News Digest GmbH. All Rights Reserved. Do not duplicate or redistribute in any form.</div>
-		</div>
-	</footer>
+		</footer>
 	)
 }
 

@@ -8,9 +8,10 @@ import Img from "gatsby-image";
 import PostBasic from "../components/postBasic";
 //import { documentToReactComponents } from '@contentful/rich-text-html-renderer';
 import marked from "marked";
+import SquareBanner from "../components/squareBanner"
 
 const BlogArticle = ({ data, pageContext, location }) => {
-	const { title, contentMarkdown, thumbnail, category, createdAt, tags } = data.contentfulBlogArticle;
+	const { title, contentMarkdown, thumbnail, category, createdAt, tags, lead } = data.contentfulBlogArticle;
 	const relatedArticle = data.relatedArticle.edges;
 
 	marked.setOptions({
@@ -43,6 +44,8 @@ const BlogArticle = ({ data, pageContext, location }) => {
 						<Img
 							fluid={useContentfulImage(imageUrl)}
 						/>
+						{lead && <div className="post-lead">{lead.lead}</div>}
+						<div className="for-sp"><SquareBanner /></div>
 						{
 							/* contentMarkdown */
 							/* parsedSouce */
@@ -66,12 +69,12 @@ const BlogArticle = ({ data, pageContext, location }) => {
 							</ul>
 						</div>
 						{relatedArticle ?
-						<div className="post__tagged">
-							<div className="post__keywords-text">関連記事{pageContext.taggedArticles}</div>
-							<PostBasic postData={relatedArticle} />
-						</div>
-						:
-						""
+							<div className="post__tagged">
+								<div className="post__keywords-text">関連記事{pageContext.taggedArticles}</div>
+								<PostBasic postData={relatedArticle} />
+							</div>
+							:
+							""
 						}
 					</div>
 				</div>
@@ -104,6 +107,9 @@ export const pageQuery = graphql`
 				}
 			}
 			createdAt(formatString: "YYYY-MM-DD")
+			lead {
+				lead
+			}
 		}
 		relatedArticle: allContentfulBlogArticle(sort: {fields: createdAt, order: DESC}, filter: {tags: {elemMatch: {slug: {in: $tags}}}, node_locale: {eq: "ja-JP"}}) {
 			edges {
