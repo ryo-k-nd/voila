@@ -100,12 +100,14 @@ const IndexPage = ({ data, location }) => {
 						<div className="weather-mark"><img src={weatherTokyo.Icon} alt="Weather Icon Tokyo" /></div>
 						<div className="weather-temp">{weatherTokyo.Max}ºC/{weatherTokyo.Min}ºC</div>
 					</div>
+					<p>提供元: weatherstack.com</p>
 				</div>
 
 				<div className="top-weather__money">
 					1€
-			<div className="top-weather__money-yen">¥{currency.Rate.toFixed(2)}</div>
+					<div className="top-weather__money-yen">¥{currency.Rate.toFixed(2)}</div>
 					<div className="top-weather__data">{currency.Date}</div>
+					<p>提供元: data.fixer.io</p>
 				</div>
 			</div>
 			<div className="slide">
