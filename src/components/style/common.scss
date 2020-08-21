@@ -354,6 +354,11 @@ footer{
 			font-size: 0.6rem;
 			text-align: center;
 		}
+		.footer-common__resources {
+			font-size: 12px;
+			margin: 15px 0 0;
+			line-height: 150%;
+		}
 	}
 }
 
@@ -1656,6 +1661,9 @@ footer{
 		.footer-common__copyright {
 			width: 80%;
 			margin: 30px auto 0;
+		}
+		.footer-common__resources {
+			margin-left: 10px;
 		}
 	}
 	main .container.flex-row{

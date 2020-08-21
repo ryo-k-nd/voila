@@ -78,6 +78,10 @@ const Footer = ({ siteTitle, data }) => {
 						</ul>
 					</div>
 				</div>
+				<div className="footer-common__resources">
+					天気予報提供元: <a href="https://weatherstack.com/" target="_blank">weatherstack.com</a><br />
+					為替提供元: <a href="https://apilayer.com/" target="_blank">data.fixer.io</a>
+				</div>
 				<div className="footer-common__copyright">Copyright © 2020 Doitsu News Digest GmbH. All Rights Reserved. Do not duplicate or redistribute in any form.</div>
 			</div>
 		</footer>
