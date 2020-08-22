@@ -74,7 +74,7 @@ const IndexPage = ({ data, location }) => {
 				</div>
 			</div>
 			{topUpdates.bannerSuperImage !== null
-				&& <div className="container t-align-c"><a href={topUpdates.bannerSuper && topUpdates.bannerSuper} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSuperImage.fluid} alt="super bunner" className="thumbnail" /></a></div>
+				&& <div className="container t-align-c top-superimage"><a href={topUpdates.bannerSuper && topUpdates.bannerSuper} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSuperImage.fluid} alt="super bunner" className="thumbnail" /></a></div>
 			}
 			<div className="top-weather container t-align-c">
 				<div className="top-weather__place">
@@ -233,7 +233,7 @@ const IndexPage = ({ data, location }) => {
 													? <Img fluid={node.thumbnail.fluid} alt={node.title} className="thumbnail" />
 													: <div className="thumbnail img-dummy">{node.title.slice(0, 9)}...</div>
 												}
-												<h4>PV: {totalCount} | {node.title}</h4>
+												<h4>{node.title}</h4>
 												<div className="post-tile-catname">{node.category}</div>
 												<div className="post-tile-tagbox tags">
 													{
@@ -257,7 +257,7 @@ const IndexPage = ({ data, location }) => {
 				</Link>
 			</div>
 			{topUpdates.bannerSuperImage !== null
-				&& <div className="container t-align-c"><a href={topUpdates.bannerSuper && topUpdates.bannerSuper} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSuperImage.fluid} alt="super bunner" className="thumbnail" /></a></div>
+				&& <div className="container t-align-c top-superimage"><a href={topUpdates.bannerSuper && topUpdates.bannerSuper} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSuperImage.fluid} alt="super bunner" className="thumbnail" /></a></div>
 			}
 			<div className="top-newsletter container">
 				<Link to="/newsletter">

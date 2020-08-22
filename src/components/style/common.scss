@@ -468,6 +468,12 @@ footer{
 	}
 }
 
+.top-superimage{
+	width: 728px;
+	height: auto;
+	margin: 0 auto;
+}
+
 //weather
 .top-weather{
 	transform: scale(0.8);
@@ -1461,6 +1467,10 @@ footer{
 					display: flex;
 				}
 			}
+	}
+	.top-superimage{
+		width: 100%;
+		max-width: 728px;
 	}
 	}
 	.top-weather{
