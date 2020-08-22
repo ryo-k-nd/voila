@@ -72,7 +72,7 @@ const Footer = ({ siteTitle, data }) => {
 						<ul>
 							<li><Link to="/contact">お問い合わせ</Link></li>
 							<li><Link to="/terms">利用規約</Link></li>
-							<li><Link to="/advertiser">広告掲載</Link></li>
+							<li><Link to="/koukoku">広告掲載</Link></li>
 							<li><Link to="/privacy">プライバシーポリシー</Link></li>
 							<li><Link to="/aboutus">VOILAについて</Link></li>
 						</ul>
