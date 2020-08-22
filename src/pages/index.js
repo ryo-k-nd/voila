@@ -111,14 +111,16 @@ const IndexPage = ({ data, location }) => {
 			<div className="slide">
 				<Slider {...settings}>
 					{
-						topUpdates.favouriteArticleTop && topUpdates.favouriteArticleTop.map(({ title, thumbnail }) =>
-							<div className="slide-img">
-								<img src={`${thumbnail.file.url}?w=750`} alt="Slide3" />
-								<p className="slide-title">
-									<span className="slide-title__title">{title}</span>
-									<span className="slide-title__data">2020/04/20</span>
-								</p>
-							</div>
+						topUpdates.favouriteArticleTop && topUpdates.favouriteArticleTop.map(({ title, thumbnail, slug }) =>
+							<Link to={`/post/${slug}`} className="slide__link">
+								<div className="slide-img">
+									<img src={`${thumbnail.file.url}?w=750`} alt="Slide3" />
+									<p className="slide-title">
+										<span className="slide-title__title">{title}</span>
+										<span className="slide-title__data">2020/04/20</span>
+									</p>
+								</div>
+							</Link>
 						)
 					}
 				</Slider>
@@ -314,6 +316,7 @@ export const query = graphql`
 		contentfulPageUpdate: contentfulPageUpdate(id: {eq: "fa14f0f7-c808-5d1f-a88f-c90238cb9530"}, node_locale: {eq: "ja-JP"}) {
 			favouriteArticleTop {
 				title
+				slug
 				createdAt(formatString: "YYYY-MM-DD")
 				thumbnail {
 					file {

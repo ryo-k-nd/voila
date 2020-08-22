@@ -660,6 +660,9 @@ footer{
 			}
 		}
 		.slick-slide{
+			a.slide__link:hover{
+				opacity: 1;
+			}
 			&.slick-center{
 				transform: scale(1.2) translateY(3px);
 				transition: all  0.3s ease;
