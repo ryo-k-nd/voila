@@ -69,6 +69,9 @@ const Sidebar = ({ data }) => {
 					)}
 				</ul>
 			</div>
+			<div className="chase-square">
+				<SquareBanner />
+			</div>
 		</aside>
 	)
 }

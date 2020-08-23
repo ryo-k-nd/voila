@@ -451,6 +451,11 @@ footer{
 		}
 	}
 }
+.chase-square{
+	margin-top: 30px;
+    position: sticky;
+    top: 130px;
+}
 
 //Notification
 .notification-common{
@@ -1705,6 +1710,14 @@ footer{
 					width: 45%;
 				}
 			}
+		}
+	}
+	.chase-square{
+		display: none;
+	}
+	.newsletter{
+		&__form-mail {
+			width: 100%;
 		}
 	}
 	.toTop {

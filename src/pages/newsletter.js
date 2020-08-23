@@ -1,5 +1,5 @@
 import React from "react"
-//import { Link } from "gatsby"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -40,7 +40,7 @@ const NewsletterPage = ({ location }) => (
         </div>
         <div className="newsletter__unsubscribe">
           <hr />
-          <p>Voilàメルマガの登録を解除されたい方は<a href="#" target="_blank" rel="noopener noreferrer">こちら</a></p>
+          <p>Voilàメルマガの登録を解除されたい方は<Link to="/unsubscribe">こちら</Link></p>
         </div>
       </div>
       <Sidebar />
