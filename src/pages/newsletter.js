@@ -36,7 +36,7 @@ const NewsletterPage = ({ location }) => (
               また、newsletter@voila.comからのメールが受信できるようにご設定ください。
             </div>
           </form>
-          <p>【お問い合わせ先】Voilà編集部（XXX）</p>
+          <p>【お問い合わせ先】Voilà編集部（<a href="mailto:info@voila-france.com">info@voila-france.com</a>）</p>
         </div>
         <div className="newsletter__unsubscribe">
           <hr />
