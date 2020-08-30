@@ -18,7 +18,7 @@ const Sidebar = ({ data }) => {
 			<div className="sidebar-article">
 				<div className="sidebar-article__title"><span className="font-lemonde italic demi">Articles les plus lus</span><br />人気記事</div>
 				{blogPostsByPageViews && blogPostsByPageViews.map(({ path, totalCount }) => {
-					if (path.indexOf('/post/') !== -1 && path.substr(-1) !== '/') {
+					if (path.indexOf('/post/') !== -1 && path.substr(-1) !== '/' && path !== "/post/test-bath" && path !== "/post/natsume-ten-dreaming-nights") {
 						const pagePath = path.replace('post/', '').replace(/\//g, '');
 						const node = generateContentByPageViews(pagePath);
 						return (

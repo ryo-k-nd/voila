@@ -94,11 +94,11 @@ export default function showFooter(props) {
 		<StaticQuery
 			query={graphql`
 				query SubCategoryQuery {
-					subCategory: allContentfulSubCategory {
-						nodes {
-							name_en
-							name_ja
-							parentCategory
+				subCategory: allContentfulSubCategory(filter: {name_en: {ne: "test_sub_categor"}}) {
+					nodes {
+						name_en
+						name_ja
+						parentCategory
 						}
 					}
 				}

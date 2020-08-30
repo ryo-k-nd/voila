@@ -225,11 +225,11 @@ const IndexPage = ({ data, location }) => {
 					<div className="post-tile">
 						{
 							blogPostsByPageViews && blogPostsByPageViews.map(({ path, totalCount }) => {
-								if (path.indexOf('/post/') !== -1 && path.substr(-1) !== '/') {
+								if (path.indexOf('/post/') !== -1 && path.substr(-1) !== '/' && path !== "/post/test-bath" && path !== "/post/natsume-ten-dreaming-nights") {
 									const pagePath = path.replace('post/', '').replace(/\//g, '');
 									const node = generateContentByPageViews(pagePath);
 									return (
-										<div className="post-tile-item">
+										< div className="post-tile-item" >
 											<Link to={path} className="post-tile-inner">
 												{node.thumbnail !== null
 													? <Img fluid={node.thumbnail.fluid} alt={node.title} className="thumbnail" />
@@ -253,12 +253,8 @@ const IndexPage = ({ data, location }) => {
 					</div>
 				</div>
 			</div>
-			<div className="top-popular_article--more t-align-c flex-row">
-				<Link to="#" className="show-more">
-					おすすめの記事をもっと見る
-				</Link>
-			</div>
-			{topUpdates.bannerSuperImage !== null
+			{
+				topUpdates.bannerSuperImage !== null
 				&& <div className="container t-align-c top-superimage"><a href={topUpdates.bannerSuper && topUpdates.bannerSuper} target="_blank" rel="noreferrer"><Img fluid={topUpdates.bannerSuperImage.fluid} alt="super bunner" className="thumbnail" /></a></div>
 			}
 			<div className="top-newsletter container">
@@ -272,7 +268,7 @@ const IndexPage = ({ data, location }) => {
 					</div>
 				</Link>
 			</div>
-		</Layout>
+		</Layout >
 	);
 };
 
@@ -300,13 +296,13 @@ export const query = graphql`
 				}
 			}
 		}
-		allPageViews: allPageViews(sort: {fields: totalCount, order: DESC}, filter: {path: {glob: "/post/*"}}, limit: 3) {
+		allPageViews: allPageViews(sort: {fields: totalCount, order: DESC}, filter: {path: {glob: "/post/*", nin: ["/post/natsume-ten-dreaming-nights", "/post/test-bath", "/post/konishi-test-article-testest", "/post/test-bath/"]}}, limit: 3) {
 			nodes {
 				path
 				totalCount
 			}
 		}
-		subCategory: allContentfulSubCategory {
+		subCategory: allContentfulSubCategory(filter: {name_en: {ne: "test_sub_categor"}}) {
 			nodes {
 				name_en
 				name_ja
