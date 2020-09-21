@@ -11,7 +11,7 @@ import marked from "marked";
 import SquareBanner from "../components/squareBanner"
 
 const BlogArticle = ({ data, pageContext, location }) => {
-	const { title, contentMarkdown, thumbnail, category, createdAt, tags, lead } = data.contentfulBlogArticle;
+	const { title, contentMarkdown, thumbnail, category, createdAt, tags, lead, author } = data.contentfulBlogArticle;
 	const relatedArticle = data.relatedArticle.edges;
 
 	marked.setOptions({
@@ -52,6 +52,7 @@ const BlogArticle = ({ data, pageContext, location }) => {
 							/* contentMarkdown.contentMarkdown */
 						}
 						<div className="body-text" dangerouslySetInnerHTML={{ __html: marked(contentMarkdown.contentMarkdown) }} />
+						{author && <diiv>（文・{author}）</diiv>}
 						<div className="post__sns">
 							<div className="post__sns-text">この記事をシェアする</div>
 							<Link to="/blog"><i class="fab fa-twitter"></i></Link>
@@ -110,6 +111,7 @@ export const pageQuery = graphql`
 			lead {
 				lead
 			}
+			author
 		}
 		relatedArticle: allContentfulBlogArticle(sort: {fields: createdAt, order: DESC}, filter: {tags: {elemMatch: {slug: {in: $tags}}}, node_locale: {eq: "ja-JP"}}) {
 			edges {
